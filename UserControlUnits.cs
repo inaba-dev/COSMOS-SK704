@@ -28,7 +28,6 @@ namespace APP
         {
             public double[] sensor = new double[6];
             public double[] temperature = new double[6];
-            public double[] humidity = new double[6];
         }
 
         /// <summary>
@@ -42,7 +41,7 @@ namespace APP
             userControlUnit3.HWSetup(devices);
             userControlUnit4.HWSetup(devices);
             userControlUnit5.HWSetup(devices);
-            userControlStatus6.HWSetup(devices);
+            userControlUnit6.HWSetup(devices);
         }
 
         /// <summary>
@@ -57,7 +56,7 @@ namespace APP
             _valid[2] = userControlUnit3.checkValid.Checked;
             _valid[3] = userControlUnit4.checkValid.Checked;
             _valid[4] = userControlUnit5.checkValid.Checked;
-            _valid[5] = userControlStatus6.checkValid.Checked;
+            _valid[5] = userControlUnit6.checkValid.Checked;
             return _valid;
         }
 
@@ -69,7 +68,7 @@ namespace APP
             _mode[2] = userControlUnit3.radioLeakage.Checked;
             _mode[3] = userControlUnit4.radioLeakage.Checked;
             _mode[4] = userControlUnit5.radioLeakage.Checked;
-            _mode[5] = userControlStatus6.radioLeakage.Checked;
+            _mode[5] = userControlUnit6.radioLeakage.Checked;
             return _mode;
         }
 
@@ -114,7 +113,6 @@ namespace APP
 
             data.sensor = (Enumerable.Range(0, 6).Select(x => 0.0).ToArray());
             data.temperature = (Enumerable.Range(0, 6).Select(x => 0.0).ToArray());
-            data.humidity = (Enumerable.Range(0, 6).Select(x => 0.0).ToArray());
 
             for (int i = 0; i < DEF_CHART_POINT; i++)
             {
@@ -135,7 +133,7 @@ namespace APP
                 uint id3 = Convert.ToUInt32(userControlUnit3.txtID.Text, 16);
                 uint id4 = Convert.ToUInt32(userControlUnit4.txtID.Text, 16);
                 uint id5 = Convert.ToUInt32(userControlUnit5.txtID.Text, 16);
-                uint id6 = Convert.ToUInt32(userControlStatus6.txtID.Text, 16);
+                uint id6 = Convert.ToUInt32(userControlUnit6.txtID.Text, 16);
 
                 if (Msg.ID == id1 && userControlUnit1.HWInfo() == Msg.DEVICE)
                 {
@@ -177,10 +175,10 @@ namespace APP
                     ///ログ記録
                     if (bLogging) ClassLogger.ClassLogger[4].Write(Msg);
                 }
-                if (Msg.ID == id6 && userControlStatus6.HWInfo() == Msg.DEVICE)
+                if (Msg.ID == id6 && userControlUnit6.HWInfo() == Msg.DEVICE)
                 {
                     ///Status
-                    userControlStatus6.Display(Msg.DATA);
+                    userControlUnit6.Display(Msg.DATA);
 
                     ///ログ記録
                     if (bLogging) ClassLogger.ClassLogger[5].Write(Msg);
@@ -213,27 +211,20 @@ namespace APP
                 _data.sensor[2] = userControlUnit3.CurrentSensor;
                 _data.sensor[3] = userControlUnit4.CurrentSensor;
                 _data.sensor[4] = userControlUnit5.CurrentSensor;
-                _data.sensor[5] = userControlStatus6.CurrentSensor;
+                _data.sensor[5] = userControlUnit6.CurrentSensor;
 
                 _data.temperature[0] = userControlUnit1.CurrentTemperature;
                 _data.temperature[1] = userControlUnit2.CurrentTemperature;
                 _data.temperature[2] = userControlUnit3.CurrentTemperature;
                 _data.temperature[3] = userControlUnit4.CurrentTemperature;
                 _data.temperature[4] = userControlUnit5.CurrentTemperature;
-                _data.temperature[5] = userControlStatus6.CurrentTemperature;
-
-                _data.humidity[0] = userControlUnit1.CurrentHumidity;
-                _data.humidity[1] = userControlUnit2.CurrentHumidity;
-                _data.humidity[2] = userControlUnit3.CurrentHumidity;
-                _data.humidity[3] = userControlUnit4.CurrentHumidity;
-                _data.humidity[4] = userControlUnit5.CurrentHumidity;
-                _data.humidity[5] = userControlStatus6.CurrentHumidity;
+                _data.temperature[5] = userControlUnit6.CurrentTemperature;
 
                 DataArray.Add(_data);
 
                 ///グラフクリア
 
-                for (int i = 0; i < ClassLogger.ClassLogger.Count(); i++)
+                for (int i = 0; i < _data.sensor.Count(); i++)
                 {
                     chartSensor.Series[i].Points.Clear();
                     chartTemperature.Series[i].Points.Clear();
@@ -241,7 +232,7 @@ namespace APP
 
                 ///グラフ描画
 
-                for (int i = 0; i < ClassLogger.ClassLogger.Count(); i++)
+                for (int i = 0; i < _data.sensor.Count(); i++)
                 {
                     for (int index = 0; index < DataArray.Count(); index++)
                     {

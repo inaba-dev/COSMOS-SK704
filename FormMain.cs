@@ -49,7 +49,7 @@ namespace APP
             Invoke(new FuncDelegate(InsertMsgEntry), Msg);
 
             ///ステータス更新
-            Invoke(new FuncDelegate(userControlLogger.StatusModify), Msg);
+            Invoke(new FuncDelegate(userControlUnits.StatusModify), Msg);
         }
 
         /// <summary>
@@ -116,7 +116,7 @@ namespace APP
                     //return;
                 }
             }
-
+            /*
             if (cbbChannel2.SelectedIndex >= 0)
             {
                 if (!ClassPeripheral.CAN2.Connect(0x600, cbbChannel2.SelectedIndex, false))
@@ -161,12 +161,12 @@ namespace APP
                     //return;
                 }
             }
-
+            */
             ///受信スレッド開始
             ReadThread();
 
             ///
-            userControlLogger.tmrRead.Enabled = true;
+            userControlUnits.tmrRead.Enabled = true;
 
             ///表示更新
             SetConnectionStatus();
@@ -178,10 +178,10 @@ namespace APP
             if(tokenSource != null) tokenSource.Cancel();
 
             ///
-            userControlLogger.tmrRead.Enabled = false;
+            userControlUnits.tmrRead.Enabled = false;
 
             ///表示停止
-            userControlLogger.Shutdouw();
+            userControlUnits.Shutdouw();
 
             ///CAN切断
             if (ClassPeripheral.CAN1 != null) ClassPeripheral.CAN1.DisConnect();
@@ -319,7 +319,7 @@ namespace APP
 
         private void comboGraph_SelectedValueChanged(object sender, EventArgs e)
         {
-            userControlLogger.Initialization();
+            userControlUnits.Initialization();
         }
 
         /// <summary>
@@ -411,7 +411,7 @@ namespace APP
 
         private void buttonLog_Click(object sender, EventArgs e)
         {
-            userControlLogger.buttonLog_Click();
+            userControlUnits.buttonLog_Click();
 
             ///表示更新
             SetConnectionStatus();

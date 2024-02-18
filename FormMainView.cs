@@ -63,7 +63,7 @@ namespace APP
             if (cbbChannel6.Items.Count > 0) cbbChannel6.SelectedIndex = 0;
 
             ///
-            userControlLogger.Setup(devIndexes1);
+            userControlUnits.Setup(devIndexes1);
         }
 
         /// <summary>
@@ -148,7 +148,7 @@ namespace APP
 
             buttonLog.Enabled = bConnected;
 
-            if (bConnected && userControlLogger.IsLogging())
+            if (bConnected && userControlUnits.IsLogging())
             {
                 buttonLog.Text = "ロギング停止";
                 buttonLog.BackColor = Color.Red;
@@ -161,7 +161,7 @@ namespace APP
 
             // Logger
 
-            userControlLogger.Enabled = !bConnected;
+            userControlUnits.Enabled = !bConnected;
         }
     }
 }

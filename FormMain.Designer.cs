@@ -34,6 +34,9 @@
             this.clhLength = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.clhData = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupSetup = new System.Windows.Forms.GroupBox();
+            this.radioTypeC = new System.Windows.Forms.RadioButton();
+            this.radioTypeB = new System.Windows.Forms.RadioButton();
+            this.radioTypeA = new System.Windows.Forms.RadioButton();
             this.cbbChannel6 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.cbbChannel5 = new System.Windows.Forms.ComboBox();
@@ -53,10 +56,7 @@
             this.buttonConnect = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonLog = new System.Windows.Forms.Button();
-            this.userControlLogger = new APP.UserControlUnits();
-            this.radioTypeC = new System.Windows.Forms.RadioButton();
-            this.radioTypeB = new System.Windows.Forms.RadioButton();
-            this.radioTypeA = new System.Windows.Forms.RadioButton();
+            this.userControlUnits = new APP.UserControlUnits();
             this.groupSetup.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -125,6 +125,41 @@
             this.groupSetup.TabIndex = 143;
             this.groupSetup.TabStop = false;
             this.groupSetup.Text = "通信設定";
+            // 
+            // radioTypeC
+            // 
+            this.radioTypeC.AutoSize = true;
+            this.radioTypeC.Font = new System.Drawing.Font("メイリオ", 7F);
+            this.radioTypeC.Location = new System.Drawing.Point(110, 53);
+            this.radioTypeC.Name = "radioTypeC";
+            this.radioTypeC.Size = new System.Drawing.Size(55, 19);
+            this.radioTypeC.TabIndex = 191;
+            this.radioTypeC.Text = "TypeC";
+            this.radioTypeC.UseVisualStyleBackColor = true;
+            // 
+            // radioTypeB
+            // 
+            this.radioTypeB.AutoSize = true;
+            this.radioTypeB.Font = new System.Drawing.Font("メイリオ", 7F);
+            this.radioTypeB.Location = new System.Drawing.Point(110, 34);
+            this.radioTypeB.Name = "radioTypeB";
+            this.radioTypeB.Size = new System.Drawing.Size(55, 19);
+            this.radioTypeB.TabIndex = 190;
+            this.radioTypeB.Text = "TypeB";
+            this.radioTypeB.UseVisualStyleBackColor = true;
+            // 
+            // radioTypeA
+            // 
+            this.radioTypeA.AutoSize = true;
+            this.radioTypeA.Checked = true;
+            this.radioTypeA.Font = new System.Drawing.Font("メイリオ", 7F);
+            this.radioTypeA.Location = new System.Drawing.Point(110, 15);
+            this.radioTypeA.Name = "radioTypeA";
+            this.radioTypeA.Size = new System.Drawing.Size(55, 19);
+            this.radioTypeA.TabIndex = 189;
+            this.radioTypeA.TabStop = true;
+            this.radioTypeA.Text = "TypeA";
+            this.radioTypeA.UseVisualStyleBackColor = true;
             // 
             // cbbChannel6
             // 
@@ -482,7 +517,7 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.buttonLog);
-            this.panel1.Controls.Add(this.userControlLogger);
+            this.panel1.Controls.Add(this.userControlUnits);
             this.panel1.Location = new System.Drawing.Point(12, 155);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1240, 578);
@@ -503,48 +538,13 @@
             this.buttonLog.UseVisualStyleBackColor = false;
             this.buttonLog.Click += new System.EventHandler(this.buttonLog_Click);
             // 
-            // userControlLogger
+            // userControlUnits
             // 
-            this.userControlLogger.Location = new System.Drawing.Point(9, 2);
-            this.userControlLogger.Margin = new System.Windows.Forms.Padding(0);
-            this.userControlLogger.Name = "userControlLogger";
-            this.userControlLogger.Size = new System.Drawing.Size(1220, 572);
-            this.userControlLogger.TabIndex = 135;
-            // 
-            // radioTypeC
-            // 
-            this.radioTypeC.AutoSize = true;
-            this.radioTypeC.Font = new System.Drawing.Font("メイリオ", 7F);
-            this.radioTypeC.Location = new System.Drawing.Point(110, 53);
-            this.radioTypeC.Name = "radioTypeC";
-            this.radioTypeC.Size = new System.Drawing.Size(55, 19);
-            this.radioTypeC.TabIndex = 191;
-            this.radioTypeC.Text = "TypeC";
-            this.radioTypeC.UseVisualStyleBackColor = true;
-            // 
-            // radioTypeB
-            // 
-            this.radioTypeB.AutoSize = true;
-            this.radioTypeB.Font = new System.Drawing.Font("メイリオ", 7F);
-            this.radioTypeB.Location = new System.Drawing.Point(110, 34);
-            this.radioTypeB.Name = "radioTypeB";
-            this.radioTypeB.Size = new System.Drawing.Size(55, 19);
-            this.radioTypeB.TabIndex = 190;
-            this.radioTypeB.Text = "TypeB";
-            this.radioTypeB.UseVisualStyleBackColor = true;
-            // 
-            // radioTypeA
-            // 
-            this.radioTypeA.AutoSize = true;
-            this.radioTypeA.Checked = true;
-            this.radioTypeA.Font = new System.Drawing.Font("メイリオ", 7F);
-            this.radioTypeA.Location = new System.Drawing.Point(110, 15);
-            this.radioTypeA.Name = "radioTypeA";
-            this.radioTypeA.Size = new System.Drawing.Size(55, 19);
-            this.radioTypeA.TabIndex = 189;
-            this.radioTypeA.TabStop = true;
-            this.radioTypeA.Text = "TypeA";
-            this.radioTypeA.UseVisualStyleBackColor = true;
+            this.userControlUnits.Location = new System.Drawing.Point(9, 2);
+            this.userControlUnits.Margin = new System.Windows.Forms.Padding(0);
+            this.userControlUnits.Name = "userControlUnits";
+            this.userControlUnits.Size = new System.Drawing.Size(1220, 572);
+            this.userControlUnits.TabIndex = 135;
             // 
             // FormMain
             // 
@@ -583,7 +583,7 @@
         private System.Windows.Forms.Button buttonConnect;
         private System.Windows.Forms.Button buttonScan;
         private System.Windows.Forms.Panel panel1;
-        private UserControlUnits userControlLogger;
+        private UserControlUnits userControlUnits;
         private System.Windows.Forms.Button buttonLog;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbbChannel2;

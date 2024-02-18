@@ -52,7 +52,7 @@
             this.buttonPath = new System.Windows.Forms.Button();
             this.textBoxPath = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.userControlStatus6 = new APP.UserControlUnit();
+            this.userControlUnit6 = new APP.UserControlUnit();
             this.userControlUnit5 = new APP.UserControlUnit();
             this.userControlUnit4 = new APP.UserControlUnit();
             this.userControlUnit3 = new APP.UserControlUnit();
@@ -233,13 +233,13 @@
             this.label4.Text = "ログ保存先";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // userControlStatus6
+            // userControlUnit6
             // 
-            this.userControlStatus6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.userControlStatus6.Location = new System.Drawing.Point(579, 277);
-            this.userControlStatus6.Name = "userControlStatus6";
-            this.userControlStatus6.Size = new System.Drawing.Size(280, 265);
-            this.userControlStatus6.TabIndex = 7;
+            this.userControlUnit6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.userControlUnit6.Location = new System.Drawing.Point(579, 277);
+            this.userControlUnit6.Name = "userControlUnit6";
+            this.userControlUnit6.Size = new System.Drawing.Size(280, 265);
+            this.userControlUnit6.TabIndex = 7;
             // 
             // userControlUnit5
             // 
@@ -379,7 +379,7 @@
             this.Controls.Add(this.textBoxPath);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.labelRunTime);
-            this.Controls.Add(this.userControlStatus6);
+            this.Controls.Add(this.userControlUnit6);
             this.Controls.Add(this.userControlUnit5);
             this.Controls.Add(this.userControlUnit4);
             this.Controls.Add(this.userControlUnit3);
@@ -410,7 +410,7 @@
         public UserControlUnit userControlUnit3;
         public UserControlUnit userControlUnit4;
         public UserControlUnit userControlUnit5;
-        public UserControlUnit userControlStatus6;
+        public UserControlUnit userControlUnit6;
         public System.Windows.Forms.Timer tmrRead;
         private System.DirectoryServices.DirectoryEntry directoryEntry1;
         private System.Windows.Forms.Label label1;
