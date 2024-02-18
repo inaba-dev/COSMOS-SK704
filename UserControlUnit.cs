@@ -280,5 +280,227 @@ namespace APP
             // Is neither a number nor a character between A(a) and F(f)
             e.Handled = true;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+
+        private void buttonFlashInit_Click(object sender, EventArgs e)
+        {
+            //メッセージボックスを表示する
+            DialogResult result = MessageBox.Show("フラッシュを初期化しますか？？", "初期化の確認",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Exclamation,
+                MessageBoxDefaultButton.Button2);
+
+            //何が選択されたか調べる
+            if (result == DialogResult.Yes)
+            {
+                byte[] srcBuff = new byte[8];
+
+                srcBuff[0] = (byte)'c';
+                srcBuff[1] = (byte)'0';
+                srcBuff[2] = (byte)'1';
+                srcBuff[3] = (byte)'0';
+                srcBuff[4] = (byte)'0';
+                srcBuff[5] = (byte)'0';
+                srcBuff[6] = (byte)'0';
+                srcBuff[7] = (byte)'1';
+
+                //CanUsb.WriteFrame(srcBuff);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+
+        private void buttonSetオフセット_Click(object sender, EventArgs e)
+        {
+            ASCIIEncoding ascii = new ASCIIEncoding();
+
+            Byte[] bytes = ascii.GetBytes(numericオフセット.Value.ToString());
+
+            byte[] srcBuff = new byte[8];
+
+            srcBuff[0] = 0x36;
+            srcBuff[1] = 0x31;
+
+            for (int i = 0; i < bytes.Length; i++)
+            {
+                try { srcBuff[2 + i] = bytes[i]; }
+                catch { }
+            }
+
+            //CanUsb.WriteFrame(srcBuff);
+        }
+
+        private void buttonSet0ppm_Click(object sender, EventArgs e)
+        {
+            ASCIIEncoding ascii = new ASCIIEncoding();
+
+            Byte[] bytes = ascii.GetBytes(numeric0ppm.Value.ToString());
+
+            byte[] srcBuff = new byte[8];
+
+            srcBuff[0] = 0x36;
+            srcBuff[1] = 0x32;
+
+            for (int i = 0; i < bytes.Length; i++)
+            {
+                try { srcBuff[2 + i] = bytes[i]; }
+                catch { }
+            }
+
+            //CanUsb.WriteFrame(srcBuff);
+        }
+
+        private void buttonSet20000ppm_Click(object sender, EventArgs e)
+        {
+            ASCIIEncoding ascii = new ASCIIEncoding();
+
+            Byte[] bytes = ascii.GetBytes(numeric20000ppm.Value.ToString());
+
+            byte[] srcBuff = new byte[8];
+
+            srcBuff[0] = 0x36;
+            srcBuff[1] = 0x33;
+
+            for (int i = 0; i < bytes.Length; i++)
+            {
+                try { srcBuff[2 + i] = bytes[i]; }
+                catch { }
+            }
+
+            //CanUsb.WriteFrame(srcBuff);
+        }
+
+        private void buttonSet製造番号_Click(object sender, EventArgs e)
+        {
+            ASCIIEncoding ascii = new ASCIIEncoding();
+
+            Byte[] bytes = ascii.GetBytes(textBox製造番号W.Text);
+
+            byte[] srcBuff = new byte[8];
+
+            srcBuff[0] = 0x36;
+            srcBuff[1] = 0x38;
+
+
+            for (int i = 0; i < bytes.Length; i++)
+            {
+                try { srcBuff[2 + i] = bytes[i]; }
+                catch { }
+            }
+
+            Console.WriteLine("[send] {0}byte -----------------", srcBuff.Length);
+            for (int i = 0; i < srcBuff.Length; i++) Console.WriteLine("send[{0}] : {1:X2}", i, srcBuff[i]);
+
+            //CanUsb.WriteFrame(srcBuff);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+
+        private void buttonGetバージョン_Click(object sender, EventArgs e)
+        {
+            byte[] srcBuff = new byte[8];
+
+            srcBuff[0] = 0x31;
+            srcBuff[1] = 0x30;
+
+            //CanUsb.WriteFrame(srcBuff);
+        }
+
+        private void buttonGetオフセット_Click(object sender, EventArgs e)
+        {
+            byte[] srcBuff = new byte[8];
+
+            srcBuff[0] = 0x31;
+            srcBuff[1] = 0x31;
+
+            //CanUsb.WriteFrame(srcBuff);
+        }
+
+        private void buttonGet0ppm_Click(object sender, EventArgs e)
+        {
+            byte[] srcBuff = new byte[8];
+
+            srcBuff[0] = 0x31;
+            srcBuff[1] = 0x32;
+
+            //CanUsb.WriteFrame(srcBuff);
+        }
+
+        private void buttonGet20000ppm_Click(object sender, EventArgs e)
+        {
+            byte[] srcBuff = new byte[8];
+
+            srcBuff[0] = 0x31;
+            srcBuff[1] = 0x33;
+
+            //CanUsb.WriteFrame(srcBuff);
+        }
+
+        private void buttonGet水素_Click(object sender, EventArgs e)
+        {
+            byte[] srcBuff = new byte[8];
+
+            srcBuff[0] = 0x31;
+            srcBuff[1] = 0x34;
+
+            //CanUsb.WriteFrame(srcBuff);
+        }
+
+        private void buttonGetサーミスタ_Click(object sender, EventArgs e)
+        {
+            byte[] srcBuff = new byte[8];
+
+            srcBuff[0] = 0x31;
+            srcBuff[1] = 0x35;
+
+            //CanUsb.WriteFrame(srcBuff);
+        }
+
+        private void buttonGet中間電圧_Click(object sender, EventArgs e)
+        {
+            byte[] srcBuff = new byte[8];
+
+            srcBuff[0] = 0x31;
+            srcBuff[1] = 0x36;
+
+            //CanUsb.WriteFrame(srcBuff);
+        }
+
+        private void buttonGet製造番号_Click(object sender, EventArgs e)
+        {
+            byte[] srcBuff = new byte[8];
+
+            srcBuff[0] = 0x31;
+            srcBuff[1] = 0x38;
+
+            //CanUsb.WriteFrame(srcBuff);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+
+        private void buttonRegRead_Click(object sender, EventArgs e)
+        {
+            byte[] srcBuff = new byte[8];
+
+            int cmd = (int)numericCommand.Value;
+
+            srcBuff[0] = (byte)'?';
+            srcBuff[1] = (byte)'c';
+            srcBuff[2] = (byte)'h';
+            srcBuff[3] = cmd >= 100 ? (byte)(Func.int2asc(cmd / 100)) : (byte)' ';
+            srcBuff[4] = cmd >= 10 ? (byte)(Func.int2asc((cmd % 100) / 10)) : (byte)' ';
+            srcBuff[5] = (byte)(Func.int2asc(cmd % 10));
+
+            //CanUsb.CmdFrame(srcBuff);
+        }
     }
 }

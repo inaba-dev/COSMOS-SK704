@@ -75,6 +75,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.buttonFlashInit = new System.Windows.Forms.Button();
+            this.directoryEntry1 = new System.DirectoryServices.DirectoryEntry();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericCommand)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numeric20000ppm)).BeginInit();
@@ -241,6 +242,7 @@
             this.buttonRegRead.TabIndex = 213;
             this.buttonRegRead.Text = "get";
             this.buttonRegRead.UseVisualStyleBackColor = true;
+            this.buttonRegRead.Click += new System.EventHandler(this.buttonRegRead_Click);
             // 
             // buttonSet製造番号
             // 
@@ -251,6 +253,7 @@
             this.buttonSet製造番号.TabIndex = 255;
             this.buttonSet製造番号.Text = "set";
             this.buttonSet製造番号.UseVisualStyleBackColor = true;
+            this.buttonSet製造番号.Click += new System.EventHandler(this.buttonSet製造番号_Click);
             // 
             // buttonGet製造番号
             // 
@@ -261,6 +264,7 @@
             this.buttonGet製造番号.TabIndex = 254;
             this.buttonGet製造番号.Text = "get";
             this.buttonGet製造番号.UseVisualStyleBackColor = true;
+            this.buttonGet製造番号.Click += new System.EventHandler(this.buttonGet製造番号_Click);
             // 
             // textBox製造番号
             // 
@@ -344,6 +348,7 @@
             this.buttonSet20000ppm.TabIndex = 247;
             this.buttonSet20000ppm.Text = "set";
             this.buttonSet20000ppm.UseVisualStyleBackColor = true;
+            this.buttonSet20000ppm.Click += new System.EventHandler(this.buttonSet20000ppm_Click);
             // 
             // buttonSet0ppm
             // 
@@ -355,6 +360,7 @@
             this.buttonSet0ppm.TabIndex = 246;
             this.buttonSet0ppm.Text = "set";
             this.buttonSet0ppm.UseVisualStyleBackColor = true;
+            this.buttonSet0ppm.Click += new System.EventHandler(this.buttonSet0ppm_Click);
             // 
             // buttonSetオフセット
             // 
@@ -366,6 +372,7 @@
             this.buttonSetオフセット.TabIndex = 245;
             this.buttonSetオフセット.Text = "set";
             this.buttonSetオフセット.UseVisualStyleBackColor = true;
+            this.buttonSetオフセット.Click += new System.EventHandler(this.buttonSetオフセット_Click);
             // 
             // textBox20000ppm
             // 
@@ -385,6 +392,7 @@
             this.buttonGet20000ppm.TabIndex = 243;
             this.buttonGet20000ppm.Text = "get";
             this.buttonGet20000ppm.UseVisualStyleBackColor = true;
+            this.buttonGet20000ppm.Click += new System.EventHandler(this.buttonGet20000ppm_Click);
             // 
             // label7
             // 
@@ -414,6 +422,7 @@
             this.buttonGet0ppm.TabIndex = 240;
             this.buttonGet0ppm.Text = "get";
             this.buttonGet0ppm.UseVisualStyleBackColor = true;
+            this.buttonGet0ppm.Click += new System.EventHandler(this.buttonGet0ppm_Click);
             // 
             // label6
             // 
@@ -443,6 +452,7 @@
             this.buttonGetオフセット.TabIndex = 237;
             this.buttonGetオフセット.Text = "get";
             this.buttonGetオフセット.UseVisualStyleBackColor = true;
+            this.buttonGetオフセット.Click += new System.EventHandler(this.buttonGetオフセット_Click);
             // 
             // label5
             // 
@@ -472,6 +482,7 @@
             this.buttonGetバージョン.TabIndex = 234;
             this.buttonGetバージョン.Text = "get";
             this.buttonGetバージョン.UseVisualStyleBackColor = true;
+            this.buttonGetバージョン.Click += new System.EventHandler(this.buttonGetバージョン_Click);
             // 
             // label
             // 
@@ -590,6 +601,7 @@
             this.buttonFlashInit.TabIndex = 259;
             this.buttonFlashInit.Text = "フラッシュ初期化";
             this.buttonFlashInit.UseVisualStyleBackColor = false;
+            this.buttonFlashInit.Click += new System.EventHandler(this.buttonFlashInit_Click);
             // 
             // UserControlUnit
             // 
@@ -698,5 +710,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Button buttonFlashInit;
+        private System.DirectoryServices.DirectoryEntry directoryEntry1;
     }
 }
