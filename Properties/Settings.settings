@@ -1,0 +1,36 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="APP.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Baudrate" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="Device" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="LogPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Extender" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="CanId1" Type="System.UInt32" Scope="User">
+      <Value Profile="(Default)">514</Value>
+    </Setting>
+    <Setting Name="CanId2" Type="System.UInt32" Scope="User">
+      <Value Profile="(Default)">515</Value>
+    </Setting>
+    <Setting Name="CanId3" Type="System.UInt32" Scope="User">
+      <Value Profile="(Default)">516</Value>
+    </Setting>
+    <Setting Name="CanId4" Type="System.UInt32" Scope="User">
+      <Value Profile="(Default)">517</Value>
+    </Setting>
+    <Setting Name="CanId5" Type="System.UInt32" Scope="User">
+      <Value Profile="(Default)">518</Value>
+    </Setting>
+    <Setting Name="CanId6" Type="System.UInt32" Scope="User">
+      <Value Profile="(Default)">519</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
