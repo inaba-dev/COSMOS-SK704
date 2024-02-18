@@ -122,61 +122,12 @@ namespace APP
         {
             try
             {
-                uint id1 = Convert.ToUInt32(userControlUnit1.txtID.Text, 16);
-                uint id2 = Convert.ToUInt32(userControlUnit2.txtID.Text, 16);
-                uint id3 = Convert.ToUInt32(userControlUnit3.txtID.Text, 16);
-                uint id4 = Convert.ToUInt32(userControlUnit4.txtID.Text, 16);
-                uint id5 = Convert.ToUInt32(userControlUnit5.txtID.Text, 16);
-                uint id6 = Convert.ToUInt32(userControlUnit6.txtID.Text, 16);
-
-                if (Msg.ID == id1 && userControlUnit1.HWInfo() == Msg.DEVICE)
-                {
-                    ///Status
-                    userControlUnit1.Display(Msg.DATA);
-
-                    ///ログ記録
-                    if (bLogging) ClassLogger.ClassLogger[0].Write(Msg);
-                }
-                if (Msg.ID == id2 && userControlUnit2.HWInfo() == Msg.DEVICE)
-                {
-                    ///Status
-                    userControlUnit2.Display(Msg.DATA);
-
-                    ///ログ記録
-                    if (bLogging) ClassLogger.ClassLogger[1].Write(Msg);
-                }
-                if (Msg.ID == id3 && userControlUnit3.HWInfo() == Msg.DEVICE)
-                {
-                    ///Status
-                    userControlUnit3.Display(Msg.DATA);
-
-                    ///ログ記録
-                    if (bLogging) ClassLogger.ClassLogger[2].Write(Msg);
-                }
-                if (Msg.ID == id4 && userControlUnit4.HWInfo() == Msg.DEVICE)
-                {
-                    ///Status
-                    userControlUnit4.Display(Msg.DATA);
-
-                    ///ログ記録
-                    if (bLogging) ClassLogger.ClassLogger[3].Write(Msg);
-                }
-                if (Msg.ID == id5 && userControlUnit5.HWInfo() == Msg.DEVICE)
-                {
-                    ///Status
-                    userControlUnit5.Display(Msg.DATA);
-
-                    ///ログ記録
-                    if (bLogging) ClassLogger.ClassLogger[4].Write(Msg);
-                }
-                if (Msg.ID == id6 && userControlUnit6.HWInfo() == Msg.DEVICE)
-                {
-                    ///Status
-                    userControlUnit6.Display(Msg.DATA);
-
-                    ///ログ記録
-                    if (bLogging) ClassLogger.ClassLogger[5].Write(Msg);
-                }
+                userControlUnit1.Display(Msg);
+                userControlUnit2.Display(Msg);
+                userControlUnit3.Display(Msg);
+                userControlUnit4.Display(Msg);
+                userControlUnit5.Display(Msg);
+                userControlUnit6.Display(Msg);
             }
             catch
             {

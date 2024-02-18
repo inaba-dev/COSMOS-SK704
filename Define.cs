@@ -39,6 +39,9 @@ namespace APP
         /// パラメータ設定
         /// <summary>
 
+        public static readonly uint CMD_PACKET_TYPE_STD_ID = 0x0600; // コマンド送受信のCAN-ID(STD)
+        public static readonly uint CMD_PACKET_TYPE_EXT_ID = 0xF600; // コマンド送受信のCAN-ID(EXT)
+
         public static readonly string[] defErrorFlag = new string[] {
             "センサエラー",
             "濃度エラー",
@@ -50,11 +53,14 @@ namespace APP
             "電源電圧エラー",
         };
 
-        public static readonly string[] defADStatus = new string[] {
-            "センサ中間電圧",
-            "センサ出⼒",
-            "温度サーミスタ",
-            "電源電圧",
+        public static readonly string[] defStatusFlag = new string[] {
+            "マイナス濃度",
+            "濃度情報有効(暖気完了など)",
+            "濃度潜り補正中",
+            "AD種別 センサ中間電圧",
+            "AD種別 センサ出力",
+            "AD種別 温度サーミスタ",
+            "AD種別 電源電圧"
         };
 
         /// <summary>
