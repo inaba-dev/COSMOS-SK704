@@ -63,12 +63,6 @@ namespace APP
         private bool[] GetModes()
         {
             bool[] _mode = new bool[6];
-            _mode[0] = userControlUnit1.radioLeakage.Checked;
-            _mode[1] = userControlUnit2.radioLeakage.Checked;
-            _mode[2] = userControlUnit3.radioLeakage.Checked;
-            _mode[3] = userControlUnit4.radioLeakage.Checked;
-            _mode[4] = userControlUnit5.radioLeakage.Checked;
-            _mode[5] = userControlUnit6.radioLeakage.Checked;
             return _mode;
         }
 
