@@ -24,6 +24,16 @@ namespace APP
         {
             InitializeComponent();
 
+            ClassPeripheral.CAN1 = new ClassInnoCanController();
+            ClassPeripheral.CAN2 = new ClassInnoCanController();
+            ClassPeripheral.CAN3 = new ClassInnoCanController();
+            ClassPeripheral.CAN4 = new ClassInnoCanController();
+            ClassPeripheral.CAN5 = new ClassInnoCanController();
+            ClassPeripheral.CAN6 = new ClassInnoCanController();
+
+            ///CANセットアップ
+            reloadCanSetup();
+
             ///
             execLoadConfig();
 
@@ -331,32 +341,6 @@ namespace APP
         /// <summary>
         /// 
         /// </summary>
-
-        private void radioModePeak_CheckedChanged(object sender, EventArgs e)
-        {
-            ClassPeripheral.CAN1 = new ClassPeakCanController();
-            ClassPeripheral.CAN2 = new ClassPeakCanController();
-            ClassPeripheral.CAN3 = new ClassPeakCanController();
-            ClassPeripheral.CAN4 = new ClassPeakCanController();
-            ClassPeripheral.CAN5 = new ClassPeakCanController();
-            ClassPeripheral.CAN6 = new ClassPeakCanController();
-
-            ///CANセットアップ
-            reloadCanSetup();
-        }
-
-        private void radioModeInno_CheckedChanged(object sender, EventArgs e)
-        {
-            ClassPeripheral.CAN1 = new ClassInnoCanController();
-            ClassPeripheral.CAN2 = new ClassInnoCanController();
-            ClassPeripheral.CAN3 = new ClassInnoCanController();
-            ClassPeripheral.CAN4 = new ClassInnoCanController();
-            ClassPeripheral.CAN5 = new ClassInnoCanController();
-            ClassPeripheral.CAN6 = new ClassInnoCanController();
-
-            ///CANセットアップ
-            reloadCanSetup();
-        }
 
         private void reloadCanSetup()
         {

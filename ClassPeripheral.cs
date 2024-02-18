@@ -8,11 +8,11 @@ namespace APP
 {
     public class ClassPeripheral
     {
-        static public ClassCanUsb CAN1;
-        static public ClassCanUsb CAN2;
-        static public ClassCanUsb CAN3;
-        static public ClassCanUsb CAN4;
-        static public ClassCanUsb CAN5;
-        static public ClassCanUsb CAN6;
+        static public ClassInnoCanController CAN1;
+        static public ClassInnoCanController CAN2;
+        static public ClassInnoCanController CAN3;
+        static public ClassInnoCanController CAN4;
+        static public ClassInnoCanController CAN5;
+        static public ClassInnoCanController CAN6;
     }
 }

@@ -10,7 +10,7 @@ using System.Collections.Concurrent;
 
 namespace APP
 {
-    public class ClassInnoCanController : ClassCanUsb
+    public class ClassInnoCanController
     {
         private uint CAN_ID = 0x202;
         private byte CAN_LEN = 8;

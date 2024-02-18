@@ -54,13 +54,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\ClassCanUsb.cs" />
     <Compile Include="Controller\ClassInnoCanController.cs" />
     <Compile Include="ClassPeripheral.cs" />
     <Compile Include="ClassLogger.cs" />
     <Compile Include="ClassMessageStatus.cs" />
     <Compile Include="ClassPcanBasic.cs" />
-    <Compile Include="Controller\ClassPeakCanController.cs" />
     <Compile Include="Define.cs" />
     <Compile Include="FormConfig.cs">
       <SubType>Form</SubType>
