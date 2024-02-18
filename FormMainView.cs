@@ -158,10 +158,6 @@ namespace APP
                 buttonLog.Text = "ロギング開始";
                 buttonLog.BackColor = Color.Blue;
             }
-
-            // Logger
-
-            userControlUnits.Enabled = !bConnected;
         }
     }
 }

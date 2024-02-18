@@ -8,13 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using System.IO;
 
 namespace APP
 {
     public partial class UserControlUnits : UserControl
     {
-        private ClassLoggers ClassLogger = new ClassLoggers();
-
         private bool bLogging { get; set; }
 
         public bool IsLogging() { return bLogging; }
@@ -48,48 +47,36 @@ namespace APP
         /// 
         /// </summary>
 
-        private bool[] GetValids()
-        {
-            bool[] _valid = new bool[6];
-            _valid[0] = userControlUnit1.checkValid.Checked;
-            _valid[1] = userControlUnit2.checkValid.Checked;
-            _valid[2] = userControlUnit3.checkValid.Checked;
-            _valid[3] = userControlUnit4.checkValid.Checked;
-            _valid[4] = userControlUnit5.checkValid.Checked;
-            _valid[5] = userControlUnit6.checkValid.Checked;
-            return _valid;
-        }
-
-        private bool[] GetModes()
-        {
-            bool[] _mode = new bool[6];
-            return _mode;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-
         public UserControlUnits()
         {
             InitializeComponent();
 
-            Initialization();
+            userControlUnit1.Initialize("1");
+            userControlUnit1.Initialize("2");
+            userControlUnit1.Initialize("3");
+            userControlUnit1.Initialize("4");
+            userControlUnit1.Initialize("5");
+            userControlUnit1.Initialize("6");
 
-            chartSensor.ChartAreas[0].AxisY.Maximum = 20;
-            chartSensor.ChartAreas[0].AxisY.Minimum = -5;
+            Initialization();
         }
 
         /// <summary>
         /// シャットダウン
         /// </summary>
 
-        public void Shutdouw()
+        public void Connect()
+        {
+            ///タイマ開始
+            tmrRead.Enabled = true;
+        }
+
+        public void DisConnect()
         {
             if (bLogging)
             {
                 ///ロギング停止
-                ClassLogger.Close();
+                //LoggingEnd();
 
                 bLogging = false;
             }
@@ -197,29 +184,72 @@ namespace APP
             if (bLogging)
             {
                 ///ロギング停止
-                ClassLogger.Close();
+                //ClassLogger.Close();
 
                 bLogging = false;
             }
             else
             {
-                ///有効/無効を取得
-                ClassLogger.setValid(GetValids());
-
-                ///対象種類を取得
-                ClassLogger.setMode(GetModes());
-
                 ///開始時間の記録
-                ClassLogger.setStartTime();
+                setStartTime();
 
                 ///ロギング開始
-                if (!ClassLogger.Init(textBoxPath.Text)) return;
+                LoggingStart(textBoxPath.Text);
 
                 bLogging = true;
             }
 
             ///表示更新
             //SetConnectionStatus();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+
+        private DateTime StartTime = DateTime.Now;
+
+        public TimeSpan getRunTime()
+        {
+            DateTime dt = DateTime.Now;
+            TimeSpan span = dt - StartTime;
+            return span;
+        }
+
+        public void setStartTime()
+        {
+            StartTime = DateTime.Now;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+
+        public void LoggingStart(string path)
+        {
+            ///フォルダの存在確認
+            if (!Directory.Exists(path))
+            {
+                MessageBox.Show("フォルダが存在しません", "フォルダエラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            userControlUnit1.LogStart(path);
+            userControlUnit2.LogStart(path);
+            userControlUnit3.LogStart(path);
+            userControlUnit4.LogStart(path);
+            userControlUnit5.LogStart(path);
+            userControlUnit6.LogStart(path);
+        }
+
+        public void LoggingEnd()
+        {
+            userControlUnit1.LogEnd();
+            userControlUnit2.LogEnd();
+            userControlUnit3.LogEnd();
+            userControlUnit4.LogEnd();
+            userControlUnit5.LogEnd();
+            userControlUnit6.LogEnd();
         }
 
         /// <summary>
@@ -234,7 +264,7 @@ namespace APP
                 labelRunTime.Visible = true;
 
                 TimeSpan span;
-                span = ClassLogger.getRunTime();
+                span = getRunTime();
                 labelRunTime.Text = span.ToString(@"hh\:mm\:ss");
 
             }

@@ -166,7 +166,7 @@ namespace APP
             ReadThread();
 
             ///
-            userControlUnits.tmrRead.Enabled = true;
+            userControlUnits.Connect();
 
             ///表示更新
             SetConnectionStatus();
@@ -177,11 +177,8 @@ namespace APP
             ///Taskキャンセル
             if(tokenSource != null) tokenSource.Cancel();
 
-            ///
-            userControlUnits.tmrRead.Enabled = false;
-
             ///表示停止
-            userControlUnits.Shutdouw();
+            userControlUnits.DisConnect();
 
             ///CAN切断
             if (ClassPeripheral.CAN1 != null) ClassPeripheral.CAN1.DisConnect();

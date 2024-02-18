@@ -8,9 +8,10 @@ using System.Windows.Forms;
 
 namespace APP
 {
-    class ClassLoggers
+#if false
+    public class ClassLoggers
     {
-        public ClassLogger[] ClassLogger = new ClassLogger[6];        
+        //public ClassLogger[] ClassLogger = new ClassLogger[6];        
 
         /// <summary>
         /// コンストラクタ
@@ -18,12 +19,12 @@ namespace APP
 
         public ClassLoggers()
         {
-            ClassLogger[0] = new ClassLogger();
-            ClassLogger[1] = new ClassLogger();
-            ClassLogger[2] = new ClassLogger();
-            ClassLogger[3] = new ClassLogger();
-            ClassLogger[4] = new ClassLogger();
-            ClassLogger[5] = new ClassLogger();
+            //ClassLogger[0] = new ClassLogger();
+            //ClassLogger[1] = new ClassLogger();
+            //ClassLogger[2] = new ClassLogger();
+            //ClassLogger[3] = new ClassLogger();
+            //ClassLogger[4] = new ClassLogger();
+            //ClassLogger[5] = new ClassLogger();
         }
 
         public bool Init(string path)
@@ -35,7 +36,7 @@ namespace APP
                 return false;
             }
 
-            ClassLogger[0].Init(path, "1");
+            userControlUnit1.Logger.Init(path, "1");
             ClassLogger[1].Init(path, "2");
             ClassLogger[2].Init(path, "3");
             ClassLogger[3].Init(path, "4");
@@ -71,20 +72,6 @@ namespace APP
         }
 
         /// <summary>
-        /// Leakage/Exhaust
-        /// </summary>
-
-        public void setMode(bool[] valids)
-        {
-            ClassLogger[0].bMode = valids[0];
-            ClassLogger[1].bMode = valids[1];
-            ClassLogger[2].bMode = valids[2];
-            ClassLogger[3].bMode = valids[3];
-            ClassLogger[4].bMode = valids[4];
-            ClassLogger[5].bMode = valids[5];
-        }
-
-        /// <summary>
         /// 時間管理
         /// </summary>
 
@@ -102,18 +89,18 @@ namespace APP
             StartTime = DateTime.Now;
         }
     }
+#endif
 
-    class ClassLogger
+    public class ClassLogger
     {
         public bool bValid { get; set; }
-        public bool bMode { get; set; }
 
         public List<ClassData> DataBuffer = new List<ClassData>();
 
         public class ClassData
         {
             public TPCANMsgFD MsgFD;
-            public string TimeStamp; 
+            public string TimeStamp;
         }
 
         private string[] Header = new string[] {
@@ -137,8 +124,11 @@ namespace APP
         /// </summary>
 
         /*** 書き込みファイルパス ***/
-        public bool Init(string path, string ch)
+        public bool Init(string path, string ch, bool valid)
         {
+            ///有効無効
+            bValid = valid;
+
             if (!bValid) return true;
 
             ///出力ファイルパス
@@ -213,13 +203,9 @@ namespace APP
         {
             string str = "";
 
-            double counter;
-            int sensorRow;
-            double sensor;
-            int temperatureRow;
-            double temperature;
-            int humidityRow;
-            double humidity;
+            int counter;
+            int sensor;
+            int temperature;
             //string ErrorMsg;
             //string DiagInfo;
 
@@ -231,6 +217,7 @@ namespace APP
                 ///CANID
                 string id = buff.MsgFD.ID.ToString("x3");
 
+                /*
                 if (bMode)
                 {
                     ///送信カウンタ
@@ -298,13 +285,14 @@ namespace APP
                     "--" + "," +
                     "--" + "\n";
                 }
+                */
             }
 
             return str;
         }
 
         private async void _WriteExec(string str)
-        { 
+        {
             try
             {
                 StreamWriter _stream = null;

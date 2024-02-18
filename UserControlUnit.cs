@@ -12,6 +12,8 @@ namespace APP
 {
     public partial class UserControlUnit : UserControl
     {
+        public ClassLogger Logger = new ClassLogger();
+
         public double CurrentSensor = 0.0;
         public double CurrentTemperature = 0.0;
         public double CurrentHumidity = 0.0;
@@ -23,6 +25,15 @@ namespace APP
         public UserControlUnit()
         {
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+
+        public void Initialize(string unit)
+        {
+            UnitNo = unit;
         }
 
         /// <summary>
@@ -43,6 +54,22 @@ namespace APP
         }
 
         public string HWInfo() { return hardware.SelectedItem.ToString(); }
+
+        /// <summary>
+        /// 
+        /// </summary>
+
+        public bool LogStart(string path)
+        {
+            Logger.Init(path, UnitNo, checkValid.Checked);
+
+            return true;
+        }
+
+        public void LogEnd()
+        {
+            Logger.Close();
+        }
 
         /// <summary>
         /// 
@@ -77,7 +104,8 @@ namespace APP
                 textBox温度.Text = temperatureRow.ToString();
 
                 ///エラーフラグ
-                textBoxエラーフラグ.Text =
+                textBoxエラーフラグ.Text = Msg.DATA[3].ToString("X2");
+                textBoxエラー情報.Text =
                     ((Msg.DATA[3] & 0x01) == 0x01) ? Define.defErrorFlag[0] :
                     ((Msg.DATA[3] & 0x02) == 0x02) ? Define.defErrorFlag[1] :
                     ((Msg.DATA[3] & 0x04) == 0x04) ? Define.defErrorFlag[2] :
@@ -88,7 +116,8 @@ namespace APP
                     ((Msg.DATA[3] & 0x80) == 0x80) ? Define.defErrorFlag[7] : "--";
 
                 ///AD値種別
-                textBoxステータスフラグ.Text =
+                textBoxステータスフラグ.Text = Msg.DATA[4].ToString("X2");
+                textBoxステータス情報.Text =
                     ((Msg.DATA[4] & 0x01) == 0x01) ? Define.defStatusFlag[0] :
                     ((Msg.DATA[4] & 0x02) == 0x02) ? Define.defStatusFlag[1] :
                     ((Msg.DATA[4] & 0x04) == 0x04) ? Define.defStatusFlag[2] :
