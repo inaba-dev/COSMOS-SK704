@@ -579,20 +579,19 @@ namespace APP
         {
             byte[] srcBuff = new byte[8];
 
-            int cmd = (int)textBoxReg書込み.Value;
+            int cmd = (int)numericCommand.Value;
+            int data = (int)textBoxReg書込み.Value;
 
             srcBuff[0] = (byte)'c';
-            srcBuff[1] = cmd >= 100 ? (byte)(Func.int2asc(cmd / 100)) : (byte)' ';
-            srcBuff[2] = cmd >= 10 ? (byte)(Func.int2asc((cmd % 100) / 10)) : (byte)' ';
+            srcBuff[1] = cmd >= 100 ? (byte)(Func.int2asc(cmd / 100)) : (byte)'0';
+            srcBuff[2] = cmd >= 10 ? (byte)(Func.int2asc((cmd % 100) / 10)) : (byte)'0';
             srcBuff[3] = (byte)(Func.int2asc(cmd % 10));
-            srcBuff[4] = cmd >= 1000 ? (byte)(Func.int2asc(cmd / 1000)) : (byte)' ';
-            srcBuff[5] = cmd >= 100 ? (byte)(Func.int2asc(cmd / 100)) : (byte)' ';
-            srcBuff[6] = cmd >= 10 ? (byte)(Func.int2asc((cmd % 100) / 10)) : (byte)' ';
-            srcBuff[7] = (byte)(Func.int2asc(cmd % 10));
+            srcBuff[4] = cmd >= 1000 ? (byte)(Func.int2asc(data / 1000)) : (byte)'0';
+            srcBuff[5] = cmd >= 100 ? (byte)(Func.int2asc(data / 100)) : (byte)'0';
+            srcBuff[6] = cmd >= 10 ? (byte)(Func.int2asc((data % 100) / 10)) : (byte)'0';
+            srcBuff[7] = (byte)(Func.int2asc(data % 10));
 
             ClassPeripheral.CAN[UnitNo].WriteFrame(srcBuff);
-
-            buttonRegRead_Click(null, null);
         }
 
         /// <summary>
@@ -642,17 +641,17 @@ namespace APP
         {
             byte[] srcBuff = new byte[8];
 
-            int idA = Convert.ToInt32(txtIDA.Text);
-            int idB = Convert.ToInt32(txtIDB.Text);
+            int idA = Convert.ToInt32(txtIDA.Text, 16);
+            int idB = Convert.ToInt32(txtIDB.Text, 16);
 
             srcBuff[0] = 0x37;
             srcBuff[1] = 0x31;
-            srcBuff[2] = idA >= 100 ? (byte)(Func.int2asc(idA / 100)) : (byte)' ';
-            srcBuff[3] = idA >= 10 ? (byte)(Func.int2asc((idA % 100) / 10)) : (byte)' ';
-            srcBuff[4] = (byte)(Func.int2asc(idA % 10));
-            srcBuff[5] = idB >= 100 ? (byte)(Func.int2asc(idB / 100)) : (byte)' ';
-            srcBuff[6] = idB >= 10 ? (byte)(Func.int2asc((idB % 100) / 10)) : (byte)' ';
-            srcBuff[7] = (byte)(Func.int2asc(idB % 10));
+            srcBuff[2] = idA >= 256 ? (byte)(Func.int2asc(idA / 256)) : (byte)' ';
+            srcBuff[3] = idA >= 16 ? (byte)(Func.int2asc((idA % 256) / 16)) : (byte)' ';
+            srcBuff[4] = (byte)(Func.int2asc(idA % 16));
+            srcBuff[5] = idB >= 256 ? (byte)(Func.int2asc(idB / 256)) : (byte)' ';
+            srcBuff[6] = idB >= 16 ? (byte)(Func.int2asc((idB % 256) / 16)) : (byte)' ';
+            srcBuff[7] = (byte)(Func.int2asc(idB % 16));
 
             ClassPeripheral.CAN[UnitNo].WriteFrame(srcBuff);
         }
