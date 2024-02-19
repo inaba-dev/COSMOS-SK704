@@ -382,5 +382,11 @@ namespace APP
             ///表示更新
             SetConnectionStatus();
         }
+
+        private void buttonClear_Click(object sender, EventArgs e)
+        {
+            mCanIdList.Clear();
+            lstMessages.Items.Clear();
+        }
     }
 }

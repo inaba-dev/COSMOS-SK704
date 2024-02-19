@@ -118,8 +118,8 @@ namespace APP
 
             if (!ClassPeripheral.CAN[UnitNo].IsConnect()) return;
 
-            UnitId = checkExtender.Checked ? (0x1FFF << 16) + Convert.ToUInt32(txtID.Text, 16) : Convert.ToUInt32(txtID.Text, 16);
-            CmdId  = checkExtender.Checked ? (0x1FFF << 16) + Define.CMD_PACKET_TYPE_EXT_ID : Define.CMD_PACKET_TYPE_STD_ID;
+            UnitId = Properties.Settings.Default.Extender ? (0x1FFF << 16) + Convert.ToUInt32(txtID.Text, 16) : Convert.ToUInt32(txtID.Text, 16);
+            CmdId  = Properties.Settings.Default.Extender ? (0x1FFF << 16) + Define.CMD_PACKET_TYPE_EXT_ID : Define.CMD_PACKET_TYPE_STD_ID;
 
             if (Msg.ID == UnitId && HWInfo() == Msg.DEVICE)
             {
@@ -164,6 +164,42 @@ namespace APP
 
                 ///ログ記録
                 Logger.Write(Msg);
+            }
+
+            if (Msg.ID == (UnitId + 1) && HWInfo() == Msg.DEVICE)
+            {
+                int dataRaw = 0;
+                int dataCrc = 0;
+
+                if (Properties.Settings.Default.Type == 1)
+                {
+                    ///Gas concentration
+                    dataRaw = (int)(Msg.DATA[2]);
+
+                    ///CRC
+                    dataCrc = (int)(Msg.DATA[0]);
+                    textBoxCRC.Text = dataCrc.ToString("X2");
+                }
+                else if (Properties.Settings.Default.Type == 2)
+                {
+                    ///Gas concentration
+                    dataRaw = (int)(Msg.DATA[0]);
+
+                    ///CRC
+                    dataCrc = (int)((Msg.DATA[1]) << 8) + (int)(Msg.DATA[5]);
+                    textBoxCRC.Text = dataCrc.ToString("X4");
+                }
+
+                if (dataRaw > 220)
+                {
+                    textBoxGasRaw.Text = "Err";
+                    textBoxGas.Text = "Err";
+                }
+                else
+                {
+                    textBoxGasRaw.Text = dataRaw.ToString();
+                    textBoxGas.Text = Func.ConvGas(dataRaw).ToString();
+                }
             }
 
             if (Msg.ID == CmdId && HWInfo() == Msg.DEVICE)
@@ -539,6 +575,26 @@ namespace APP
             ClassPeripheral.CAN[UnitNo].CmdFrame(srcBuff);
         }
 
+        private void buttonRegWrite_Click(object sender, EventArgs e)
+        {
+            byte[] srcBuff = new byte[8];
+
+            int cmd = (int)textBoxReg書込み.Value;
+
+            srcBuff[0] = (byte)'c';
+            srcBuff[1] = cmd >= 100 ? (byte)(Func.int2asc(cmd / 100)) : (byte)' ';
+            srcBuff[2] = cmd >= 10 ? (byte)(Func.int2asc((cmd % 100) / 10)) : (byte)' ';
+            srcBuff[3] = (byte)(Func.int2asc(cmd % 10));
+            srcBuff[4] = cmd >= 1000 ? (byte)(Func.int2asc(cmd / 1000)) : (byte)' ';
+            srcBuff[5] = cmd >= 100 ? (byte)(Func.int2asc(cmd / 100)) : (byte)' ';
+            srcBuff[6] = cmd >= 10 ? (byte)(Func.int2asc((cmd % 100) / 10)) : (byte)' ';
+            srcBuff[7] = (byte)(Func.int2asc(cmd % 10));
+
+            ClassPeripheral.CAN[UnitNo].WriteFrame(srcBuff);
+
+            buttonRegRead_Click(null, null);
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -577,6 +633,30 @@ namespace APP
 
             ClassPeripheral.CAN[UnitNo].WriteFrame(srcBuff);
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+
+        private void buttonID_Click(object sender, EventArgs e)
+        {
+            byte[] srcBuff = new byte[8];
+
+            int idA = Convert.ToInt32(txtIDA.Text);
+            int idB = Convert.ToInt32(txtIDB.Text);
+
+            srcBuff[0] = 0x37;
+            srcBuff[1] = 0x31;
+            srcBuff[2] = idA >= 100 ? (byte)(Func.int2asc(idA / 100)) : (byte)' ';
+            srcBuff[3] = idA >= 10 ? (byte)(Func.int2asc((idA % 100) / 10)) : (byte)' ';
+            srcBuff[4] = (byte)(Func.int2asc(idA % 10));
+            srcBuff[5] = idB >= 100 ? (byte)(Func.int2asc(idB / 100)) : (byte)' ';
+            srcBuff[6] = idB >= 10 ? (byte)(Func.int2asc((idB % 100) / 10)) : (byte)' ';
+            srcBuff[7] = (byte)(Func.int2asc(idB % 10));
+
+            ClassPeripheral.CAN[UnitNo].WriteFrame(srcBuff);
+        }
+
 
     }
 }

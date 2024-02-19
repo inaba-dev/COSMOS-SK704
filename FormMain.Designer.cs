@@ -34,6 +34,7 @@
             this.clhLength = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.clhData = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupSetup = new System.Windows.Forms.GroupBox();
+            this.checkExtender = new System.Windows.Forms.CheckBox();
             this.radioTypeC = new System.Windows.Forms.RadioButton();
             this.radioTypeB = new System.Windows.Forms.RadioButton();
             this.radioTypeA = new System.Windows.Forms.RadioButton();
@@ -54,8 +55,9 @@
             this.laBaudrate = new System.Windows.Forms.Label();
             this.buttonDisConnect = new System.Windows.Forms.Button();
             this.buttonConnect = new System.Windows.Forms.Button();
-            this.userControlUnits = new APP.UserControlUnits();
             this.buttonLog = new System.Windows.Forms.Button();
+            this.userControlUnits = new APP.UserControlUnits();
+            this.buttonClear = new System.Windows.Forms.Button();
             this.groupSetup.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,7 +71,7 @@
             this.lstMessages.Font = new System.Drawing.Font("ＭＳ ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.lstMessages.FullRowSelect = true;
             this.lstMessages.HideSelection = false;
-            this.lstMessages.Location = new System.Drawing.Point(739, 11);
+            this.lstMessages.Location = new System.Drawing.Point(745, 11);
             this.lstMessages.MultiSelect = false;
             this.lstMessages.Name = "lstMessages";
             this.lstMessages.Size = new System.Drawing.Size(510, 140);
@@ -99,6 +101,7 @@
             // 
             // groupSetup
             // 
+            this.groupSetup.Controls.Add(this.checkExtender);
             this.groupSetup.Controls.Add(this.radioTypeC);
             this.groupSetup.Controls.Add(this.radioTypeB);
             this.groupSetup.Controls.Add(this.radioTypeA);
@@ -117,18 +120,29 @@
             this.groupSetup.Controls.Add(this.label2);
             this.groupSetup.Controls.Add(this.cbbBaudrates);
             this.groupSetup.Controls.Add(this.laBaudrate);
-            this.groupSetup.Location = new System.Drawing.Point(14, 71);
+            this.groupSetup.Location = new System.Drawing.Point(8, 71);
             this.groupSetup.Name = "groupSetup";
-            this.groupSetup.Size = new System.Drawing.Size(719, 80);
+            this.groupSetup.Size = new System.Drawing.Size(731, 80);
             this.groupSetup.TabIndex = 143;
             this.groupSetup.TabStop = false;
             this.groupSetup.Text = "通信設定";
+            // 
+            // checkExtender
+            // 
+            this.checkExtender.AutoSize = true;
+            this.checkExtender.Font = new System.Drawing.Font("MS UI Gothic", 9F);
+            this.checkExtender.Location = new System.Drawing.Point(182, 54);
+            this.checkExtender.Name = "checkExtender";
+            this.checkExtender.Size = new System.Drawing.Size(72, 16);
+            this.checkExtender.TabIndex = 261;
+            this.checkExtender.Text = "CAN拡張";
+            this.checkExtender.UseVisualStyleBackColor = true;
             // 
             // radioTypeC
             // 
             this.radioTypeC.AutoSize = true;
             this.radioTypeC.Font = new System.Drawing.Font("メイリオ", 7F);
-            this.radioTypeC.Location = new System.Drawing.Point(110, 53);
+            this.radioTypeC.Location = new System.Drawing.Point(113, 53);
             this.radioTypeC.Name = "radioTypeC";
             this.radioTypeC.Size = new System.Drawing.Size(55, 19);
             this.radioTypeC.TabIndex = 191;
@@ -139,7 +153,7 @@
             // 
             this.radioTypeB.AutoSize = true;
             this.radioTypeB.Font = new System.Drawing.Font("メイリオ", 7F);
-            this.radioTypeB.Location = new System.Drawing.Point(110, 34);
+            this.radioTypeB.Location = new System.Drawing.Point(113, 34);
             this.radioTypeB.Name = "radioTypeB";
             this.radioTypeB.Size = new System.Drawing.Size(55, 19);
             this.radioTypeB.TabIndex = 190;
@@ -151,7 +165,7 @@
             this.radioTypeA.AutoSize = true;
             this.radioTypeA.Checked = true;
             this.radioTypeA.Font = new System.Drawing.Font("メイリオ", 7F);
-            this.radioTypeA.Location = new System.Drawing.Point(110, 15);
+            this.radioTypeA.Location = new System.Drawing.Point(113, 15);
             this.radioTypeA.Name = "radioTypeA";
             this.radioTypeA.Size = new System.Drawing.Size(55, 19);
             this.radioTypeA.TabIndex = 189;
@@ -192,7 +206,7 @@
             "USB-Channel 6",
             "USB-Channel 7",
             "USB-Channel 8"});
-            this.cbbChannel6.Location = new System.Drawing.Point(579, 53);
+            this.cbbChannel6.Location = new System.Drawing.Point(581, 53);
             this.cbbChannel6.Name = "cbbChannel6";
             this.cbbChannel6.Size = new System.Drawing.Size(127, 21);
             this.cbbChannel6.TabIndex = 162;
@@ -200,7 +214,7 @@
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("MS UI Gothic", 7F);
-            this.label4.Location = new System.Drawing.Point(577, 42);
+            this.label4.Location = new System.Drawing.Point(579, 42);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(78, 21);
             this.label4.TabIndex = 161;
@@ -239,7 +253,7 @@
             "USB-Channel 6",
             "USB-Channel 7",
             "USB-Channel 8"});
-            this.cbbChannel5.Location = new System.Drawing.Point(434, 53);
+            this.cbbChannel5.Location = new System.Drawing.Point(444, 53);
             this.cbbChannel5.Name = "cbbChannel5";
             this.cbbChannel5.Size = new System.Drawing.Size(127, 21);
             this.cbbChannel5.TabIndex = 160;
@@ -247,7 +261,7 @@
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("MS UI Gothic", 7F);
-            this.label5.Location = new System.Drawing.Point(432, 42);
+            this.label5.Location = new System.Drawing.Point(442, 42);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(78, 21);
             this.label5.TabIndex = 159;
@@ -286,7 +300,7 @@
             "USB-Channel 6",
             "USB-Channel 7",
             "USB-Channel 8"});
-            this.cbbChannel4.Location = new System.Drawing.Point(285, 53);
+            this.cbbChannel4.Location = new System.Drawing.Point(305, 53);
             this.cbbChannel4.Name = "cbbChannel4";
             this.cbbChannel4.Size = new System.Drawing.Size(127, 21);
             this.cbbChannel4.TabIndex = 157;
@@ -294,7 +308,7 @@
             // label6
             // 
             this.label6.Font = new System.Drawing.Font("MS UI Gothic", 7F);
-            this.label6.Location = new System.Drawing.Point(283, 42);
+            this.label6.Location = new System.Drawing.Point(303, 42);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(78, 21);
             this.label6.TabIndex = 158;
@@ -333,7 +347,7 @@
             "USB-Channel 6",
             "USB-Channel 7",
             "USB-Channel 8"});
-            this.cbbChannel3.Location = new System.Drawing.Point(579, 20);
+            this.cbbChannel3.Location = new System.Drawing.Point(581, 20);
             this.cbbChannel3.Name = "cbbChannel3";
             this.cbbChannel3.Size = new System.Drawing.Size(127, 21);
             this.cbbChannel3.TabIndex = 156;
@@ -341,7 +355,7 @@
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("MS UI Gothic", 7F);
-            this.label3.Location = new System.Drawing.Point(577, 9);
+            this.label3.Location = new System.Drawing.Point(579, 9);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(78, 21);
             this.label3.TabIndex = 155;
@@ -380,7 +394,7 @@
             "USB-Channel 6",
             "USB-Channel 7",
             "USB-Channel 8"});
-            this.cbbChannel2.Location = new System.Drawing.Point(434, 20);
+            this.cbbChannel2.Location = new System.Drawing.Point(444, 20);
             this.cbbChannel2.Name = "cbbChannel2";
             this.cbbChannel2.Size = new System.Drawing.Size(127, 21);
             this.cbbChannel2.TabIndex = 154;
@@ -388,7 +402,7 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("MS UI Gothic", 7F);
-            this.label1.Location = new System.Drawing.Point(432, 9);
+            this.label1.Location = new System.Drawing.Point(442, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(78, 21);
             this.label1.TabIndex = 153;
@@ -398,9 +412,9 @@
             // 
             this.buttonScan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonScan.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.buttonScan.Location = new System.Drawing.Point(11, 23);
+            this.buttonScan.Location = new System.Drawing.Point(9, 20);
             this.buttonScan.Name = "buttonScan";
-            this.buttonScan.Size = new System.Drawing.Size(84, 50);
+            this.buttonScan.Size = new System.Drawing.Size(92, 50);
             this.buttonScan.TabIndex = 150;
             this.buttonScan.Text = "Scan";
             this.buttonScan.UseVisualStyleBackColor = true;
@@ -439,7 +453,7 @@
             "USB-Channel 6",
             "USB-Channel 7",
             "USB-Channel 8"});
-            this.cbbChannel1.Location = new System.Drawing.Point(285, 20);
+            this.cbbChannel1.Location = new System.Drawing.Point(305, 20);
             this.cbbChannel1.Name = "cbbChannel1";
             this.cbbChannel1.Size = new System.Drawing.Size(127, 21);
             this.cbbChannel1.TabIndex = 135;
@@ -447,7 +461,7 @@
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("MS UI Gothic", 7F);
-            this.label2.Location = new System.Drawing.Point(283, 9);
+            this.label2.Location = new System.Drawing.Point(303, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 21);
             this.label2.TabIndex = 136;
@@ -467,7 +481,7 @@
             "50 kBit/sec",
             "33,333 kBit/s",
             "20 kBit/sec"});
-            this.cbbBaudrates.Location = new System.Drawing.Point(177, 21);
+            this.cbbBaudrates.Location = new System.Drawing.Point(182, 21);
             this.cbbBaudrates.Name = "cbbBaudrates";
             this.cbbBaudrates.Size = new System.Drawing.Size(93, 20);
             this.cbbBaudrates.TabIndex = 133;
@@ -476,7 +490,7 @@
             // laBaudrate
             // 
             this.laBaudrate.Font = new System.Drawing.Font("MS UI Gothic", 7F);
-            this.laBaudrate.Location = new System.Drawing.Point(175, 8);
+            this.laBaudrate.Location = new System.Drawing.Point(180, 8);
             this.laBaudrate.Name = "laBaudrate";
             this.laBaudrate.Size = new System.Drawing.Size(56, 21);
             this.laBaudrate.TabIndex = 134;
@@ -488,10 +502,10 @@
             this.buttonDisConnect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDisConnect.Font = new System.Drawing.Font("メイリオ", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonDisConnect.ForeColor = System.Drawing.Color.White;
-            this.buttonDisConnect.Location = new System.Drawing.Point(477, 11);
+            this.buttonDisConnect.Location = new System.Drawing.Point(377, 11);
             this.buttonDisConnect.Margin = new System.Windows.Forms.Padding(2);
             this.buttonDisConnect.Name = "buttonDisConnect";
-            this.buttonDisConnect.Size = new System.Drawing.Size(256, 55);
+            this.buttonDisConnect.Size = new System.Drawing.Size(233, 55);
             this.buttonDisConnect.TabIndex = 142;
             this.buttonDisConnect.Text = "切断する";
             this.buttonDisConnect.UseVisualStyleBackColor = false;
@@ -503,22 +517,14 @@
             this.buttonConnect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonConnect.Font = new System.Drawing.Font("メイリオ", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonConnect.ForeColor = System.Drawing.Color.White;
-            this.buttonConnect.Location = new System.Drawing.Point(12, 10);
+            this.buttonConnect.Location = new System.Drawing.Point(6, 10);
             this.buttonConnect.Margin = new System.Windows.Forms.Padding(2);
             this.buttonConnect.Name = "buttonConnect";
-            this.buttonConnect.Size = new System.Drawing.Size(450, 55);
+            this.buttonConnect.Size = new System.Drawing.Size(367, 55);
             this.buttonConnect.TabIndex = 141;
             this.buttonConnect.Text = "接続する";
             this.buttonConnect.UseVisualStyleBackColor = false;
             this.buttonConnect.Click += new System.EventHandler(this.buttonConnect_Click);
-            // 
-            // userControlUnits
-            // 
-            this.userControlUnits.Location = new System.Drawing.Point(11, 157);
-            this.userControlUnits.Margin = new System.Windows.Forms.Padding(0);
-            this.userControlUnits.Name = "userControlUnits";
-            this.userControlUnits.Size = new System.Drawing.Size(1240, 650);
-            this.userControlUnits.TabIndex = 144;
             // 
             // buttonLog
             // 
@@ -526,28 +532,50 @@
             this.buttonLog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLog.Font = new System.Drawing.Font("メイリオ", 8F, System.Drawing.FontStyle.Bold);
             this.buttonLog.ForeColor = System.Drawing.Color.White;
-            this.buttonLog.Location = new System.Drawing.Point(15, 774);
+            this.buttonLog.Location = new System.Drawing.Point(14, 886);
             this.buttonLog.Margin = new System.Windows.Forms.Padding(2);
             this.buttonLog.Name = "buttonLog";
-            this.buttonLog.Size = new System.Drawing.Size(116, 28);
+            this.buttonLog.Size = new System.Drawing.Size(116, 32);
             this.buttonLog.TabIndex = 145;
             this.buttonLog.Text = "ロギング開始";
             this.buttonLog.UseVisualStyleBackColor = false;
             this.buttonLog.Click += new System.EventHandler(this.buttonLog_Click);
             // 
+            // userControlUnits
+            // 
+            this.userControlUnits.Location = new System.Drawing.Point(5, 157);
+            this.userControlUnits.Margin = new System.Windows.Forms.Padding(0);
+            this.userControlUnits.Name = "userControlUnits";
+            this.userControlUnits.Size = new System.Drawing.Size(1250, 760);
+            this.userControlUnits.TabIndex = 144;
+            // 
+            // buttonClear
+            // 
+            this.buttonClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.buttonClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonClear.Font = new System.Drawing.Font("メイリオ", 8F, System.Drawing.FontStyle.Bold);
+            this.buttonClear.ForeColor = System.Drawing.Color.White;
+            this.buttonClear.Location = new System.Drawing.Point(618, 12);
+            this.buttonClear.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonClear.Name = "buttonClear";
+            this.buttonClear.Size = new System.Drawing.Size(116, 53);
+            this.buttonClear.TabIndex = 146;
+            this.buttonClear.Text = "クリア";
+            this.buttonClear.UseVisualStyleBackColor = false;
+            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1264, 811);
+            this.ClientSize = new System.Drawing.Size(1264, 921);
+            this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.buttonLog);
             this.Controls.Add(this.groupSetup);
             this.Controls.Add(this.buttonDisConnect);
             this.Controls.Add(this.buttonConnect);
             this.Controls.Add(this.lstMessages);
             this.Controls.Add(this.userControlUnits);
-            this.MaximumSize = new System.Drawing.Size(1280, 850);
-            this.MinimumSize = new System.Drawing.Size(1280, 850);
             this.Name = "FormMain";
             this.Text = "VITESCO-H2CS";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMain_FormClosing);
@@ -586,6 +614,8 @@
         public System.Windows.Forms.RadioButton radioTypeA;
         private UserControlUnits userControlUnits;
         private System.Windows.Forms.Button buttonLog;
+        private System.Windows.Forms.CheckBox checkExtender;
+        private System.Windows.Forms.Button buttonClear;
     }
 }
 

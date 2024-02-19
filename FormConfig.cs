@@ -56,6 +56,14 @@ namespace APP
             ///機器選択
             Properties.Settings.Default.Device = true;// this.radioModePeak.Checked;
 
+            ///拡張
+            Properties.Settings.Default.Extender = this.checkExtender.Checked;
+
+            ///Type
+            if (radioTypeA.Checked) Properties.Settings.Default.Type = 1;
+            else if (radioTypeB.Checked) Properties.Settings.Default.Type = 2;
+            else if (radioTypeC.Checked) Properties.Settings.Default.Type = 3;
+
             ///CAN-ID
             if (userControlUnits.userControlUnit1.txtID.Text == "") userControlUnits.userControlUnit1.txtID.Text = "0";
             if (userControlUnits.userControlUnit2.txtID.Text == "") userControlUnits.userControlUnit2.txtID.Text = "0";

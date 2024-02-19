@@ -16,17 +16,12 @@ namespace APP
         }
 
         /// <summary>
-        /// H2C
+        /// Gas concentration
         /// </summary>
 
-        public static double ConvSensorLeakage(int data)
+        public static int ConvGas(int data)
         {
-            return Math.Round(Convert.ToDouble(data) * 0.01 + (-2.0), 2);
-        }
-
-        public static double ConvSensorExhaust(int data)
-        {
-            return Math.Round(Convert.ToDouble(data) * 0.05 + (-2.5), 2);
+            return (data - 10) * 500;
         }
 
         /// <summary>

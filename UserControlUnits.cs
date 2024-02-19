@@ -84,12 +84,12 @@ namespace APP
             ///タイマ開始
             tmrRead.Enabled = true;
 
-            userControlUnit1.TypeSet(2);
-            userControlUnit2.TypeSet(2);
-            userControlUnit3.TypeSet(2);
-            userControlUnit4.TypeSet(2);
-            userControlUnit5.TypeSet(2);
-            userControlUnit6.TypeSet(2);
+            userControlUnit1.TypeSet(Properties.Settings.Default.Type);
+            userControlUnit2.TypeSet(Properties.Settings.Default.Type);
+            userControlUnit3.TypeSet(Properties.Settings.Default.Type);
+            userControlUnit4.TypeSet(Properties.Settings.Default.Type);
+            userControlUnit5.TypeSet(Properties.Settings.Default.Type);
+            userControlUnit6.TypeSet(Properties.Settings.Default.Type);
         }
 
         public void DisConnect()
