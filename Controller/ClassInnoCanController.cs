@@ -315,6 +315,8 @@ namespace APP
 
         public bool WriteFrame(byte[] srcBuff)
         {
+            if (!bConnect) return true;
+
             lock (LockWriteSequence)
             {
                 UsbCan.innomaker_tx_context txc = UsbCan.innomaker_alloc_tx_context(can);

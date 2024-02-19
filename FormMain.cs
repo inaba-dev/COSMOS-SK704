@@ -22,14 +22,14 @@ namespace APP
 
         public FormMain()
         {
-            InitializeComponent();
+            ClassPeripheral.CAN[0] = new ClassInnoCanController();
+            ClassPeripheral.CAN[1] = new ClassInnoCanController();
+            ClassPeripheral.CAN[2] = new ClassInnoCanController();
+            ClassPeripheral.CAN[3] = new ClassInnoCanController();
+            ClassPeripheral.CAN[4] = new ClassInnoCanController();
+            ClassPeripheral.CAN[5] = new ClassInnoCanController();
 
-            ClassPeripheral.CAN1 = new ClassInnoCanController();
-            ClassPeripheral.CAN2 = new ClassInnoCanController();
-            ClassPeripheral.CAN3 = new ClassInnoCanController();
-            ClassPeripheral.CAN4 = new ClassInnoCanController();
-            ClassPeripheral.CAN5 = new ClassInnoCanController();
-            ClassPeripheral.CAN6 = new ClassInnoCanController();
+            InitializeComponent();
 
             ///CANセットアップ
             reloadCanSetup();
@@ -120,7 +120,7 @@ namespace APP
             ///接続
             if (cbbChannel1.SelectedIndex >= 0)
             {
-                if (!ClassPeripheral.CAN1.Connect(0x600, cbbChannel1.SelectedIndex, false))
+                if (!ClassPeripheral.CAN[0].Connect(0x600, cbbChannel1.SelectedIndex, false))
                 {
                     MessageBox.Show("機器1の接続に失敗しました。", "接続エラー");
                     //return;
@@ -129,7 +129,7 @@ namespace APP
             /*
             if (cbbChannel2.SelectedIndex >= 0)
             {
-                if (!ClassPeripheral.CAN2.Connect(0x600, cbbChannel2.SelectedIndex, false))
+                if (!ClassPeripheral.CAN[1].Connect(0x600, cbbChannel2.SelectedIndex, false))
                 {
                     MessageBox.Show("機器2の接続に失敗しました。", "接続エラー");
                     //return;
@@ -138,7 +138,7 @@ namespace APP
 
             if (cbbChannel3.SelectedIndex >= 0)
             {
-                if (!ClassPeripheral.CAN3.Connect(0x600, cbbChannel3.SelectedIndex, false))
+                if (!ClassPeripheral.CAN[2].Connect(0x600, cbbChannel3.SelectedIndex, false))
                 {
                     MessageBox.Show("機器3の接続に失敗しました。", "接続エラー");
                     //return;
@@ -147,7 +147,7 @@ namespace APP
 
             if (cbbChannel4.SelectedIndex >= 0)
             {
-                if (!ClassPeripheral.CAN4.Connect(0x600, cbbChannel4.SelectedIndex, false))
+                if (!ClassPeripheral.CAN[3].Connect(0x600, cbbChannel4.SelectedIndex, false))
                 {
                     MessageBox.Show("機器4の接続に失敗しました。", "接続エラー");
                     //return;
@@ -156,7 +156,7 @@ namespace APP
 
             if (cbbChannel5.SelectedIndex >= 0)
             {
-                if (!ClassPeripheral.CAN5.Connect(0x600, cbbChannel5.SelectedIndex, false))
+                if (!ClassPeripheral.CAN[4].Connect(0x600, cbbChannel5.SelectedIndex, false))
                 {
                     MessageBox.Show("機器5の接続に失敗しました。", "接続エラー");
                     //return;
@@ -165,7 +165,7 @@ namespace APP
 
             if (cbbChannel6.SelectedIndex >= 0)
             {
-                if (!ClassPeripheral.CAN6.Connect(0x600, cbbChannel6.SelectedIndex, false))
+                if (!ClassPeripheral.CAN[5].Connect(0x600, cbbChannel6.SelectedIndex, false))
                 {
                     MessageBox.Show("機器6の接続に失敗しました。", "接続エラー");
                     //return;
@@ -191,12 +191,12 @@ namespace APP
             userControlUnits.DisConnect();
 
             ///CAN切断
-            if (ClassPeripheral.CAN1 != null) ClassPeripheral.CAN1.DisConnect();
-            if (ClassPeripheral.CAN2 != null) ClassPeripheral.CAN2.DisConnect();
-            if (ClassPeripheral.CAN3 != null) ClassPeripheral.CAN3.DisConnect();
-            if (ClassPeripheral.CAN4 != null) ClassPeripheral.CAN4.DisConnect();
-            if (ClassPeripheral.CAN5 != null) ClassPeripheral.CAN5.DisConnect();
-            if (ClassPeripheral.CAN6 != null) ClassPeripheral.CAN6.DisConnect();
+            if (ClassPeripheral.CAN[0] != null) ClassPeripheral.CAN[0].DisConnect();
+            if (ClassPeripheral.CAN[1] != null) ClassPeripheral.CAN[1].DisConnect();
+            if (ClassPeripheral.CAN[2] != null) ClassPeripheral.CAN[2].DisConnect();
+            if (ClassPeripheral.CAN[3] != null) ClassPeripheral.CAN[3].DisConnect();
+            if (ClassPeripheral.CAN[4] != null) ClassPeripheral.CAN[4].DisConnect();
+            if (ClassPeripheral.CAN[5] != null) ClassPeripheral.CAN[5].DisConnect();
 
             ///表示更新
             SetConnectionStatus();
@@ -223,12 +223,12 @@ namespace APP
                     if (tokenSource.IsCancellationRequested) break;
 
                     /// 受信処理
-                    Invoke(new ReadDelegate(ClassPeripheral.CAN1.ReadMessages));
-                    Invoke(new ReadDelegate(ClassPeripheral.CAN2.ReadMessages));
-                    Invoke(new ReadDelegate(ClassPeripheral.CAN3.ReadMessages));
-                    Invoke(new ReadDelegate(ClassPeripheral.CAN4.ReadMessages));
-                    Invoke(new ReadDelegate(ClassPeripheral.CAN5.ReadMessages));
-                    Invoke(new ReadDelegate(ClassPeripheral.CAN6.ReadMessages));
+                    if (ClassPeripheral.CAN[0].IsConnect()) Invoke(new ReadDelegate(ClassPeripheral.CAN[0].ReadMessages));
+                    if (ClassPeripheral.CAN[1].IsConnect()) Invoke(new ReadDelegate(ClassPeripheral.CAN[1].ReadMessages));
+                    if (ClassPeripheral.CAN[2].IsConnect()) Invoke(new ReadDelegate(ClassPeripheral.CAN[2].ReadMessages));
+                    if (ClassPeripheral.CAN[3].IsConnect()) Invoke(new ReadDelegate(ClassPeripheral.CAN[3].ReadMessages));
+                    if (ClassPeripheral.CAN[4].IsConnect()) Invoke(new ReadDelegate(ClassPeripheral.CAN[4].ReadMessages));
+                    if (ClassPeripheral.CAN[5].IsConnect()) Invoke(new ReadDelegate(ClassPeripheral.CAN[5].ReadMessages));
 
                     Thread.Sleep(10);
                 }
@@ -289,34 +289,12 @@ namespace APP
 
         private void cbbBaudrates_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (ClassPeripheral.CAN1 != null)
+            for(int i=0; i< ClassPeripheral.CAN.Count(); i++)
             {
-                ClassPeripheral.CAN1.cbbBaudrates_SelectedIndexChanged(cbbBaudrates.SelectedIndex);
-            }
-
-            if (ClassPeripheral.CAN2 != null)
-            {
-                ClassPeripheral.CAN2.cbbBaudrates_SelectedIndexChanged(cbbBaudrates.SelectedIndex);
-            }
-
-            if (ClassPeripheral.CAN3 != null)
-            {
-                ClassPeripheral.CAN3.cbbBaudrates_SelectedIndexChanged(cbbBaudrates.SelectedIndex);
-            }
-
-            if (ClassPeripheral.CAN4 != null)
-            {
-                ClassPeripheral.CAN4.cbbBaudrates_SelectedIndexChanged(cbbBaudrates.SelectedIndex);
-            }
-
-            if (ClassPeripheral.CAN5 != null)
-            {
-                ClassPeripheral.CAN5.cbbBaudrates_SelectedIndexChanged(cbbBaudrates.SelectedIndex);
-            }
-
-            if (ClassPeripheral.CAN6 != null)
-            {
-                ClassPeripheral.CAN6.cbbBaudrates_SelectedIndexChanged(cbbBaudrates.SelectedIndex);
+                if (ClassPeripheral.CAN[i] != null)
+                {
+                    ClassPeripheral.CAN[i].cbbBaudrates_SelectedIndexChanged(cbbBaudrates.SelectedIndex);
+                }
             }
         }
 
@@ -345,12 +323,11 @@ namespace APP
         private void reloadCanSetup()
         {
             ///CAN初期化
-            ClassPeripheral.CAN1.Init();
-            ClassPeripheral.CAN2.Init();
-            ClassPeripheral.CAN3.Init();
-            ClassPeripheral.CAN4.Init();
-            ClassPeripheral.CAN5.Init();
-            ClassPeripheral.CAN6.Init();
+            for (int i = 0; i < ClassPeripheral.CAN.Count(); i++)
+            {
+                ClassPeripheral.CAN[i].Init();
+            }           
+
 
             ///ボーレート設定
             cbbBaudrates_SelectedIndexChanged(null, null);
@@ -359,12 +336,20 @@ namespace APP
             btnHwRefresh();
 
             ///イベント登録
-            ClassPeripheral.CAN1.m_ReceiveEvent += RecvEvent;
-            ClassPeripheral.CAN2.m_ReceiveEvent += RecvEvent;
-            ClassPeripheral.CAN3.m_ReceiveEvent += RecvEvent;
-            ClassPeripheral.CAN4.m_ReceiveEvent += RecvEvent;
-            ClassPeripheral.CAN5.m_ReceiveEvent += RecvEvent;
-            ClassPeripheral.CAN6.m_ReceiveEvent += RecvEvent;
+            for (int i = 0; i < ClassPeripheral.CAN.Count(); i++)
+            {
+                if (ClassPeripheral.CAN[i] != null)
+                {
+                    ClassPeripheral.CAN[i].cbbBaudrates_SelectedIndexChanged(cbbBaudrates.SelectedIndex);
+                }
+            }
+
+            ClassPeripheral.CAN[0].m_ReceiveEvent += RecvEvent;
+            ClassPeripheral.CAN[1].m_ReceiveEvent += RecvEvent;
+            ClassPeripheral.CAN[2].m_ReceiveEvent += RecvEvent;
+            ClassPeripheral.CAN[3].m_ReceiveEvent += RecvEvent;
+            ClassPeripheral.CAN[4].m_ReceiveEvent += RecvEvent;
+            ClassPeripheral.CAN[5].m_ReceiveEvent += RecvEvent;
         }
 
         private void txtID_KeyPress(object sender, KeyPressEventArgs e)

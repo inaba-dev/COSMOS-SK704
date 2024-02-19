@@ -22,12 +22,12 @@ namespace APP
 
         private void btnHwRefresh()
         {
-            if (ClassPeripheral.CAN1 == null
-                && ClassPeripheral.CAN2 == null
-                && ClassPeripheral.CAN3 == null
-                && ClassPeripheral.CAN4 == null
-                && ClassPeripheral.CAN5 == null
-                && ClassPeripheral.CAN6 == null
+            if (ClassPeripheral.CAN[0] == null
+                && ClassPeripheral.CAN[1] == null
+                && ClassPeripheral.CAN[2] == null
+                && ClassPeripheral.CAN[3] == null
+                && ClassPeripheral.CAN[4] == null
+                && ClassPeripheral.CAN[5] == null
                 ) return;
 
             ///一旦データソースを削除
@@ -39,12 +39,12 @@ namespace APP
             cbbChannel6.DataSource = null;
 
             ///ハードウェアの検索
-            List<String> devIndexes1 = ClassPeripheral.CAN1.UpdateDevices();
-            List<String> devIndexes2 = ClassPeripheral.CAN2.UpdateDevices();
-            List<String> devIndexes3 = ClassPeripheral.CAN3.UpdateDevices();
-            List<String> devIndexes4 = ClassPeripheral.CAN4.UpdateDevices();
-            List<String> devIndexes5 = ClassPeripheral.CAN5.UpdateDevices();
-            List<String> devIndexes6 = ClassPeripheral.CAN6.UpdateDevices();
+            List<String> devIndexes1 = ClassPeripheral.CAN[0].UpdateDevices();
+            List<String> devIndexes2 = ClassPeripheral.CAN[1].UpdateDevices();
+            List<String> devIndexes3 = ClassPeripheral.CAN[2].UpdateDevices();
+            List<String> devIndexes4 = ClassPeripheral.CAN[3].UpdateDevices();
+            List<String> devIndexes5 = ClassPeripheral.CAN[4].UpdateDevices();
+            List<String> devIndexes6 = ClassPeripheral.CAN[5].UpdateDevices();
 
             ///フォームに反映
             cbbChannel1.DataSource = devIndexes1;
@@ -82,7 +82,10 @@ namespace APP
 
             string id = msgStsCurrentMsg.IdString;
 
-            //uint id = Convert.ToUInt32(txtID.Text, 16);
+            Console.WriteLine("id:{0}", newMsg.ID);
+
+            /// IDの範囲は（00000000-1FFFFFFF）
+            if (newMsg.ID >= 0x20000000) return;
 
             if (!mCanIdList.Contains(id))
             {
@@ -118,20 +121,20 @@ namespace APP
 
         private void SetConnectionStatus()
         {
-            if (ClassPeripheral.CAN1 == null 
-                && ClassPeripheral.CAN2 == null
-                && ClassPeripheral.CAN3 == null
-                && ClassPeripheral.CAN4 == null
-                && ClassPeripheral.CAN5 == null
-                && ClassPeripheral.CAN6 == null) return;
+            if (ClassPeripheral.CAN[0] == null 
+                && ClassPeripheral.CAN[1] == null
+                && ClassPeripheral.CAN[2] == null
+                && ClassPeripheral.CAN[3] == null
+                && ClassPeripheral.CAN[4] == null
+                && ClassPeripheral.CAN[5] == null) return;
 
             bool bConnected = 
-                ClassPeripheral.CAN1.IsConnect()
-                || ClassPeripheral.CAN2.IsConnect()
-                || ClassPeripheral.CAN3.IsConnect()
-                || ClassPeripheral.CAN4.IsConnect()
-                || ClassPeripheral.CAN5.IsConnect()
-                || ClassPeripheral.CAN6.IsConnect();
+                ClassPeripheral.CAN[0].IsConnect()
+                || ClassPeripheral.CAN[1].IsConnect()
+                || ClassPeripheral.CAN[2].IsConnect()
+                || ClassPeripheral.CAN[3].IsConnect()
+                || ClassPeripheral.CAN[4].IsConnect()
+                || ClassPeripheral.CAN[5].IsConnect();
 
             // Buttons
 
@@ -158,6 +161,10 @@ namespace APP
                 buttonLog.Text = "ロギング開始";
                 buttonLog.BackColor = Color.Blue;
             }
+
+            //
+            userControlUnits.SetEnables(bConnected);
+
         }
     }
 }

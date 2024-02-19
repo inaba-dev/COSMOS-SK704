@@ -83,7 +83,7 @@
             legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
             legend1.Name = "Legend1";
             this.chartSensor.Legends.Add(legend1);
-            this.chartSensor.Location = new System.Drawing.Point(864, 6);
+            this.chartSensor.Location = new System.Drawing.Point(870, 8);
             this.chartSensor.Margin = new System.Windows.Forms.Padding(0);
             this.chartSensor.Name = "chartSensor";
             series1.ChartArea = "ChartArea";
@@ -122,7 +122,7 @@
             this.chartSensor.Series.Add(series4);
             this.chartSensor.Series.Add(series5);
             this.chartSensor.Series.Add(series6);
-            this.chartSensor.Size = new System.Drawing.Size(350, 265);
+            this.chartSensor.Size = new System.Drawing.Size(360, 300);
             this.chartSensor.TabIndex = 0;
             this.chartSensor.Text = "chart";
             // 
@@ -141,7 +141,7 @@
             legend2.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
             legend2.Name = "Legend1";
             this.chartTemperature.Legends.Add(legend2);
-            this.chartTemperature.Location = new System.Drawing.Point(864, 277);
+            this.chartTemperature.Location = new System.Drawing.Point(870, 314);
             this.chartTemperature.Margin = new System.Windows.Forms.Padding(0);
             this.chartTemperature.Name = "chartTemperature";
             series7.ChartArea = "ChartArea";
@@ -180,7 +180,7 @@
             this.chartTemperature.Series.Add(series10);
             this.chartTemperature.Series.Add(series11);
             this.chartTemperature.Series.Add(series12);
-            this.chartTemperature.Size = new System.Drawing.Size(350, 265);
+            this.chartTemperature.Size = new System.Drawing.Size(360, 300);
             this.chartTemperature.TabIndex = 1;
             this.chartTemperature.Text = "chart1";
             // 
@@ -192,7 +192,7 @@
             // labelRunTime
             // 
             this.labelRunTime.Font = new System.Drawing.Font("メイリオ", 9F);
-            this.labelRunTime.Location = new System.Drawing.Point(175, 551);
+            this.labelRunTime.Location = new System.Drawing.Point(179, 622);
             this.labelRunTime.Name = "labelRunTime";
             this.labelRunTime.Size = new System.Drawing.Size(91, 19);
             this.labelRunTime.TabIndex = 146;
@@ -207,7 +207,7 @@
             this.buttonPath.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonPath.Font = new System.Drawing.Font("メイリオ", 8F, System.Drawing.FontStyle.Bold);
             this.buttonPath.ForeColor = System.Drawing.Color.White;
-            this.buttonPath.Location = new System.Drawing.Point(792, 547);
+            this.buttonPath.Location = new System.Drawing.Point(796, 618);
             this.buttonPath.Name = "buttonPath";
             this.buttonPath.Size = new System.Drawing.Size(67, 23);
             this.buttonPath.TabIndex = 149;
@@ -217,7 +217,7 @@
             // 
             // textBoxPath
             // 
-            this.textBoxPath.Location = new System.Drawing.Point(321, 550);
+            this.textBoxPath.Location = new System.Drawing.Point(325, 621);
             this.textBoxPath.Name = "textBoxPath";
             this.textBoxPath.ReadOnly = true;
             this.textBoxPath.Size = new System.Drawing.Size(465, 19);
@@ -226,7 +226,7 @@
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("メイリオ", 8F);
-            this.label4.Location = new System.Drawing.Point(257, 551);
+            this.label4.Location = new System.Drawing.Point(261, 622);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(77, 19);
             this.label4.TabIndex = 147;
@@ -236,49 +236,49 @@
             // userControlUnit6
             // 
             this.userControlUnit6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.userControlUnit6.Location = new System.Drawing.Point(579, 277);
+            this.userControlUnit6.Location = new System.Drawing.Point(582, 314);
             this.userControlUnit6.Name = "userControlUnit6";
-            this.userControlUnit6.Size = new System.Drawing.Size(280, 265);
+            this.userControlUnit6.Size = new System.Drawing.Size(280, 300);
             this.userControlUnit6.TabIndex = 7;
             // 
             // userControlUnit5
             // 
             this.userControlUnit5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.userControlUnit5.Location = new System.Drawing.Point(293, 275);
+            this.userControlUnit5.Location = new System.Drawing.Point(296, 312);
             this.userControlUnit5.Name = "userControlUnit5";
-            this.userControlUnit5.Size = new System.Drawing.Size(280, 265);
+            this.userControlUnit5.Size = new System.Drawing.Size(280, 300);
             this.userControlUnit5.TabIndex = 6;
             // 
             // userControlUnit4
             // 
             this.userControlUnit4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.userControlUnit4.Location = new System.Drawing.Point(7, 276);
+            this.userControlUnit4.Location = new System.Drawing.Point(10, 313);
             this.userControlUnit4.Name = "userControlUnit4";
-            this.userControlUnit4.Size = new System.Drawing.Size(280, 265);
+            this.userControlUnit4.Size = new System.Drawing.Size(280, 300);
             this.userControlUnit4.TabIndex = 5;
             // 
             // userControlUnit3
             // 
             this.userControlUnit3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.userControlUnit3.Location = new System.Drawing.Point(579, 6);
+            this.userControlUnit3.Location = new System.Drawing.Point(582, 8);
             this.userControlUnit3.Name = "userControlUnit3";
-            this.userControlUnit3.Size = new System.Drawing.Size(280, 265);
+            this.userControlUnit3.Size = new System.Drawing.Size(280, 300);
             this.userControlUnit3.TabIndex = 4;
             // 
             // userControlUnit2
             // 
             this.userControlUnit2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.userControlUnit2.Location = new System.Drawing.Point(293, 5);
+            this.userControlUnit2.Location = new System.Drawing.Point(296, 7);
             this.userControlUnit2.Name = "userControlUnit2";
-            this.userControlUnit2.Size = new System.Drawing.Size(280, 265);
+            this.userControlUnit2.Size = new System.Drawing.Size(280, 300);
             this.userControlUnit2.TabIndex = 3;
             // 
             // userControlUnit1
             // 
             this.userControlUnit1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.userControlUnit1.Location = new System.Drawing.Point(7, 5);
+            this.userControlUnit1.Location = new System.Drawing.Point(10, 7);
             this.userControlUnit1.Name = "userControlUnit1";
-            this.userControlUnit1.Size = new System.Drawing.Size(280, 265);
+            this.userControlUnit1.Size = new System.Drawing.Size(280, 300);
             this.userControlUnit1.TabIndex = 2;
             // 
             // label1
@@ -287,7 +287,7 @@
             this.label1.BackColor = System.Drawing.Color.Gray;
             this.label1.Font = new System.Drawing.Font("メイリオ", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(588, 284);
+            this.label1.Location = new System.Drawing.Point(592, 320);
             this.label1.Margin = new System.Windows.Forms.Padding(3);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(31, 18);
@@ -301,7 +301,7 @@
             this.label2.BackColor = System.Drawing.Color.Gray;
             this.label2.Font = new System.Drawing.Font("メイリオ", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(302, 284);
+            this.label2.Location = new System.Drawing.Point(306, 320);
             this.label2.Margin = new System.Windows.Forms.Padding(3);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(31, 18);
@@ -315,7 +315,7 @@
             this.label3.BackColor = System.Drawing.Color.Gray;
             this.label3.Font = new System.Drawing.Font("メイリオ", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(17, 284);
+            this.label3.Location = new System.Drawing.Point(21, 320);
             this.label3.Margin = new System.Windows.Forms.Padding(3);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(31, 18);
@@ -329,7 +329,7 @@
             this.label9.BackColor = System.Drawing.Color.Gray;
             this.label9.Font = new System.Drawing.Font("メイリオ", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(588, 14);
+            this.label9.Location = new System.Drawing.Point(592, 14);
             this.label9.Margin = new System.Windows.Forms.Padding(3);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(31, 18);
@@ -343,7 +343,7 @@
             this.label8.BackColor = System.Drawing.Color.Gray;
             this.label8.Font = new System.Drawing.Font("メイリオ", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(302, 14);
+            this.label8.Location = new System.Drawing.Point(306, 14);
             this.label8.Margin = new System.Windows.Forms.Padding(3);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(31, 18);
@@ -357,7 +357,7 @@
             this.label7.BackColor = System.Drawing.Color.Gray;
             this.label7.Font = new System.Drawing.Font("メイリオ", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(17, 14);
+            this.label7.Location = new System.Drawing.Point(21, 14);
             this.label7.Margin = new System.Windows.Forms.Padding(3);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(31, 18);
@@ -389,7 +389,7 @@
             this.Controls.Add(this.chartSensor);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "UserControlUnits";
-            this.Size = new System.Drawing.Size(1220, 572);
+            this.Size = new System.Drawing.Size(1240, 650);
             ((System.ComponentModel.ISupportInitialize)(this.chartSensor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartTemperature)).EndInit();
             this.ResumeLayout(false);

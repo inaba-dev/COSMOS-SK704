@@ -8,89 +8,6 @@ using System.Windows.Forms;
 
 namespace APP
 {
-#if false
-    public class ClassLoggers
-    {
-        //public ClassLogger[] ClassLogger = new ClassLogger[6];        
-
-        /// <summary>
-        /// コンストラクタ
-        /// </summary>
-
-        public ClassLoggers()
-        {
-            //ClassLogger[0] = new ClassLogger();
-            //ClassLogger[1] = new ClassLogger();
-            //ClassLogger[2] = new ClassLogger();
-            //ClassLogger[3] = new ClassLogger();
-            //ClassLogger[4] = new ClassLogger();
-            //ClassLogger[5] = new ClassLogger();
-        }
-
-        public bool Init(string path)
-        {
-            ///フォルダの存在確認
-            if (!Directory.Exists(path))
-            {
-                MessageBox.Show("フォルダが存在しません", "フォルダエラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-
-            userControlUnit1.Logger.Init(path, "1");
-            ClassLogger[1].Init(path, "2");
-            ClassLogger[2].Init(path, "3");
-            ClassLogger[3].Init(path, "4");
-            ClassLogger[4].Init(path, "5");
-            ClassLogger[5].Init(path, "6");
-
-            return true;
-        }
-
-        /*** クローズ ***/
-        public void Close()
-        {
-            ClassLogger[0].Close();
-            ClassLogger[1].Close();
-            ClassLogger[2].Close();
-            ClassLogger[3].Close();
-            ClassLogger[4].Close();
-            ClassLogger[5].Close();
-        }
-
-        /// <summary>
-        /// 有効/無効
-        /// </summary>
-
-        public void setValid(bool[] valids)
-        {
-            ClassLogger[0].bValid = valids[0];
-            ClassLogger[1].bValid = valids[1];
-            ClassLogger[2].bValid = valids[2];
-            ClassLogger[3].bValid = valids[3];
-            ClassLogger[4].bValid = valids[4];
-            ClassLogger[5].bValid = valids[5];
-        }
-
-        /// <summary>
-        /// 時間管理
-        /// </summary>
-
-        private DateTime StartTime = DateTime.Now;
-
-        public TimeSpan getRunTime()
-        {
-            DateTime dt = DateTime.Now;
-            TimeSpan span = dt - StartTime;
-            return span;
-        }
-
-        public void setStartTime()
-        {
-            StartTime = DateTime.Now;
-        }
-    }
-#endif
-
     public class ClassLogger
     {
         public bool bValid { get; set; }
@@ -108,12 +25,8 @@ namespace APP
                 "CANID",
                 "時刻",
                 "カウンタ",
-                "センサ(%)",
-                "センサ(Raw)",
+                "濃度(ppm)",
                 "温度(℃)",
-                "温度(Raw)",
-                "湿度(%)",
-                "湿度(Raw)"
             };
 
         private string filepath = "";
@@ -183,7 +96,7 @@ namespace APP
 
             ///ログデータ書き込み
 #if !TESTMODE
-            if (DataBuffer.Count > 50)
+            if (DataBuffer.Count > 10)
 #else
             //if (DataBuffer.Count > 20)
 #endif
@@ -206,8 +119,6 @@ namespace APP
             int counter;
             int sensor;
             int temperature;
-            //string ErrorMsg;
-            //string DiagInfo;
 
             foreach (var buff in DataBuffer)
             {
@@ -217,75 +128,23 @@ namespace APP
                 ///CANID
                 string id = buff.MsgFD.ID.ToString("x3");
 
-                /*
-                if (bMode)
-                {
-                    ///送信カウンタ
-                    counter = Func.ConvSequNumber(buff.MsgFD.DATA[1] & 0x0F);
+                ///送信カウンタ
+                counter = (int)(buff.MsgFD.DATA[0]);
 
-                    ///H2C
-                    sensorRow = (int)((buff.MsgFD.DATA[3] & 0x0F) << 8) + (int)(buff.MsgFD.DATA[2]);
-                    sensor = Func.ConvSensorLeakage(sensorRow);
+                ///濃度
+                sensor = (int)(buff.MsgFD.DATA[2]) - (int)(buff.MsgFD.DATA[3]);
 
-                    ///気温
-                    temperatureRow = (int)(buff.MsgFD.DATA[4] << 4) + (int)((buff.MsgFD.DATA[3] & 0xF0) >> 4);
-                    temperature = Func.ConvTemperatureLeakage(temperatureRow);
+                ///温度
+                temperature = (buff.MsgFD.DATA[5] > 128) ? buff.MsgFD.DATA[5] - 256 : buff.MsgFD.DATA[5];
 
-                    ///湿度
-                    humidityRow = (int)(buff.MsgFD.DATA[5]);
-                    humidity = Func.ConvHumidity(humidityRow);
-
-                    ///診断情報
-                    //DiagInfo = ((buff.MsgFD.DATA[1] & 0xF0) >> 4).ToString();
-
-                    ///書込みデータ生成
-                    ///Write
-                    str +=
-                    hardware + "," +
-                    id + "," +
-                    buff.TimeStamp + "," +
-                    counter + "," +
-                    sensor + "," +
-                    sensorRow + "," +
-                    temperature + "," +
-                    temperatureRow + "," +
-                    humidity + "," +
-                    humidityRow + "\n";
-                }
-                else
-                {
-                    ///送信カウンタ
-                    counter = Func.ConvSequNumber(buff.MsgFD.DATA[1]);
-
-                    ///H2C
-                    sensorRow = (int)buff.MsgFD.DATA[2];
-                    sensor = Func.ConvSensorExhaust(sensorRow);
-
-                    ///気温
-                    temperatureRow = (int)(buff.MsgFD.DATA[4] << 8) + (int)(buff.MsgFD.DATA[3]);
-                    temperature = Func.ConvTemperatureExhaust(temperatureRow);
-
-                    ///エラーフラグ
-                    //ErrorMsg = (buff.MsgFD.DATA[5] & 0x07).ToString();
-
-                    ///診断情報
-                    //DiagInfo = ((buff.MsgFD.DATA[5] & 0xF8) >> 3).ToString();
-
-                    ///書込みデータ生成
-                    ///Write
-                    str +=
-                    hardware + "," +
-                    id + "," +
-                    buff.TimeStamp + "," +
-                    counter + "," +
-                    sensor + "," +
-                    sensorRow + "," +
-                    temperature + "," +
-                    temperatureRow + "," +
-                    "--" + "," +
-                    "--" + "\n";
-                }
-                */
+                ///書込みデータ生成
+                str +=
+                hardware + "," +
+                id + "," +
+                buff.TimeStamp + "," +
+                counter + "," +
+                sensor + "," +
+                temperature + "\n";
             }
 
             return str;

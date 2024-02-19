@@ -54,11 +54,9 @@
             this.laBaudrate = new System.Windows.Forms.Label();
             this.buttonDisConnect = new System.Windows.Forms.Button();
             this.buttonConnect = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.buttonLog = new System.Windows.Forms.Button();
             this.userControlUnits = new APP.UserControlUnits();
+            this.buttonLog = new System.Windows.Forms.Button();
             this.groupSetup.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lstMessages
@@ -514,14 +512,13 @@
             this.buttonConnect.UseVisualStyleBackColor = false;
             this.buttonConnect.Click += new System.EventHandler(this.buttonConnect_Click);
             // 
-            // panel1
+            // userControlUnits
             // 
-            this.panel1.Controls.Add(this.buttonLog);
-            this.panel1.Controls.Add(this.userControlUnits);
-            this.panel1.Location = new System.Drawing.Point(12, 155);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1240, 578);
-            this.panel1.TabIndex = 138;
+            this.userControlUnits.Location = new System.Drawing.Point(11, 157);
+            this.userControlUnits.Margin = new System.Windows.Forms.Padding(0);
+            this.userControlUnits.Name = "userControlUnits";
+            this.userControlUnits.Size = new System.Drawing.Size(1240, 650);
+            this.userControlUnits.TabIndex = 144;
             // 
             // buttonLog
             // 
@@ -529,41 +526,33 @@
             this.buttonLog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLog.Font = new System.Drawing.Font("メイリオ", 8F, System.Drawing.FontStyle.Bold);
             this.buttonLog.ForeColor = System.Drawing.Color.White;
-            this.buttonLog.Location = new System.Drawing.Point(15, 546);
+            this.buttonLog.Location = new System.Drawing.Point(15, 774);
             this.buttonLog.Margin = new System.Windows.Forms.Padding(2);
             this.buttonLog.Name = "buttonLog";
-            this.buttonLog.Size = new System.Drawing.Size(126, 27);
-            this.buttonLog.TabIndex = 144;
+            this.buttonLog.Size = new System.Drawing.Size(116, 28);
+            this.buttonLog.TabIndex = 145;
             this.buttonLog.Text = "ロギング開始";
             this.buttonLog.UseVisualStyleBackColor = false;
             this.buttonLog.Click += new System.EventHandler(this.buttonLog_Click);
-            // 
-            // userControlUnits
-            // 
-            this.userControlUnits.Location = new System.Drawing.Point(9, 2);
-            this.userControlUnits.Margin = new System.Windows.Forms.Padding(0);
-            this.userControlUnits.Name = "userControlUnits";
-            this.userControlUnits.Size = new System.Drawing.Size(1220, 572);
-            this.userControlUnits.TabIndex = 135;
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1264, 741);
+            this.ClientSize = new System.Drawing.Size(1264, 811);
+            this.Controls.Add(this.buttonLog);
             this.Controls.Add(this.groupSetup);
             this.Controls.Add(this.buttonDisConnect);
             this.Controls.Add(this.buttonConnect);
             this.Controls.Add(this.lstMessages);
-            this.Controls.Add(this.panel1);
-            this.MaximumSize = new System.Drawing.Size(1280, 780);
-            this.MinimumSize = new System.Drawing.Size(1280, 780);
+            this.Controls.Add(this.userControlUnits);
+            this.MaximumSize = new System.Drawing.Size(1280, 850);
+            this.MinimumSize = new System.Drawing.Size(1280, 850);
             this.Name = "FormMain";
             this.Text = "VITESCO-H2CS";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMain_FormClosing);
             this.groupSetup.ResumeLayout(false);
             this.groupSetup.PerformLayout();
-            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -582,9 +571,6 @@
         private System.Windows.Forms.Button buttonDisConnect;
         private System.Windows.Forms.Button buttonConnect;
         private System.Windows.Forms.Button buttonScan;
-        private System.Windows.Forms.Panel panel1;
-        private UserControlUnits userControlUnits;
-        private System.Windows.Forms.Button buttonLog;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbbChannel2;
         private System.Windows.Forms.ComboBox cbbChannel3;
@@ -598,6 +584,8 @@
         public System.Windows.Forms.RadioButton radioTypeC;
         public System.Windows.Forms.RadioButton radioTypeB;
         public System.Windows.Forms.RadioButton radioTypeA;
+        private UserControlUnits userControlUnits;
+        private System.Windows.Forms.Button buttonLog;
     }
 }
 

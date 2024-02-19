@@ -24,26 +24,6 @@ namespace APP
                 ///ボーレート
                 this.cbbBaudrates.SelectedIndex = Properties.Settings.Default.Baudrate;
 
-                ///機器選択
-                //this.radioModePeak.Checked = Properties.Settings.Default.Device;
-                //this.radioModeInno.Checked = !Properties.Settings.Default.Device;
-
-                //if(this.radioModePeak.Checked)
-                //{
-                //    radioModePeak_CheckedChanged(null, null);
-                //}
-                //else
-                //{
-                //    radioModeInno_CheckedChanged(null, null);
-                //}
-
-                ClassPeripheral.CAN1 = new ClassInnoCanController();
-                ClassPeripheral.CAN2 = new ClassInnoCanController();
-                ClassPeripheral.CAN3 = new ClassInnoCanController();
-                ClassPeripheral.CAN4 = new ClassInnoCanController();
-                ClassPeripheral.CAN5 = new ClassInnoCanController();
-                ClassPeripheral.CAN6 = new ClassInnoCanController();
-
                 ///CANセットアップ
                 reloadCanSetup();
 
@@ -57,7 +37,6 @@ namespace APP
 
                 ///Log保存先
                 this.userControlUnits.textBoxPath.Text = Properties.Settings.Default.LogPath;
-
 
             }
             catch

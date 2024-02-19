@@ -33,6 +33,38 @@ namespace APP
         /// 
         /// </summary>
 
+        public UserControlUnits()
+        {
+            InitializeComponent();
+
+            Initialization();
+
+            userControlUnit1.Initialize(0);
+            userControlUnit2.Initialize(1);
+            userControlUnit3.Initialize(2);
+            userControlUnit4.Initialize(3);
+            userControlUnit5.Initialize(4);
+            userControlUnit6.Initialize(5);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+
+        public void SetEnables(bool bConnected)
+        {
+            userControlUnit1.SetEnable(bConnected);
+            userControlUnit2.SetEnable(bConnected);
+            userControlUnit3.SetEnable(bConnected);
+            userControlUnit4.SetEnable(bConnected);
+            userControlUnit5.SetEnable(bConnected);
+            userControlUnit6.SetEnable(bConnected);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+
         public void Setup(List<string> devices)
         {
             userControlUnit1.HWSetup(devices);
@@ -44,24 +76,6 @@ namespace APP
         }
 
         /// <summary>
-        /// 
-        /// </summary>
-
-        public UserControlUnits()
-        {
-            InitializeComponent();
-
-            userControlUnit1.Initialize("1");
-            userControlUnit1.Initialize("2");
-            userControlUnit1.Initialize("3");
-            userControlUnit1.Initialize("4");
-            userControlUnit1.Initialize("5");
-            userControlUnit1.Initialize("6");
-
-            Initialization();
-        }
-
-        /// <summary>
         /// シャットダウン
         /// </summary>
 
@@ -69,6 +83,13 @@ namespace APP
         {
             ///タイマ開始
             tmrRead.Enabled = true;
+
+            userControlUnit1.TypeSet(2);
+            userControlUnit2.TypeSet(2);
+            userControlUnit3.TypeSet(2);
+            userControlUnit4.TypeSet(2);
+            userControlUnit5.TypeSet(2);
+            userControlUnit6.TypeSet(2);
         }
 
         public void DisConnect()
@@ -76,7 +97,7 @@ namespace APP
             if (bLogging)
             {
                 ///ロギング停止
-                //LoggingEnd();
+                LoggingEnd();
 
                 bLogging = false;
             }
@@ -184,7 +205,7 @@ namespace APP
             if (bLogging)
             {
                 ///ロギング停止
-                //ClassLogger.Close();
+                LoggingEnd();
 
                 bLogging = false;
             }
@@ -275,7 +296,7 @@ namespace APP
             }
 
             ///グラフプロット
-            bool bConnected = ClassPeripheral.CAN1.IsConnect();
+            bool bConnected = ClassPeripheral.CAN[0].IsConnect();
             if (bConnected)
             {
                 GraphPlot();

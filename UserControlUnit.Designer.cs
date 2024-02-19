@@ -30,7 +30,6 @@
         {
             this.txtID = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.checkValid = new System.Windows.Forms.CheckBox();
             this.hardware = new System.Windows.Forms.ComboBox();
             this.textBoxエラーフラグ = new System.Windows.Forms.TextBox();
@@ -44,7 +43,6 @@
             this.buttonSet製造番号 = new System.Windows.Forms.Button();
             this.buttonGet製造番号 = new System.Windows.Forms.Button();
             this.textBox製造番号 = new System.Windows.Forms.TextBox();
-            this.textBox製造番号W = new APP.TextBoxNumberEx();
             this.label8 = new System.Windows.Forms.Label();
             this.numeric20000ppm = new System.Windows.Forms.NumericUpDown();
             this.numeric0ppm = new System.Windows.Forms.NumericUpDown();
@@ -76,6 +74,11 @@
             this.label17 = new System.Windows.Forms.Label();
             this.buttonFlashInit = new System.Windows.Forms.Button();
             this.directoryEntry1 = new System.DirectoryServices.DirectoryEntry();
+            this.checkExtender = new System.Windows.Forms.CheckBox();
+            this.directoryEntry2 = new System.DirectoryServices.DirectoryEntry();
+            this.textBox製造番号W = new APP.TextBoxNumberEx();
+            this.buttonA1 = new System.Windows.Forms.Button();
+            this.buttonA3 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericCommand)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numeric20000ppm)).BeginInit();
@@ -86,7 +89,7 @@
             // txtID
             // 
             this.txtID.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtID.Location = new System.Drawing.Point(57, 32);
+            this.txtID.Location = new System.Drawing.Point(58, 32);
             this.txtID.MaxLength = 3;
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(49, 19);
@@ -97,20 +100,11 @@
             // label14
             // 
             this.label14.Font = new System.Drawing.Font("メイリオ", 7F);
-            this.label14.Location = new System.Drawing.Point(12, 35);
+            this.label14.Location = new System.Drawing.Point(6, 34);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(50, 19);
+            this.label14.Size = new System.Drawing.Size(65, 19);
             this.label14.TabIndex = 175;
-            this.label14.Text = "CAN-ID";
-            // 
-            // label2
-            // 
-            this.label2.Font = new System.Drawing.Font("メイリオ", 7F);
-            this.label2.Location = new System.Drawing.Point(105, 34);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 19);
-            this.label2.TabIndex = 177;
-            this.label2.Text = " (Hex)";
+            this.label14.Text = "CANID(h)";
             // 
             // checkValid
             // 
@@ -187,7 +181,7 @@
             this.panel1.Controls.Add(this.textBoxReg読出し);
             this.panel1.Controls.Add(this.numericCommand);
             this.panel1.Controls.Add(this.buttonRegRead);
-            this.panel1.Location = new System.Drawing.Point(8, 232);
+            this.panel1.Location = new System.Drawing.Point(8, 265);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(265, 28);
             this.panel1.TabIndex = 256;
@@ -273,14 +267,6 @@
             this.textBox製造番号.ReadOnly = true;
             this.textBox製造番号.Size = new System.Drawing.Size(45, 19);
             this.textBox製造番号.TabIndex = 253;
-            // 
-            // textBox製造番号W
-            // 
-            this.textBox製造番号W.Location = new System.Drawing.Point(91, 209);
-            this.textBox製造番号W.MaxLength = 6;
-            this.textBox製造番号W.Name = "textBox製造番号W";
-            this.textBox製造番号W.Size = new System.Drawing.Size(50, 19);
-            this.textBox製造番号W.TabIndex = 252;
             // 
             // label8
             // 
@@ -563,7 +549,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("メイリオ", 7F);
-            this.label13.Location = new System.Drawing.Point(10, 57);
+            this.label13.Location = new System.Drawing.Point(8, 57);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(47, 15);
             this.label13.TabIndex = 223;
@@ -595,18 +581,71 @@
             this.buttonFlashInit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonFlashInit.Font = new System.Drawing.Font("メイリオ", 7F, System.Drawing.FontStyle.Bold);
             this.buttonFlashInit.ForeColor = System.Drawing.Color.White;
-            this.buttonFlashInit.Location = new System.Drawing.Point(163, 30);
+            this.buttonFlashInit.Location = new System.Drawing.Point(197, 235);
+            this.buttonFlashInit.Margin = new System.Windows.Forms.Padding(0);
             this.buttonFlashInit.Name = "buttonFlashInit";
-            this.buttonFlashInit.Size = new System.Drawing.Size(110, 22);
+            this.buttonFlashInit.Size = new System.Drawing.Size(76, 22);
             this.buttonFlashInit.TabIndex = 259;
-            this.buttonFlashInit.Text = "フラッシュ初期化";
+            this.buttonFlashInit.Text = "Flash初期化";
             this.buttonFlashInit.UseVisualStyleBackColor = false;
             this.buttonFlashInit.Click += new System.EventHandler(this.buttonFlashInit_Click);
+            // 
+            // checkExtender
+            // 
+            this.checkExtender.AutoSize = true;
+            this.checkExtender.Font = new System.Drawing.Font("MS UI Gothic", 9F);
+            this.checkExtender.Location = new System.Drawing.Point(115, 34);
+            this.checkExtender.Name = "checkExtender";
+            this.checkExtender.Size = new System.Drawing.Size(76, 16);
+            this.checkExtender.TabIndex = 260;
+            this.checkExtender.Text = "Expansion";
+            this.checkExtender.UseVisualStyleBackColor = true;
+            // 
+            // textBox製造番号W
+            // 
+            this.textBox製造番号W.Location = new System.Drawing.Point(91, 209);
+            this.textBox製造番号W.MaxLength = 6;
+            this.textBox製造番号W.Name = "textBox製造番号W";
+            this.textBox製造番号W.Size = new System.Drawing.Size(50, 19);
+            this.textBox製造番号W.TabIndex = 252;
+            // 
+            // buttonA1
+            // 
+            this.buttonA1.BackColor = System.Drawing.Color.Red;
+            this.buttonA1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonA1.Font = new System.Drawing.Font("メイリオ", 7F, System.Drawing.FontStyle.Bold);
+            this.buttonA1.ForeColor = System.Drawing.Color.White;
+            this.buttonA1.Location = new System.Drawing.Point(8, 235);
+            this.buttonA1.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonA1.Name = "buttonA1";
+            this.buttonA1.Size = new System.Drawing.Size(76, 22);
+            this.buttonA1.TabIndex = 261;
+            this.buttonA1.Text = "0ppm調整";
+            this.buttonA1.UseVisualStyleBackColor = false;
+            this.buttonA1.Click += new System.EventHandler(this.buttonA1_Click);
+            // 
+            // buttonA3
+            // 
+            this.buttonA3.BackColor = System.Drawing.Color.Red;
+            this.buttonA3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonA3.Font = new System.Drawing.Font("メイリオ", 7F, System.Drawing.FontStyle.Bold);
+            this.buttonA3.ForeColor = System.Drawing.Color.White;
+            this.buttonA3.Location = new System.Drawing.Point(91, 235);
+            this.buttonA3.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonA3.Name = "buttonA3";
+            this.buttonA3.Size = new System.Drawing.Size(100, 22);
+            this.buttonA3.TabIndex = 262;
+            this.buttonA3.Text = "20000ppm調整";
+            this.buttonA3.UseVisualStyleBackColor = false;
+            this.buttonA3.Click += new System.EventHandler(this.buttonA3_Click);
             // 
             // UserControlUnit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.buttonA3);
+            this.Controls.Add(this.buttonA1);
+            this.Controls.Add(this.checkExtender);
             this.Controls.Add(this.buttonFlashInit);
             this.Controls.Add(this.textBoxエラーフラグ);
             this.Controls.Add(this.textBoxステータスフラグ);
@@ -648,9 +687,8 @@
             this.Controls.Add(this.checkValid);
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.label2);
             this.Name = "UserControlUnit";
-            this.Size = new System.Drawing.Size(280, 265);
+            this.Size = new System.Drawing.Size(280, 300);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericCommand)).EndInit();
@@ -664,7 +702,6 @@
 
         #endregion
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label2;
         public System.Windows.Forms.TextBox txtID;
         public System.Windows.Forms.CheckBox checkValid;
         private System.Windows.Forms.ComboBox hardware;
@@ -711,5 +748,9 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Button buttonFlashInit;
         private System.DirectoryServices.DirectoryEntry directoryEntry1;
+        private System.Windows.Forms.CheckBox checkExtender;
+        private System.DirectoryServices.DirectoryEntry directoryEntry2;
+        private System.Windows.Forms.Button buttonA1;
+        private System.Windows.Forms.Button buttonA3;
     }
 }
