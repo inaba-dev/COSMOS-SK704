@@ -39,7 +39,8 @@ namespace APP
         /// パラメータ設定
         /// <summary>
 
-        public static readonly uint CMD_PACKET_TYPE_STD_ID = 0x0600; // コマンド送受信のCAN-ID(STD)
+        public static readonly uint CMD_PACKET_TYPE_STD_ID = 0x0202; // コマンド送受信のCAN-ID(STD)
+        //public static readonly uint CMD_PACKET_TYPE_STD_ID = 0x0600; // コマンド送受信のCAN-ID(STD)
         public static readonly uint CMD_PACKET_TYPE_EXT_ID = 0xF600; // コマンド送受信のCAN-ID(EXT)
 
         public static readonly string[] defErrorFlag = new string[] {

@@ -53,12 +53,12 @@ namespace APP
 
         public void SetEnables(bool bConnected)
         {
-            userControlUnit1.SetEnable(bConnected);
-            userControlUnit2.SetEnable(bConnected);
-            userControlUnit3.SetEnable(bConnected);
-            userControlUnit4.SetEnable(bConnected);
-            userControlUnit5.SetEnable(bConnected);
-            userControlUnit6.SetEnable(bConnected);
+            userControlUnit1.SetEnable(bConnected, bLogging);
+            userControlUnit2.SetEnable(bConnected, bLogging);
+            userControlUnit3.SetEnable(bConnected, bLogging);
+            userControlUnit4.SetEnable(bConnected, bLogging);
+            userControlUnit5.SetEnable(bConnected, bLogging);
+            userControlUnit6.SetEnable(bConnected, bLogging);
         }
 
         /// <summary>

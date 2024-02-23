@@ -35,11 +35,13 @@
             this.textBoxエラーフラグ = new System.Windows.Forms.TextBox();
             this.textBoxステータスフラグ = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.textBoxReg書込み = new System.Windows.Forms.NumericUpDown();
+            this.buttonRegWrite = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
             this.textBoxReg読出し = new System.Windows.Forms.TextBox();
             this.numericCommand = new System.Windows.Forms.NumericUpDown();
             this.buttonRegRead = new System.Windows.Forms.Button();
+            this.label16 = new System.Windows.Forms.Label();
             this.buttonSet製造番号 = new System.Windows.Forms.Button();
             this.buttonGet製造番号 = new System.Windows.Forms.Button();
             this.textBox製造番号 = new System.Windows.Forms.TextBox();
@@ -77,9 +79,6 @@
             this.directoryEntry2 = new System.DirectoryServices.DirectoryEntry();
             this.buttonA1 = new System.Windows.Forms.Button();
             this.buttonA3 = new System.Windows.Forms.Button();
-            this.textBox製造番号W = new APP.TextBoxNumberEx();
-            this.buttonRegWrite = new System.Windows.Forms.Button();
-            this.textBoxReg書込み = new System.Windows.Forms.NumericUpDown();
             this.textBoxGas = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxGasRaw = new System.Windows.Forms.TextBox();
@@ -89,16 +88,17 @@
             this.txtIDB = new System.Windows.Forms.TextBox();
             this.txtIDA = new System.Windows.Forms.TextBox();
             this.buttonID = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.label15 = new System.Windows.Forms.Label();
+            this.textBox製造番号W = new APP.TextBoxNumberEx();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxReg書込み)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericCommand)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numeric20000ppm)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numeric0ppm)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericオフセット)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textBoxReg書込み)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -206,6 +206,29 @@
             this.panel1.Size = new System.Drawing.Size(270, 45);
             this.panel1.TabIndex = 256;
             // 
+            // textBoxReg書込み
+            // 
+            this.textBoxReg書込み.Location = new System.Drawing.Point(82, 19);
+            this.textBoxReg書込み.Maximum = new decimal(new int[] {
+            65535,
+            0,
+            0,
+            0});
+            this.textBoxReg書込み.Name = "textBoxReg書込み";
+            this.textBoxReg書込み.Size = new System.Drawing.Size(50, 19);
+            this.textBoxReg書込み.TabIndex = 257;
+            // 
+            // buttonRegWrite
+            // 
+            this.buttonRegWrite.Font = new System.Drawing.Font("メイリオ", 7F);
+            this.buttonRegWrite.Location = new System.Drawing.Point(188, 19);
+            this.buttonRegWrite.Name = "buttonRegWrite";
+            this.buttonRegWrite.Size = new System.Drawing.Size(38, 21);
+            this.buttonRegWrite.TabIndex = 256;
+            this.buttonRegWrite.Text = "set";
+            this.buttonRegWrite.UseVisualStyleBackColor = true;
+            this.buttonRegWrite.Click += new System.EventHandler(this.buttonRegWrite_Click);
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -215,16 +238,6 @@
             this.label9.Size = new System.Drawing.Size(23, 15);
             this.label9.TabIndex = 214;
             this.label9.Text = "No.";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("メイリオ", 7F);
-            this.label16.Location = new System.Drawing.Point(4, 3);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(107, 15);
-            this.label16.TabIndex = 211;
-            this.label16.Text = "レジスタ Write/Read";
             // 
             // textBoxReg読出し
             // 
@@ -257,6 +270,16 @@
             this.buttonRegRead.Text = "get";
             this.buttonRegRead.UseVisualStyleBackColor = true;
             this.buttonRegRead.Click += new System.EventHandler(this.buttonRegRead_Click);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("メイリオ", 7F);
+            this.label16.Location = new System.Drawing.Point(4, 3);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(107, 15);
+            this.label16.TabIndex = 211;
+            this.label16.Text = "レジスタ Write/Read";
             // 
             // buttonSet製造番号
             // 
@@ -640,37 +663,6 @@
             this.buttonA3.UseVisualStyleBackColor = false;
             this.buttonA3.Click += new System.EventHandler(this.buttonA3_Click);
             // 
-            // textBox製造番号W
-            // 
-            this.textBox製造番号W.Location = new System.Drawing.Point(91, 252);
-            this.textBox製造番号W.MaxLength = 6;
-            this.textBox製造番号W.Name = "textBox製造番号W";
-            this.textBox製造番号W.Size = new System.Drawing.Size(50, 19);
-            this.textBox製造番号W.TabIndex = 252;
-            // 
-            // buttonRegWrite
-            // 
-            this.buttonRegWrite.Font = new System.Drawing.Font("メイリオ", 7F);
-            this.buttonRegWrite.Location = new System.Drawing.Point(188, 19);
-            this.buttonRegWrite.Name = "buttonRegWrite";
-            this.buttonRegWrite.Size = new System.Drawing.Size(38, 21);
-            this.buttonRegWrite.TabIndex = 256;
-            this.buttonRegWrite.Text = "set";
-            this.buttonRegWrite.UseVisualStyleBackColor = true;
-            this.buttonRegWrite.Click += new System.EventHandler(this.buttonRegWrite_Click);
-            // 
-            // textBoxReg書込み
-            // 
-            this.textBoxReg書込み.Location = new System.Drawing.Point(82, 19);
-            this.textBoxReg書込み.Maximum = new decimal(new int[] {
-            65535,
-            0,
-            0,
-            0});
-            this.textBoxReg書込み.Name = "textBoxReg書込み";
-            this.textBoxReg書込み.Size = new System.Drawing.Size(50, 19);
-            this.textBoxReg書込み.TabIndex = 257;
-            // 
             // textBoxGas
             // 
             this.textBoxGas.Font = new System.Drawing.Font("MS UI Gothic", 9F);
@@ -765,17 +757,6 @@
             this.buttonID.UseVisualStyleBackColor = true;
             this.buttonID.Click += new System.EventHandler(this.buttonID_Click);
             // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.txtID);
-            this.panel3.Controls.Add(this.label14);
-            this.panel3.Location = new System.Drawing.Point(4, 34);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(100, 30);
-            this.panel3.TabIndex = 272;
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -796,6 +777,17 @@
             this.label12.TabIndex = 275;
             this.label12.Text = "B";
             // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.txtID);
+            this.panel3.Controls.Add(this.label14);
+            this.panel3.Location = new System.Drawing.Point(4, 34);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(100, 30);
+            this.panel3.TabIndex = 272;
+            // 
             // label15
             // 
             this.label15.AutoSize = true;
@@ -806,10 +798,19 @@
             this.label15.TabIndex = 273;
             this.label15.Text = "変換値/RAW";
             // 
+            // textBox製造番号W
+            // 
+            this.textBox製造番号W.Location = new System.Drawing.Point(91, 252);
+            this.textBox製造番号W.MaxLength = 6;
+            this.textBox製造番号W.Name = "textBox製造番号W";
+            this.textBox製造番号W.Size = new System.Drawing.Size(50, 19);
+            this.textBox製造番号W.TabIndex = 252;
+            // 
             // UserControlUnit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.Controls.Add(this.label15);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -863,11 +864,11 @@
             this.Size = new System.Drawing.Size(280, 355);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxReg書込み)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericCommand)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numeric20000ppm)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numeric0ppm)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericオフセット)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textBoxReg書込み)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);

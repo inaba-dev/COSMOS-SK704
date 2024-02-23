@@ -40,7 +40,7 @@ namespace APP
         /// 
         /// </summary>
 
-        public void SetEnable(bool bConnected)
+        public void SetEnable(bool bConnected, bool bLogging)
         {
             if (!bConnected)
             {
@@ -48,6 +48,7 @@ namespace APP
                 this.txtID.Enabled = true;
                 this.checkValid.Enabled = true;
                 this.Enabled = true;
+                this.BackColor = System.Drawing.SystemColors.Control;
             }
             else
             {
@@ -55,8 +56,9 @@ namespace APP
                 {
                     this.hardware.Enabled = false;
                     this.txtID.Enabled = false;
-                    this.checkValid.Enabled = false;
+                    this.checkValid.Enabled = (bLogging) ? false : true;
                     this.Enabled = true;
+                    this.BackColor = (bLogging && Logger.bValid) ? Color.Beige : System.Drawing.SystemColors.Control;
                 }
                 else
                 {
@@ -64,6 +66,7 @@ namespace APP
                     this.txtID.Enabled = true;
                     this.checkValid.Enabled = true;
                     this.Enabled = false;
+                    this.BackColor = Color.LightGray;
                 }
             }
         }
@@ -130,7 +133,7 @@ namespace APP
                 textBoxCounter.Text = counter.ToString();
 
                 ///濃度
-                int sensorRow = (int)(Msg.DATA[2]) - (int)(Msg.DATA[3]);
+                int sensorRow = (int)((Msg.DATA[1]) << 8) + (int)(Msg.DATA[2]);
                 CurrentSensor = sensorRow;
                 textBox濃度.Text = sensorRow.ToString();
 
