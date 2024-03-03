@@ -39,11 +39,11 @@ namespace APP
         /// パラメータ設定
         /// <summary>
 
-        public static readonly uint CMD_PACKET_TYPE_STD_ID = 0x0202; // コマンド送受信のCAN-ID(STD)
-        //public static readonly uint CMD_PACKET_TYPE_STD_ID = 0x0600; // コマンド送受信のCAN-ID(STD)
-        public static readonly uint CMD_PACKET_TYPE_EXT_ID = 0xF600; // コマンド送受信のCAN-ID(EXT)
+        public static readonly uint CMD_PACKET_TYPE_STD_ID = 0x0600; // コマンド送受信のCAN-ID(STD)
+        public static readonly uint CMD_PACKET_TYPE_EXT_ID = 0x0600; // コマンド送受信のCAN-ID(EXT)
+        public static readonly uint CMD_PACKET_TYPE_E_ID   = 0x0410; // Type-E受信のCAN-ID
 
-        public static readonly string[] defErrorFlag = new string[] {
+        public static readonly string[] defErrorFlag1 = new string[] {
             "センサエラー",
             "濃度エラー",
             "データフラッシュエラー",
@@ -52,6 +52,24 @@ namespace APP
             "回路故障エラー",
             "温度エラー",
             "電源電圧エラー",
+        };
+
+        public static readonly string[] defErrorFlag2 = new string[] {
+            "normal operation",
+            "sensor error"
+        };
+
+        public static readonly string[] defErrorFlag3 = new string[] {
+            "normal operation",
+            "power-on time",
+            "sensor error"
+        };
+
+        public static readonly string[] defErrorFlag4 = new string[] {
+            "内部故障",
+            "使用温度範囲外",
+            "電源下限値以下",
+            "電源上限値以上"
         };
 
         public static readonly string[] defStatusFlag = new string[] {

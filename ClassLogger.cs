@@ -8,25 +8,38 @@ using System.Windows.Forms;
 
 namespace APP
 {
+    public class ClassData
+    {
+        public TPCANMsgFD MsgFD;
+        public string TimeStamp;
+        public string Counter;
+        public string GasConc;
+        public string ErrorFlag;
+        public string Sensor;
+        public string Temp;
+        public string AdValue;
+        public string Crc;
+        public string Valid;
+    }
+
     public class ClassLogger
     {
         public bool bValid { get; set; }
 
         public List<ClassData> DataBuffer = new List<ClassData>();
 
-        public class ClassData
-        {
-            public TPCANMsgFD MsgFD;
-            public string TimeStamp;
-        }
-
         private string[] Header = new string[] {
                 "HW",
                 "CANID",
                 "時刻",
                 "カウンタ",
+                "Gas Conc",
+                "エラーフラグ",
                 "濃度(ppm)",
                 "温度(℃)",
+                "AD値",
+                "CRC(Chksum)",
+                "検知有効性判定"
             };
 
         private string filepath = "";
@@ -83,16 +96,11 @@ namespace APP
         }
 
         /*** データ書込み ***/
-        public void Write(TPCANMsgFD data)
+        public void Write(ClassData data)
         {
-            if (!bInit || !bValid) return;
+            if (!bInit || !bValid) return; 
 
-            ClassData _data = new ClassData();
-
-            _data.TimeStamp = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
-            _data.MsgFD = data;
-
-            DataBuffer.Add(_data);
+            DataBuffer.Add(data);
 
             ///ログデータ書き込み
 #if !TESTMODE
@@ -116,10 +124,6 @@ namespace APP
         {
             string str = "";
 
-            int counter;
-            int sensor;
-            int temperature;
-
             foreach (var buff in DataBuffer)
             {
                 ///Hardware
@@ -128,23 +132,19 @@ namespace APP
                 ///CANID
                 string id = buff.MsgFD.ID.ToString("x3");
 
-                ///送信カウンタ
-                counter = (int)(buff.MsgFD.DATA[0]);
-
-                ///濃度
-                sensor = (int)(buff.MsgFD.DATA[2]) - (int)(buff.MsgFD.DATA[3]);
-
-                ///温度
-                temperature = (buff.MsgFD.DATA[5] > 128) ? buff.MsgFD.DATA[5] - 256 : buff.MsgFD.DATA[5];
-
                 ///書込みデータ生成
                 str +=
                 hardware + "," +
                 id + "," +
                 buff.TimeStamp + "," +
-                counter + "," +
-                sensor + "," +
-                temperature + "\n";
+                buff.Counter + "," +
+                buff.GasConc + "," +
+                buff.ErrorFlag + "," +
+                buff.Sensor + "," +
+                buff.Temp + "," +
+                buff.AdValue + "," +
+                buff.Crc + "," +
+                buff.Valid + "\n";
             }
 
             return str;

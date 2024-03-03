@@ -39,12 +39,12 @@ namespace APP
 
             Initialization();
 
-            userControlUnit1.Initialize(0);
-            userControlUnit2.Initialize(1);
-            userControlUnit3.Initialize(2);
-            userControlUnit4.Initialize(3);
-            userControlUnit5.Initialize(4);
-            userControlUnit6.Initialize(5);
+            userControlStatus1.Initialize(0);
+            userControlStatus2.Initialize(1);
+            userControlStatus3.Initialize(2);
+            userControlStatus4.Initialize(3);
+            userControlStatus5.Initialize(4);
+            userControlStatus6.Initialize(5);
         }
 
         /// <summary>
@@ -53,12 +53,12 @@ namespace APP
 
         public void SetEnables(bool bConnected)
         {
-            userControlUnit1.SetEnable(bConnected, bLogging);
-            userControlUnit2.SetEnable(bConnected, bLogging);
-            userControlUnit3.SetEnable(bConnected, bLogging);
-            userControlUnit4.SetEnable(bConnected, bLogging);
-            userControlUnit5.SetEnable(bConnected, bLogging);
-            userControlUnit6.SetEnable(bConnected, bLogging);
+            userControlStatus1.SetEnable(bConnected, bLogging);
+            userControlStatus2.SetEnable(bConnected, bLogging);
+            userControlStatus3.SetEnable(bConnected, bLogging);
+            userControlStatus4.SetEnable(bConnected, bLogging);
+            userControlStatus5.SetEnable(bConnected, bLogging);
+            userControlStatus6.SetEnable(bConnected, bLogging);
         }
 
         /// <summary>
@@ -67,16 +67,16 @@ namespace APP
 
         public void Setup(List<string> devices)
         {
-            userControlUnit1.HWSetup(devices);
-            userControlUnit2.HWSetup(devices);
-            userControlUnit3.HWSetup(devices);
-            userControlUnit4.HWSetup(devices);
-            userControlUnit5.HWSetup(devices);
-            userControlUnit6.HWSetup(devices);
+            userControlStatus1.HWInit(devices);
+            userControlStatus2.HWInit(devices);
+            userControlStatus3.HWInit(devices);
+            userControlStatus4.HWInit(devices);
+            userControlStatus5.HWInit(devices);
+            userControlStatus6.HWInit(devices);
         }
 
         /// <summary>
-        /// シャットダウン
+        /// 接続/切断
         /// </summary>
 
         public void Connect()
@@ -84,12 +84,21 @@ namespace APP
             ///タイマ開始
             tmrRead.Enabled = true;
 
-            userControlUnit1.TypeSet(Properties.Settings.Default.Type);
-            userControlUnit2.TypeSet(Properties.Settings.Default.Type);
-            userControlUnit3.TypeSet(Properties.Settings.Default.Type);
-            userControlUnit4.TypeSet(Properties.Settings.Default.Type);
-            userControlUnit5.TypeSet(Properties.Settings.Default.Type);
-            userControlUnit6.TypeSet(Properties.Settings.Default.Type);
+            ///Typeセット
+            userControlStatus1.TypeSet(Properties.Settings.Default.Type);
+            userControlStatus2.TypeSet(Properties.Settings.Default.Type);
+            userControlStatus3.TypeSet(Properties.Settings.Default.Type);
+            userControlStatus4.TypeSet(Properties.Settings.Default.Type);
+            userControlStatus5.TypeSet(Properties.Settings.Default.Type);
+            userControlStatus6.TypeSet(Properties.Settings.Default.Type);
+
+            ///H/W情報セット
+            userControlRegister1.HWSetup(userControlStatus1.HWInfo());
+            userControlRegister2.HWSetup(userControlStatus2.HWInfo());
+            userControlRegister3.HWSetup(userControlStatus3.HWInfo());
+            userControlRegister4.HWSetup(userControlStatus4.HWInfo());
+            userControlRegister5.HWSetup(userControlStatus5.HWInfo());
+            userControlRegister6.HWSetup(userControlStatus6.HWInfo());
         }
 
         public void DisConnect()
@@ -130,12 +139,19 @@ namespace APP
         {
             try
             {
-                userControlUnit1.Display(Msg);
-                userControlUnit2.Display(Msg);
-                userControlUnit3.Display(Msg);
-                userControlUnit4.Display(Msg);
-                userControlUnit5.Display(Msg);
-                userControlUnit6.Display(Msg);
+                userControlStatus1.Display(Msg);
+                userControlStatus2.Display(Msg);
+                userControlStatus3.Display(Msg);
+                userControlStatus4.Display(Msg);
+                userControlStatus5.Display(Msg);
+                userControlStatus6.Display(Msg);
+
+                userControlRegister1.Display(Msg);
+                userControlRegister2.Display(Msg);
+                userControlRegister3.Display(Msg);
+                userControlRegister4.Display(Msg);
+                userControlRegister5.Display(Msg);
+                userControlRegister6.Display(Msg);
             }
             catch
             {
@@ -159,19 +175,19 @@ namespace APP
 
                 ///データを最後尾に追加
 
-                _data.sensor[0] = userControlUnit1.CurrentSensor;
-                _data.sensor[1] = userControlUnit2.CurrentSensor;
-                _data.sensor[2] = userControlUnit3.CurrentSensor;
-                _data.sensor[3] = userControlUnit4.CurrentSensor;
-                _data.sensor[4] = userControlUnit5.CurrentSensor;
-                _data.sensor[5] = userControlUnit6.CurrentSensor;
+                _data.sensor[0] = userControlStatus1.CurrentSensor;
+                _data.sensor[1] = userControlStatus2.CurrentSensor;
+                _data.sensor[2] = userControlStatus3.CurrentSensor;
+                _data.sensor[3] = userControlStatus4.CurrentSensor;
+                _data.sensor[4] = userControlStatus5.CurrentSensor;
+                _data.sensor[5] = userControlStatus6.CurrentSensor;
 
-                _data.temperature[0] = userControlUnit1.CurrentTemperature;
-                _data.temperature[1] = userControlUnit2.CurrentTemperature;
-                _data.temperature[2] = userControlUnit3.CurrentTemperature;
-                _data.temperature[3] = userControlUnit4.CurrentTemperature;
-                _data.temperature[4] = userControlUnit5.CurrentTemperature;
-                _data.temperature[5] = userControlUnit6.CurrentTemperature;
+                _data.temperature[0] = userControlStatus1.CurrentTemperature;
+                _data.temperature[1] = userControlStatus2.CurrentTemperature;
+                _data.temperature[2] = userControlStatus3.CurrentTemperature;
+                _data.temperature[3] = userControlStatus4.CurrentTemperature;
+                _data.temperature[4] = userControlStatus5.CurrentTemperature;
+                _data.temperature[5] = userControlStatus6.CurrentTemperature;
 
                 DataArray.Add(_data);
 
@@ -255,22 +271,22 @@ namespace APP
                 return;
             }
 
-            userControlUnit1.LogStart(path);
-            userControlUnit2.LogStart(path);
-            userControlUnit3.LogStart(path);
-            userControlUnit4.LogStart(path);
-            userControlUnit5.LogStart(path);
-            userControlUnit6.LogStart(path);
+            userControlStatus1.LogStart(path);
+            userControlStatus2.LogStart(path);
+            userControlStatus3.LogStart(path);
+            userControlStatus4.LogStart(path);
+            userControlStatus5.LogStart(path);
+            userControlStatus6.LogStart(path);
         }
 
         public void LoggingEnd()
         {
-            userControlUnit1.LogEnd();
-            userControlUnit2.LogEnd();
-            userControlUnit3.LogEnd();
-            userControlUnit4.LogEnd();
-            userControlUnit5.LogEnd();
-            userControlUnit6.LogEnd();
+            userControlStatus1.LogEnd();
+            userControlStatus2.LogEnd();
+            userControlStatus3.LogEnd();
+            userControlStatus4.LogEnd();
+            userControlStatus5.LogEnd();
+            userControlStatus6.LogEnd();
         }
 
         /// <summary>

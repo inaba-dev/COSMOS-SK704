@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace APP
 {
-    public partial class UserControlUnit : UserControl
+    public partial class UserControlRegister : UserControl
     {
         public ClassLogger Logger = new ClassLogger();
 
@@ -18,11 +18,11 @@ namespace APP
         public double CurrentTemperature = 0.0;
         public double CurrentHumidity = 0.0;
 
-        private uint UnitId = 0x0000;
+        private string HardwareId = "";
         private uint CmdId = 0x0000;
         private int UnitNo;
 
-        public UserControlUnit()
+        public UserControlRegister()
         {
             InitializeComponent();
         }
@@ -44,9 +44,6 @@ namespace APP
         {
             if (!bConnected)
             {
-                this.hardware.Enabled = true;
-                this.txtID.Enabled = true;
-                this.checkValid.Enabled = true;
                 this.Enabled = true;
                 this.BackColor = System.Drawing.SystemColors.Control;
             }
@@ -54,17 +51,11 @@ namespace APP
             {
                 if (ClassPeripheral.CAN[UnitNo].IsConnect())
                 {
-                    this.hardware.Enabled = false;
-                    this.txtID.Enabled = false;
-                    this.checkValid.Enabled = (bLogging) ? false : true;
                     this.Enabled = true;
                     this.BackColor = (bLogging && Logger.bValid) ? Color.Beige : System.Drawing.SystemColors.Control;
                 }
                 else
                 {
-                    this.hardware.Enabled = true;
-                    this.txtID.Enabled = true;
-                    this.checkValid.Enabled = true;
                     this.Enabled = false;
                     this.BackColor = Color.LightGray;
                 }
@@ -75,42 +66,11 @@ namespace APP
         /// 
         /// </summary>
 
-        public void HWSetup(List<string> devices)
-        {
-            hardware.Items.Clear();
-
-            foreach(var str in devices)
-            {
-                hardware.Items.Add(str);
-            }
-
-            ///フォーカス
-            if (hardware.Items.Count > 0) hardware.SelectedIndex = 0;
-        }
-
-        public string HWInfo() { return hardware.SelectedItem.ToString(); }
+        public void HWSetup(string device) { HardwareId = device; }
 
         /// <summary>
         /// 
         /// </summary>
-
-        public bool LogStart(string path)
-        {
-            Logger.Init(path, (UnitNo + 1).ToString(), checkValid.Checked);
-
-            return true;
-        }
-
-        public void LogEnd()
-        {
-            Logger.Close();
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-
-        static int times = 0;
 
         public void Display(TPCANMsgFD Msg)
         {
@@ -120,92 +80,10 @@ namespace APP
             string str;
 
             if (!ClassPeripheral.CAN[UnitNo].IsConnect()) return;
+                       
+            CmdId  = Properties.Settings.Default.Extender ? Define.CMD_PACKET_TYPE_EXT_ID : Define.CMD_PACKET_TYPE_STD_ID;
 
-            UnitId = Properties.Settings.Default.Extender ? (0x1FFF << 16) + Convert.ToUInt32(txtID.Text, 16) : Convert.ToUInt32(txtID.Text, 16);
-            CmdId  = Properties.Settings.Default.Extender ? (0x1FFF << 16) + Define.CMD_PACKET_TYPE_EXT_ID : Define.CMD_PACKET_TYPE_STD_ID;
-
-            if (Msg.ID == UnitId && HWInfo() == Msg.DEVICE)
-            {
-                times++;
-                Console.WriteLine("recv:{0}", times);
-                ///送信カウンタ
-                int counter = (int)(Msg.DATA[0]);
-                textBoxCounter.Text = counter.ToString();
-
-                ///濃度
-                int sensorRow = (int)((Msg.DATA[1]) << 8) + (int)(Msg.DATA[2]);
-                CurrentSensor = sensorRow;
-                textBox濃度.Text = sensorRow.ToString();
-
-                ///温度
-                int temperatureRow = (Msg.DATA[5] > 128) ? Msg.DATA[5] - 256 : Msg.DATA[5];
-                CurrentTemperature = temperatureRow;
-                textBox温度.Text = temperatureRow.ToString();
-
-                ///エラーフラグ
-                textBoxエラーフラグ.Text = Msg.DATA[3].ToString("X2");
-                textBoxエラー情報.Text =
-                    ((Msg.DATA[3] & 0x01) == 0x01) ? Define.defErrorFlag[0] :
-                    ((Msg.DATA[3] & 0x02) == 0x02) ? Define.defErrorFlag[1] :
-                    ((Msg.DATA[3] & 0x04) == 0x04) ? Define.defErrorFlag[2] :
-                    ((Msg.DATA[3] & 0x08) == 0x08) ? Define.defErrorFlag[3] :
-                    ((Msg.DATA[3] & 0x10) == 0x10) ? Define.defErrorFlag[4] :
-                    ((Msg.DATA[3] & 0x20) == 0x20) ? Define.defErrorFlag[5] :
-                    ((Msg.DATA[3] & 0x40) == 0x40) ? Define.defErrorFlag[6] :
-                    ((Msg.DATA[3] & 0x80) == 0x80) ? Define.defErrorFlag[7] : "--";
-
-                ///AD値種別
-                textBoxステータスフラグ.Text = Msg.DATA[4].ToString("X2");
-                textBoxステータス情報.Text =
-                    ((Msg.DATA[4] & 0x01) == 0x01) ? Define.defStatusFlag[0] :
-                    ((Msg.DATA[4] & 0x02) == 0x02) ? Define.defStatusFlag[1] :
-                    ((Msg.DATA[4] & 0x04) == 0x04) ? Define.defStatusFlag[2] :
-                    ((Msg.DATA[4] & 0x08) == 0x08) ? Define.defStatusFlag[3] :
-                    ((Msg.DATA[4] & 0x10) == 0x10) ? Define.defStatusFlag[4] :
-                    ((Msg.DATA[4] & 0x20) == 0x20) ? Define.defStatusFlag[5] :
-                    ((Msg.DATA[4] & 0x40) == 0x40) ? Define.defStatusFlag[6] : "--";
-
-                ///ログ記録
-                Logger.Write(Msg);
-            }
-
-            if (Msg.ID == (UnitId + 1) && HWInfo() == Msg.DEVICE)
-            {
-                int dataRaw = 0;
-                int dataCrc = 0;
-
-                if (Properties.Settings.Default.Type == 1)
-                {
-                    ///Gas concentration
-                    dataRaw = (int)(Msg.DATA[2]);
-
-                    ///CRC
-                    dataCrc = (int)(Msg.DATA[0]);
-                    textBoxCRC.Text = dataCrc.ToString("X2");
-                }
-                else if (Properties.Settings.Default.Type == 2)
-                {
-                    ///Gas concentration
-                    dataRaw = (int)(Msg.DATA[0]);
-
-                    ///CRC
-                    dataCrc = (int)((Msg.DATA[1]) << 8) + (int)(Msg.DATA[5]);
-                    textBoxCRC.Text = dataCrc.ToString("X4");
-                }
-
-                if (dataRaw > 220)
-                {
-                    textBoxGasRaw.Text = "Err";
-                    textBoxGas.Text = "Err";
-                }
-                else
-                {
-                    textBoxGasRaw.Text = dataRaw.ToString();
-                    textBoxGas.Text = Func.ConvGas(dataRaw).ToString();
-                }
-            }
-
-            if (Msg.ID == CmdId && HWInfo() == Msg.DEVICE)
+            if (Msg.ID == CmdId && HardwareId == Msg.DEVICE)
             {
                 if (ClassPeripheral.CAN[UnitNo].IsCommandMode())
                 {
@@ -222,7 +100,7 @@ namespace APP
 
                         str = Encoding.ASCII.GetString(Msg.DATA, 4, 4);
 
-                        textBoxReg読出し.Text = str;
+                        //textBoxReg読出し.Text = str;
 
                         Console.WriteLine("Command:{0}, Data:{1}", cmd, str);
 
@@ -564,6 +442,7 @@ namespace APP
 
         private void buttonRegRead_Click(object sender, EventArgs e)
         {
+            /*
             byte[] srcBuff = new byte[8];
 
             int cmd = (int)numericCommand.Value;
@@ -576,10 +455,12 @@ namespace APP
             srcBuff[5] = (byte)(Func.int2asc(cmd % 10));
 
             ClassPeripheral.CAN[UnitNo].CmdFrame(srcBuff);
+            */
         }
 
         private void buttonRegWrite_Click(object sender, EventArgs e)
         {
+            /*
             byte[] srcBuff = new byte[8];
 
             int cmd = (int)numericCommand.Value;
@@ -595,6 +476,7 @@ namespace APP
             srcBuff[7] = (byte)(Func.int2asc(data % 10));
 
             ClassPeripheral.CAN[UnitNo].WriteFrame(srcBuff);
+            */
         }
 
         /// <summary>
@@ -635,30 +517,5 @@ namespace APP
 
             ClassPeripheral.CAN[UnitNo].WriteFrame(srcBuff);
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-
-        private void buttonID_Click(object sender, EventArgs e)
-        {
-            byte[] srcBuff = new byte[8];
-
-            int idA = Convert.ToInt32(txtIDA.Text, 16);
-            int idB = Convert.ToInt32(txtIDB.Text, 16);
-
-            srcBuff[0] = 0x37;
-            srcBuff[1] = 0x31;
-            srcBuff[2] = idA >= 256 ? (byte)(Func.int2asc(idA / 256)) : (byte)' ';
-            srcBuff[3] = idA >= 16 ? (byte)(Func.int2asc((idA % 256) / 16)) : (byte)' ';
-            srcBuff[4] = (byte)(Func.int2asc(idA % 16));
-            srcBuff[5] = idB >= 256 ? (byte)(Func.int2asc(idB / 256)) : (byte)' ';
-            srcBuff[6] = idB >= 16 ? (byte)(Func.int2asc((idB % 256) / 16)) : (byte)' ';
-            srcBuff[7] = (byte)(Func.int2asc(idB % 16));
-
-            ClassPeripheral.CAN[UnitNo].WriteFrame(srcBuff);
-        }
-
-
     }
 }

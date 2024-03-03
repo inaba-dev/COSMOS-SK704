@@ -28,12 +28,12 @@ namespace APP
                 reloadCanSetup();
 
                 ///CAN-ID
-                userControlUnits.userControlUnit1.txtID.Text = Properties.Settings.Default.CanId1.ToString("x");
-                userControlUnits.userControlUnit2.txtID.Text = Properties.Settings.Default.CanId2.ToString("x");
-                userControlUnits.userControlUnit3.txtID.Text = Properties.Settings.Default.CanId3.ToString("x");
-                userControlUnits.userControlUnit4.txtID.Text = Properties.Settings.Default.CanId4.ToString("x");
-                userControlUnits.userControlUnit5.txtID.Text = Properties.Settings.Default.CanId5.ToString("x");
-                userControlUnits.userControlUnit6.txtID.Text = Properties.Settings.Default.CanId6.ToString("x");
+                userControlUnits.userControlStatus1.txtID.Text = Properties.Settings.Default.CanId1.ToString("x");
+                userControlUnits.userControlStatus2.txtID.Text = Properties.Settings.Default.CanId2.ToString("x");
+                userControlUnits.userControlStatus3.txtID.Text = Properties.Settings.Default.CanId3.ToString("x");
+                userControlUnits.userControlStatus4.txtID.Text = Properties.Settings.Default.CanId4.ToString("x");
+                userControlUnits.userControlStatus5.txtID.Text = Properties.Settings.Default.CanId5.ToString("x");
+                userControlUnits.userControlStatus6.txtID.Text = Properties.Settings.Default.CanId6.ToString("x");
 
                 ///Log保存先
                 this.userControlUnits.textBoxPath.Text = Properties.Settings.Default.LogPath;
@@ -63,21 +63,22 @@ namespace APP
             if (radioTypeA.Checked) Properties.Settings.Default.Type = 1;
             else if (radioTypeB.Checked) Properties.Settings.Default.Type = 2;
             else if (radioTypeC.Checked) Properties.Settings.Default.Type = 3;
+            else if (radioTypeD.Checked) Properties.Settings.Default.Type = 4;
 
             ///CAN-ID
-            if (userControlUnits.userControlUnit1.txtID.Text == "") userControlUnits.userControlUnit1.txtID.Text = "0";
-            if (userControlUnits.userControlUnit2.txtID.Text == "") userControlUnits.userControlUnit2.txtID.Text = "0";
-            if (userControlUnits.userControlUnit3.txtID.Text == "") userControlUnits.userControlUnit3.txtID.Text = "0";
-            if (userControlUnits.userControlUnit4.txtID.Text == "") userControlUnits.userControlUnit4.txtID.Text = "0";
-            if (userControlUnits.userControlUnit5.txtID.Text == "") userControlUnits.userControlUnit5.txtID.Text = "0";
-            if (userControlUnits.userControlUnit6.txtID.Text == "") userControlUnits.userControlUnit6.txtID.Text = "0";
+            if (userControlUnits.userControlStatus1.txtID.Text == "") userControlUnits.userControlStatus1.txtID.Text = "0";
+            if (userControlUnits.userControlStatus2.txtID.Text == "") userControlUnits.userControlStatus2.txtID.Text = "0";
+            if (userControlUnits.userControlStatus3.txtID.Text == "") userControlUnits.userControlStatus3.txtID.Text = "0";
+            if (userControlUnits.userControlStatus4.txtID.Text == "") userControlUnits.userControlStatus4.txtID.Text = "0";
+            if (userControlUnits.userControlStatus5.txtID.Text == "") userControlUnits.userControlStatus5.txtID.Text = "0";
+            if (userControlUnits.userControlStatus6.txtID.Text == "") userControlUnits.userControlStatus6.txtID.Text = "0";
 
-            Properties.Settings.Default.CanId1 = Convert.ToUInt32(userControlUnits.userControlUnit1.txtID.Text, 16);
-            Properties.Settings.Default.CanId2 = Convert.ToUInt32(userControlUnits.userControlUnit2.txtID.Text, 16);
-            Properties.Settings.Default.CanId3 = Convert.ToUInt32(userControlUnits.userControlUnit3.txtID.Text, 16);
-            Properties.Settings.Default.CanId4 = Convert.ToUInt32(userControlUnits.userControlUnit4.txtID.Text, 16);
-            Properties.Settings.Default.CanId5 = Convert.ToUInt32(userControlUnits.userControlUnit5.txtID.Text, 16);
-            Properties.Settings.Default.CanId6 = Convert.ToUInt32(userControlUnits.userControlUnit6.txtID.Text, 16);
+            Properties.Settings.Default.CanId1 = Convert.ToUInt32(userControlUnits.userControlStatus1.txtID.Text, 16);
+            Properties.Settings.Default.CanId2 = Convert.ToUInt32(userControlUnits.userControlStatus2.txtID.Text, 16);
+            Properties.Settings.Default.CanId3 = Convert.ToUInt32(userControlUnits.userControlStatus3.txtID.Text, 16);
+            Properties.Settings.Default.CanId4 = Convert.ToUInt32(userControlUnits.userControlStatus4.txtID.Text, 16);
+            Properties.Settings.Default.CanId5 = Convert.ToUInt32(userControlUnits.userControlStatus5.txtID.Text, 16);
+            Properties.Settings.Default.CanId6 = Convert.ToUInt32(userControlUnits.userControlStatus6.txtID.Text, 16);
 
             ///Log保存先
             Properties.Settings.Default.LogPath = this.userControlUnits.textBoxPath.Text;

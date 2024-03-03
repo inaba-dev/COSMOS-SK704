@@ -117,10 +117,13 @@ namespace APP
             ///フォーム保存
             execSaveConfig();
 
+            bool bExtend = false;// (radioTypeB.Checked);
+            uint CmdId = bExtend ? Define.CMD_PACKET_TYPE_EXT_ID : Define.CMD_PACKET_TYPE_STD_ID;
+
             ///接続
             if (cbbChannel1.SelectedIndex >= 0)
             {
-                if (!ClassPeripheral.CAN[0].Connect(Define.CMD_PACKET_TYPE_STD_ID, cbbChannel1.SelectedIndex, false))
+                if (!ClassPeripheral.CAN[0].Connect(CmdId, cbbChannel1.SelectedIndex, bExtend))
                 {
                     MessageBox.Show("機器1の接続に失敗しました。", "接続エラー");
                     //return;
@@ -129,7 +132,7 @@ namespace APP
             /*
             if (cbbChannel2.SelectedIndex >= 0)
             {
-                if (!ClassPeripheral.CAN[1].Connect(Define.CMD_PACKET_TYPE_STD_I, cbbChannel2.SelectedIndex, false))
+                if (!ClassPeripheral.CAN[1].Connect(CmdId, cbbChannel2.SelectedIndex, bExtend))
                 {
                     MessageBox.Show("機器2の接続に失敗しました。", "接続エラー");
                     //return;
@@ -138,7 +141,7 @@ namespace APP
 
             if (cbbChannel3.SelectedIndex >= 0)
             {
-                if (!ClassPeripheral.CAN[2].Connect(Define.CMD_PACKET_TYPE_STD_I, cbbChannel3.SelectedIndex, false))
+                if (!ClassPeripheral.CAN[2].Connect(CmdId, cbbChannel3.SelectedIndex, bExtend))
                 {
                     MessageBox.Show("機器3の接続に失敗しました。", "接続エラー");
                     //return;
@@ -147,7 +150,7 @@ namespace APP
 
             if (cbbChannel4.SelectedIndex >= 0)
             {
-                if (!ClassPeripheral.CAN[3].Connect(Define.CMD_PACKET_TYPE_STD_I, cbbChannel4.SelectedIndex, false))
+                if (!ClassPeripheral.CAN[3].Connect(CmdId, cbbChannel4.SelectedIndex, bExtend))
                 {
                     MessageBox.Show("機器4の接続に失敗しました。", "接続エラー");
                     //return;
@@ -156,7 +159,7 @@ namespace APP
 
             if (cbbChannel5.SelectedIndex >= 0)
             {
-                if (!ClassPeripheral.CAN[4].Connect(Define.CMD_PACKET_TYPE_STD_I, cbbChannel5.SelectedIndex, false))
+                if (!ClassPeripheral.CAN[4].Connect(CmdId, cbbChannel5.SelectedIndex, bExtend))
                 {
                     MessageBox.Show("機器5の接続に失敗しました。", "接続エラー");
                     //return;
@@ -165,13 +168,14 @@ namespace APP
 
             if (cbbChannel6.SelectedIndex >= 0)
             {
-                if (!ClassPeripheral.CAN[5].Connect(Define.CMD_PACKET_TYPE_STD_I, cbbChannel6.SelectedIndex, false))
+                if (!ClassPeripheral.CAN[5].Connect(CmdId, cbbChannel6.SelectedIndex, bExtend))
                 {
                     MessageBox.Show("機器6の接続に失敗しました。", "接続エラー");
                     //return;
                 }
             }
             */
+            
             ///受信スレッド開始
             ReadThread();
 

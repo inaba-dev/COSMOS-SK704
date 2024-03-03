@@ -19,9 +19,14 @@ namespace APP
         /// Gas concentration
         /// </summary>
 
-        public static int ConvGas(int data)
+        public static int ConvGas1(int data)
         {
             return (data - 10) * 500;
+        }
+
+        public static int ConvGas2(int data)
+        {
+            return (data) * 200;
         }
 
         /// <summary>
