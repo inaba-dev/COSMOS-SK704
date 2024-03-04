@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace APP
 {
@@ -21,6 +22,7 @@ namespace APP
         private uint UnitId = 0x0000;
         private uint CmdId = 0x0000;
         private int UnitNo;
+        private int Type = 1;
 
         public UserControlStatus()
         {
@@ -34,6 +36,8 @@ namespace APP
         public void Initialize(int unit)
         {
             UnitNo = unit;
+
+            TypeSelect();
         }
 
         /// <summary>
@@ -45,7 +49,7 @@ namespace APP
             if (!bConnected)
             {
                 this.hardware.Enabled = true;
-                this.txtID.Enabled = true;
+                //this.txtID.Enabled = true;
                 this.checkValid.Enabled = true;
                 this.Enabled = true;
                 this.BackColor = System.Drawing.SystemColors.Control;
@@ -55,7 +59,7 @@ namespace APP
                 if (ClassPeripheral.CAN[UnitNo].IsConnect())
                 {
                     this.hardware.Enabled = false;
-                    this.txtID.Enabled = false;
+                    //this.txtID.Enabled = false;
                     this.checkValid.Enabled = (bLogging) ? false : true;
                     this.Enabled = true;
                     this.BackColor = (bLogging && Logger.bValid) ? Color.Beige : System.Drawing.SystemColors.Control;
@@ -63,7 +67,7 @@ namespace APP
                 else
                 {
                     this.hardware.Enabled = true;
-                    this.txtID.Enabled = true;
+                    //this.txtID.Enabled = true;
                     this.checkValid.Enabled = true;
                     this.Enabled = false;
                     this.BackColor = Color.LightGray;
@@ -110,8 +114,6 @@ namespace APP
         /// 
         /// </summary>
 
-        static int times = 0;
-
         public void Display(TPCANMsgFD Msg)
         {
             if (!ClassPeripheral.CAN[UnitNo].IsConnect()) return;
@@ -123,14 +125,11 @@ namespace APP
             {
                 int dataRaw = 0;
 
-                if (Properties.Settings.Default.Type == 1)
+                if (Type == 1)
                 {
                     ///送信カウンタ
                     int counter = (int)(Msg.DATA[0] & 0xF0) >> 4;
                     textBoxCounter.Text = counter.ToString();
-
-                    ///Gas concentration
-                    textBoxGas.Text = "---";
 
                     ///濃度
                     int sensorRow = (int)((Msg.DATA[1]) << 8) + (int)(Msg.DATA[2]);
@@ -166,19 +165,16 @@ namespace APP
                     textBox有効性.Text = "---";
 
                 }
-                else if (Properties.Settings.Default.Type == 2)
+                else if (Type == 2)
                 {
                     ///送信カウンタ
                     int counter = (int)(Msg.DATA[1] & 0x0F);
                     textBoxCounter.Text = counter.ToString();
 
-                    ///Gas concentration
-                    dataRaw = (int)(Msg.DATA[2]);
-                    textBoxGas.Text = (dataRaw > 90) ? "Err" : Func.ConvGas1(dataRaw).ToString();
-
                     ///濃度
-                    textBox濃度.Text = "---";
-                    CurrentSensor = Func.ConvGas1(dataRaw);
+                    dataRaw = (int)(Msg.DATA[2]);
+                    textBox濃度.Text = (Msg.DATA[2] == 0xFF) ? "Err" : Func.ConvGas1(dataRaw).ToString();
+                    CurrentSensor = (Msg.DATA[2] == 0xFF) ? 0 : Func.ConvGas1(dataRaw);
 
                     ///エラーフラグ
                     textBoxステータス情報.Text =
@@ -196,21 +192,22 @@ namespace APP
 
                     ///CRC
                     int dataCrc = (int)(Msg.DATA[0]);
-                    textBoxCRC.Text = "??"; //dataCrc.ToString("X1");
+                    textBoxCRC.Text = dataCrc.ToString("X2");
                     labelCRC.Text = "CRC8";
 
                     ///有効性
-                    textBox有効性.Text = (Msg.DATA[2] == 0xFF) ? "有効" : "無効";
+                    textBox有効性.Text = (Msg.DATA[2] != 0xFF) ? "有効" : "無効";
                 }
-                else if (Properties.Settings.Default.Type == 3)
+                else if (Type == 3)
                 {
                     ///送信カウンタ
                     int counter = (int)(Msg.DATA[2] & 0x0F);
                     textBoxCounter.Text = counter.ToString();
 
-                    ///Gas concentration
+                    ///濃度
                     dataRaw = (int)(Msg.DATA[0]);
-                    textBoxGas.Text = (dataRaw > 90) ? "Err" : Func.ConvGas1(dataRaw).ToString();
+                    textBox濃度.Text = (Msg.DATA[0] == 0xFF) ? "Err" : Func.ConvGas1(dataRaw).ToString();
+                    CurrentSensor = (Msg.DATA[0] == 0xFF) ? 0 : Func.ConvGas1(dataRaw);
 
                     ///エラーフラグ
                     int errorflag = (int)(Msg.DATA[2] & 0x30) >> 4;
@@ -218,10 +215,6 @@ namespace APP
                         (errorflag == 0x00) ? errorflag.ToString("X2") + " : " + Define.defErrorFlag3[0] :
                         (errorflag == 0x01) ? errorflag.ToString("X2") + " : " + Define.defErrorFlag3[1] :
                         (errorflag == 0x03) ? errorflag.ToString("X2") + " : " + Define.defErrorFlag3[2] : "---";
-
-                    ///濃度
-                    textBox濃度.Text = "---";
-                    CurrentSensor = Func.ConvGas1(dataRaw);
 
                     ///温度
                     int temperatureRow = (Msg.DATA[3] > 128) ? Msg.DATA[3] - 256 : Msg.DATA[3];
@@ -234,21 +227,22 @@ namespace APP
 
                     ///CRC
                     int dataCrc = (int)((Msg.DATA[1]) << 8) + (int)(Msg.DATA[5]);
-                    textBoxCRC.Text = "??"; //dataCrc.ToString("X1");
+                    textBoxCRC.Text = dataCrc.ToString("X4");
                     labelCRC.Text = "CRC16";
 
                     ///有効性
                     textBox有効性.Text = (Msg.DATA[0] != 0xFF) ? "有効" : "無効";
                 }
-                else if (Properties.Settings.Default.Type == 4)
+                else if (Type == 4)
                 {
                     ///送信カウンタ
                     int counter = (int)(Msg.DATA[7] & 0x30) >> 4;
                     textBoxCounter.Text = counter.ToString();
 
-                    ///Gas concentration
+                    ///濃度
                     dataRaw = (int)(Msg.DATA[0]);
-                    textBoxGas.Text = (dataRaw > 220) ? "Err" : Func.ConvGas2(dataRaw).ToString();
+                    textBox濃度.Text = (Msg.DATA[0] == 0xFF) ? "Err" : Func.ConvGas2(dataRaw).ToString();
+                    CurrentSensor = (Msg.DATA[0] == 0xFF) ? 0 : Func.ConvGas2(dataRaw);
 
                     ///エラーフラグ
                     textBoxステータス情報.Text =
@@ -256,10 +250,6 @@ namespace APP
                         ((Msg.DATA[2] & 0x02) == 0x02) ? Msg.DATA[3].ToString("X2") + " : " + Define.defErrorFlag4[1] :
                         ((Msg.DATA[2] & 0x04) == 0x04) ? Msg.DATA[3].ToString("X2") + " : " + Define.defErrorFlag4[2] :
                         ((Msg.DATA[2] & 0x08) == 0x08) ? Msg.DATA[3].ToString("X2") + " : " + Define.defErrorFlag4[3] : "--";
-
-                    ///濃度
-                    textBox濃度.Text = "---";
-                    CurrentSensor = Func.ConvGas2(dataRaw);
 
                     ///温度
                     int temperatureRow = (Msg.DATA[3] > 128) ? Msg.DATA[3] - 256 : Msg.DATA[3];
@@ -279,8 +269,6 @@ namespace APP
                     textBox有効性.Text = ((Msg.DATA[1] & 0x80) == 0x80) ? "有効" : "無効";
                 }
 
-                times++;
-
                 //生データ
 
                 textReg1.Text = (Msg.DATA[0]).ToString("X2");
@@ -298,13 +286,12 @@ namespace APP
                 _data.TimeStamp = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
                 _data.MsgFD = Msg;
                 _data.Counter = textBoxCounter.Text;
-                _data.GasConc = textBoxGas.Text;
                 _data.ErrorFlag = textBoxステータス情報.Text;
                 _data.Sensor = textBox濃度.Text;
                 _data.Temp = textBox温度.Text;
                 _data.AdValue = textBoxセンサAD値.Text;
                 _data.Crc = textBoxCRC.Text;
-                _data.Valid = textBoxGas.Text;
+                _data.Valid = textBox有効性.Text;
 
                 Logger.Write(_data);
             } 
@@ -337,20 +324,7 @@ namespace APP
             e.Handled = true;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
 
-        public void TypeSet(int mode)
-        {
-            byte[] srcBuff = new byte[8];
-
-            srcBuff[0] = 0x37;
-            srcBuff[1] = 0x33;
-            srcBuff[2] = (byte)Func.int2asc(mode);
-
-            ClassPeripheral.CAN[UnitNo].WriteFrame(srcBuff);
-        }
 
         /// <summary>
         /// 
@@ -365,19 +339,53 @@ namespace APP
 
             srcBuff[0] = 0x37;
             srcBuff[1] = 0x31;
-            srcBuff[2] = idA >= 256 ? (byte)(Func.int2asc(idA / 256)) : (byte)' ';
-            srcBuff[3] = idA >= 16 ? (byte)(Func.int2asc((idA % 256) / 16)) : (byte)' ';
-            srcBuff[4] = (byte)(Func.int2asc(idA % 16));
-            srcBuff[5] = idB >= 256 ? (byte)(Func.int2asc(idB / 256)) : (byte)' ';
-            srcBuff[6] = idB >= 16 ? (byte)(Func.int2asc((idB % 256) / 16)) : (byte)' ';
-            srcBuff[7] = (byte)(Func.int2asc(idB % 16));
+            srcBuff[2] = (byte)(idA / 256);
+            srcBuff[3] = (byte)(idA % 256);
+            srcBuff[4] = (byte)(idB / 256);
+            srcBuff[5] = (byte)(idB % 256);
+
+            ClassPeripheral.CAN[UnitNo].WriteFrame(srcBuff);
+
+            Thread.Sleep(500);
+
+            int idC = Convert.ToInt32(txtIDC.Text, 16);
+            int idD = Convert.ToInt32(txtIDD.Text, 16);
+
+            srcBuff[0] = 0x37;
+            srcBuff[1] = 0x35;
+            srcBuff[2] = (byte)(idC / 256);
+            srcBuff[3] = (byte)(idC % 256);
+            srcBuff[4] = (byte)(idD / 256);
+            srcBuff[5] = (byte)(idD % 256);
 
             ClassPeripheral.CAN[UnitNo].WriteFrame(srcBuff);
         }
 
-        private void UserControlStatus_Load(object sender, EventArgs e)
+        private void buttonType_Click(object sender, EventArgs e)
         {
+            if      (radioTypeA.Checked) Type = 1;
+            else if (radioTypeB.Checked) Type = 2;
+            else if (radioTypeC.Checked) Type = 3;
+            else if (radioTypeD.Checked) Type = 4;
 
+            byte[] srcBuff = new byte[8];
+
+            srcBuff[0] = 0x37;
+            srcBuff[1] = 0x33;
+            srcBuff[2] = (byte)Func.int2asc(Type);
+
+            TypeSelect();
+
+            ClassPeripheral.CAN[UnitNo].WriteFrame(srcBuff);
+        }
+
+        private void TypeSelect()
+        {
+            if      (Type == 1) labelType.Text = "TypeA";
+            else if (Type == 2) labelType.Text = "TypeB";
+            else if (Type == 3) labelType.Text = "TypeC";
+            else if (Type == 4) labelType.Text = "TypeD";
+            else                labelType.Text = "不明";
         }
     }
 }

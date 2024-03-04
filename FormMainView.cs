@@ -74,6 +74,7 @@ namespace APP
 
         private void InsertMsgEntry(TPCANMsgFD newMsg)
         {
+#if true
             ClassMessageStatus msgStsCurrentMsg;
             ListViewItem lviCurrentItem;
 
@@ -82,7 +83,7 @@ namespace APP
 
             string id = msgStsCurrentMsg.IdString;
 
-            Console.WriteLine("id:{0}", newMsg.ID);
+            //Console.WriteLine("id:{0}", newMsg.ID);
 
             /// IDの範囲は（00000000-1FFFFFFF）
             if (newMsg.ID >= 0x20000000) return;
@@ -117,6 +118,30 @@ namespace APP
                     }
                 }
             }
+#else
+            ClassMessageStatus msgStsCurrentMsg;
+            ListViewItem lviCurrentItem;
+
+            {
+                // We add this status in the last message list
+                msgStsCurrentMsg = new ClassMessageStatus(newMsg, lstMessages.Items.Count);
+
+                // Add the new ListView Item with the Type of the message
+                lviCurrentItem = lstMessages.Items.Add(msgStsCurrentMsg.TypeString);
+
+                // We set the ID of the message              
+                lviCurrentItem.SubItems.Add(msgStsCurrentMsg.IdString);
+
+                // We set the length of the Message
+                lviCurrentItem.SubItems.Add(msgStsCurrentMsg.CANMsg.DLC.ToString());
+
+                // We set the data of the message. 	
+                lviCurrentItem.SubItems.Add(msgStsCurrentMsg.DataString);
+            }
+
+            ///リストビュー最下部へ移動
+            lstMessages.EnsureVisible(lstMessages.Items.Count - 1);
+#endif
         }
 
         private void SetConnectionStatus()

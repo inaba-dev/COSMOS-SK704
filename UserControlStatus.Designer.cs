@@ -42,8 +42,6 @@
             this.label17 = new System.Windows.Forms.Label();
             this.directoryEntry1 = new System.DirectoryServices.DirectoryEntry();
             this.directoryEntry2 = new System.DirectoryServices.DirectoryEntry();
-            this.textBoxGas = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
             this.txtIDB = new System.Windows.Forms.TextBox();
@@ -78,9 +76,22 @@
             this.textBoxセンサAD値 = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.radioTypeD = new System.Windows.Forms.RadioButton();
+            this.label2 = new System.Windows.Forms.Label();
+            this.buttonType = new System.Windows.Forms.Button();
+            this.radioTypeC = new System.Windows.Forms.RadioButton();
+            this.radioTypeA = new System.Windows.Forms.RadioButton();
+            this.radioTypeB = new System.Windows.Forms.RadioButton();
+            this.labelType = new System.Windows.Forms.Label();
+            this.txtIDD = new System.Windows.Forms.TextBox();
+            this.txtIDC = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtID
@@ -108,7 +119,7 @@
             // 
             this.checkValid.AutoSize = true;
             this.checkValid.Font = new System.Drawing.Font("メイリオ", 8F);
-            this.checkValid.Location = new System.Drawing.Point(61, 37);
+            this.checkValid.Location = new System.Drawing.Point(93, 40);
             this.checkValid.Name = "checkValid";
             this.checkValid.Size = new System.Drawing.Size(71, 21);
             this.checkValid.TabIndex = 182;
@@ -156,7 +167,7 @@
             // textBoxステータス情報
             // 
             this.textBoxステータス情報.Font = new System.Drawing.Font("MS UI Gothic", 10F);
-            this.textBoxステータス情報.Location = new System.Drawing.Point(92, 145);
+            this.textBoxステータス情報.Location = new System.Drawing.Point(92, 116);
             this.textBoxステータス情報.Name = "textBoxステータス情報";
             this.textBoxステータス情報.ReadOnly = true;
             this.textBoxステータス情報.Size = new System.Drawing.Size(160, 21);
@@ -166,7 +177,7 @@
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("メイリオ", 8F);
-            this.label3.Location = new System.Drawing.Point(4, 144);
+            this.label3.Location = new System.Drawing.Point(4, 115);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(85, 20);
             this.label3.TabIndex = 229;
@@ -176,7 +187,7 @@
             // textBox温度
             // 
             this.textBox温度.Font = new System.Drawing.Font("MS UI Gothic", 10F);
-            this.textBox温度.Location = new System.Drawing.Point(92, 172);
+            this.textBox温度.Location = new System.Drawing.Point(92, 142);
             this.textBox温度.Name = "textBox温度";
             this.textBox温度.ReadOnly = true;
             this.textBox温度.Size = new System.Drawing.Size(70, 21);
@@ -186,7 +197,7 @@
             // textBoxCounter
             // 
             this.textBoxCounter.Font = new System.Drawing.Font("MS UI Gothic", 10F);
-            this.textBoxCounter.Location = new System.Drawing.Point(93, 65);
+            this.textBoxCounter.Location = new System.Drawing.Point(92, 65);
             this.textBoxCounter.Name = "textBoxCounter";
             this.textBoxCounter.ReadOnly = true;
             this.textBoxCounter.Size = new System.Drawing.Size(70, 21);
@@ -196,7 +207,7 @@
             // textBox濃度
             // 
             this.textBox濃度.Font = new System.Drawing.Font("MS UI Gothic", 10F);
-            this.textBox濃度.Location = new System.Drawing.Point(92, 118);
+            this.textBox濃度.Location = new System.Drawing.Point(92, 90);
             this.textBox濃度.Name = "textBox濃度";
             this.textBox濃度.ReadOnly = true;
             this.textBox濃度.Size = new System.Drawing.Size(70, 21);
@@ -216,7 +227,7 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("メイリオ", 8F);
-            this.label1.Location = new System.Drawing.Point(3, 173);
+            this.label1.Location = new System.Drawing.Point(3, 143);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(85, 20);
             this.label1.TabIndex = 227;
@@ -226,52 +237,36 @@
             // label17
             // 
             this.label17.Font = new System.Drawing.Font("メイリオ", 8F);
-            this.label17.Location = new System.Drawing.Point(3, 118);
+            this.label17.Location = new System.Drawing.Point(3, 90);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(85, 20);
             this.label17.TabIndex = 225;
             this.label17.Text = "濃度";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBoxGas
-            // 
-            this.textBoxGas.Font = new System.Drawing.Font("MS UI Gothic", 10F);
-            this.textBoxGas.Location = new System.Drawing.Point(93, 91);
-            this.textBoxGas.Name = "textBoxGas";
-            this.textBoxGas.ReadOnly = true;
-            this.textBoxGas.Size = new System.Drawing.Size(70, 21);
-            this.textBoxGas.TabIndex = 264;
-            this.textBoxGas.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label2
-            // 
-            this.label2.Font = new System.Drawing.Font("メイリオ", 8F);
-            this.label2.Location = new System.Drawing.Point(4, 91);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(85, 20);
-            this.label2.TabIndex = 263;
-            this.label2.Text = "GAS conc.";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.txtIDD);
             this.panel2.Controls.Add(this.label16);
+            this.panel2.Controls.Add(this.label24);
             this.panel2.Controls.Add(this.txtIDB);
+            this.panel2.Controls.Add(this.txtIDC);
             this.panel2.Controls.Add(this.txtIDA);
+            this.panel2.Controls.Add(this.label23);
             this.panel2.Controls.Add(this.buttonID);
             this.panel2.Controls.Add(this.label11);
             this.panel2.Controls.Add(this.label12);
-            this.panel2.Location = new System.Drawing.Point(3, 284);
+            this.panel2.Location = new System.Drawing.Point(4, 291);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(347, 50);
+            this.panel2.Size = new System.Drawing.Size(347, 45);
             this.panel2.TabIndex = 271;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("メイリオ", 8F);
-            this.label16.Location = new System.Drawing.Point(7, 15);
+            this.label16.Location = new System.Drawing.Point(12, 15);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(69, 17);
             this.label16.TabIndex = 276;
@@ -280,7 +275,7 @@
             // txtIDB
             // 
             this.txtIDB.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtIDB.Location = new System.Drawing.Point(131, 22);
+            this.txtIDB.Location = new System.Drawing.Point(136, 20);
             this.txtIDB.MaxLength = 3;
             this.txtIDB.Name = "txtIDB";
             this.txtIDB.Size = new System.Drawing.Size(40, 19);
@@ -291,7 +286,7 @@
             // txtIDA
             // 
             this.txtIDA.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtIDA.Location = new System.Drawing.Point(83, 22);
+            this.txtIDA.Location = new System.Drawing.Point(90, 20);
             this.txtIDA.MaxLength = 3;
             this.txtIDA.Name = "txtIDA";
             this.txtIDA.Size = new System.Drawing.Size(40, 19);
@@ -302,10 +297,10 @@
             // buttonID
             // 
             this.buttonID.Font = new System.Drawing.Font("メイリオ", 7F);
-            this.buttonID.Location = new System.Drawing.Point(278, 9);
+            this.buttonID.Location = new System.Drawing.Point(278, 11);
             this.buttonID.Margin = new System.Windows.Forms.Padding(0);
             this.buttonID.Name = "buttonID";
-            this.buttonID.Size = new System.Drawing.Size(58, 31);
+            this.buttonID.Size = new System.Drawing.Size(58, 26);
             this.buttonID.TabIndex = 271;
             this.buttonID.Text = "ID変更";
             this.buttonID.UseVisualStyleBackColor = true;
@@ -315,7 +310,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("メイリオ", 7F);
-            this.label11.Location = new System.Drawing.Point(85, 6);
+            this.label11.Location = new System.Drawing.Point(91, 3);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(37, 15);
             this.label11.TabIndex = 274;
@@ -325,7 +320,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("メイリオ", 7F);
-            this.label12.Location = new System.Drawing.Point(133, 7);
+            this.label12.Location = new System.Drawing.Point(139, 3);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(37, 15);
             this.label12.TabIndex = 275;
@@ -355,7 +350,7 @@
             // textBoxCRC
             // 
             this.textBoxCRC.Font = new System.Drawing.Font("MS UI Gothic", 10F);
-            this.textBoxCRC.Location = new System.Drawing.Point(92, 224);
+            this.textBoxCRC.Location = new System.Drawing.Point(92, 194);
             this.textBoxCRC.Name = "textBoxCRC";
             this.textBoxCRC.ReadOnly = true;
             this.textBoxCRC.Size = new System.Drawing.Size(70, 21);
@@ -365,7 +360,7 @@
             // labelCRC
             // 
             this.labelCRC.Font = new System.Drawing.Font("メイリオ", 8F);
-            this.labelCRC.Location = new System.Drawing.Point(4, 225);
+            this.labelCRC.Location = new System.Drawing.Point(4, 195);
             this.labelCRC.Name = "labelCRC";
             this.labelCRC.Size = new System.Drawing.Size(85, 20);
             this.labelCRC.TabIndex = 273;
@@ -375,7 +370,7 @@
             // label6
             // 
             this.label6.Font = new System.Drawing.Font("メイリオ", 8F);
-            this.label6.Location = new System.Drawing.Point(25, 4);
+            this.label6.Location = new System.Drawing.Point(25, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(55, 20);
             this.label6.TabIndex = 275;
@@ -402,15 +397,15 @@
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Location = new System.Drawing.Point(263, 42);
+            this.panel1.Location = new System.Drawing.Point(263, 41);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(87, 235);
+            this.panel1.Size = new System.Drawing.Size(87, 200);
             this.panel1.TabIndex = 276;
             // 
             // textReg8
             // 
             this.textReg8.Font = new System.Drawing.Font("MS UI Gothic", 9F);
-            this.textReg8.Location = new System.Drawing.Point(30, 205);
+            this.textReg8.Location = new System.Drawing.Point(30, 175);
             this.textReg8.Name = "textReg8";
             this.textReg8.ReadOnly = true;
             this.textReg8.Size = new System.Drawing.Size(46, 19);
@@ -420,7 +415,7 @@
             // textReg7
             // 
             this.textReg7.Font = new System.Drawing.Font("MS UI Gothic", 9F);
-            this.textReg7.Location = new System.Drawing.Point(30, 179);
+            this.textReg7.Location = new System.Drawing.Point(30, 153);
             this.textReg7.Name = "textReg7";
             this.textReg7.ReadOnly = true;
             this.textReg7.Size = new System.Drawing.Size(46, 19);
@@ -430,7 +425,7 @@
             // textReg6
             // 
             this.textReg6.Font = new System.Drawing.Font("MS UI Gothic", 9F);
-            this.textReg6.Location = new System.Drawing.Point(30, 154);
+            this.textReg6.Location = new System.Drawing.Point(30, 131);
             this.textReg6.Name = "textReg6";
             this.textReg6.ReadOnly = true;
             this.textReg6.Size = new System.Drawing.Size(46, 19);
@@ -440,7 +435,7 @@
             // textReg5
             // 
             this.textReg5.Font = new System.Drawing.Font("MS UI Gothic", 9F);
-            this.textReg5.Location = new System.Drawing.Point(30, 128);
+            this.textReg5.Location = new System.Drawing.Point(30, 108);
             this.textReg5.Name = "textReg5";
             this.textReg5.ReadOnly = true;
             this.textReg5.Size = new System.Drawing.Size(46, 19);
@@ -450,7 +445,7 @@
             // textReg4
             // 
             this.textReg4.Font = new System.Drawing.Font("MS UI Gothic", 9F);
-            this.textReg4.Location = new System.Drawing.Point(30, 103);
+            this.textReg4.Location = new System.Drawing.Point(30, 86);
             this.textReg4.Name = "textReg4";
             this.textReg4.ReadOnly = true;
             this.textReg4.Size = new System.Drawing.Size(46, 19);
@@ -460,7 +455,7 @@
             // textReg3
             // 
             this.textReg3.Font = new System.Drawing.Font("MS UI Gothic", 9F);
-            this.textReg3.Location = new System.Drawing.Point(30, 78);
+            this.textReg3.Location = new System.Drawing.Point(30, 64);
             this.textReg3.Name = "textReg3";
             this.textReg3.ReadOnly = true;
             this.textReg3.Size = new System.Drawing.Size(46, 19);
@@ -470,7 +465,7 @@
             // textReg2
             // 
             this.textReg2.Font = new System.Drawing.Font("MS UI Gothic", 9F);
-            this.textReg2.Location = new System.Drawing.Point(30, 53);
+            this.textReg2.Location = new System.Drawing.Point(30, 42);
             this.textReg2.Name = "textReg2";
             this.textReg2.ReadOnly = true;
             this.textReg2.Size = new System.Drawing.Size(46, 19);
@@ -480,7 +475,7 @@
             // textReg1
             // 
             this.textReg1.Font = new System.Drawing.Font("MS UI Gothic", 9F);
-            this.textReg1.Location = new System.Drawing.Point(30, 28);
+            this.textReg1.Location = new System.Drawing.Point(30, 20);
             this.textReg1.Name = "textReg1";
             this.textReg1.ReadOnly = true;
             this.textReg1.Size = new System.Drawing.Size(46, 19);
@@ -490,87 +485,87 @@
             // label20
             // 
             this.label20.Font = new System.Drawing.Font("メイリオ", 8F);
-            this.label20.Location = new System.Drawing.Point(5, 204);
+            this.label20.Location = new System.Drawing.Point(5, 174);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(25, 20);
             this.label20.TabIndex = 283;
-            this.label20.Text = "8";
+            this.label20.Text = "7";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label19
             // 
             this.label19.Font = new System.Drawing.Font("メイリオ", 8F);
-            this.label19.Location = new System.Drawing.Point(5, 178);
+            this.label19.Location = new System.Drawing.Point(5, 152);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(25, 20);
             this.label19.TabIndex = 282;
-            this.label19.Text = "7";
+            this.label19.Text = "6";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label18
             // 
             this.label18.Font = new System.Drawing.Font("メイリオ", 8F);
-            this.label18.Location = new System.Drawing.Point(5, 153);
+            this.label18.Location = new System.Drawing.Point(5, 130);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(25, 20);
             this.label18.TabIndex = 281;
-            this.label18.Text = "6";
+            this.label18.Text = "5";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label15
             // 
             this.label15.Font = new System.Drawing.Font("メイリオ", 8F);
-            this.label15.Location = new System.Drawing.Point(5, 128);
+            this.label15.Location = new System.Drawing.Point(5, 108);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(25, 20);
             this.label15.TabIndex = 280;
-            this.label15.Text = "5";
+            this.label15.Text = "4";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label10
             // 
             this.label10.Font = new System.Drawing.Font("メイリオ", 8F);
-            this.label10.Location = new System.Drawing.Point(5, 103);
+            this.label10.Location = new System.Drawing.Point(5, 86);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(25, 20);
             this.label10.TabIndex = 279;
-            this.label10.Text = "4";
+            this.label10.Text = "3";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label9
             // 
             this.label9.Font = new System.Drawing.Font("メイリオ", 8F);
-            this.label9.Location = new System.Drawing.Point(5, 77);
+            this.label9.Location = new System.Drawing.Point(5, 63);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(25, 20);
             this.label9.TabIndex = 278;
-            this.label9.Text = "3";
+            this.label9.Text = "2";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label8
             // 
             this.label8.Font = new System.Drawing.Font("メイリオ", 8F);
-            this.label8.Location = new System.Drawing.Point(5, 53);
+            this.label8.Location = new System.Drawing.Point(5, 42);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(25, 20);
             this.label8.TabIndex = 277;
-            this.label8.Text = "2";
+            this.label8.Text = "1";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label7
             // 
             this.label7.Font = new System.Drawing.Font("メイリオ", 8F);
-            this.label7.Location = new System.Drawing.Point(5, 26);
+            this.label7.Location = new System.Drawing.Point(5, 18);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(25, 20);
             this.label7.TabIndex = 276;
-            this.label7.Text = "1";
+            this.label7.Text = "0";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // textBox有効性
             // 
             this.textBox有効性.Font = new System.Drawing.Font("MS UI Gothic", 10F);
-            this.textBox有効性.Location = new System.Drawing.Point(92, 250);
+            this.textBox有効性.Location = new System.Drawing.Point(92, 220);
             this.textBox有効性.Name = "textBox有効性";
             this.textBox有効性.ReadOnly = true;
             this.textBox有効性.Size = new System.Drawing.Size(70, 21);
@@ -580,7 +575,7 @@
             // label21
             // 
             this.label21.Font = new System.Drawing.Font("メイリオ", 8F);
-            this.label21.Location = new System.Drawing.Point(4, 251);
+            this.label21.Location = new System.Drawing.Point(4, 221);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(85, 20);
             this.label21.TabIndex = 277;
@@ -590,7 +585,7 @@
             // textBoxセンサAD値
             // 
             this.textBoxセンサAD値.Font = new System.Drawing.Font("MS UI Gothic", 10F);
-            this.textBoxセンサAD値.Location = new System.Drawing.Point(92, 198);
+            this.textBoxセンサAD値.Location = new System.Drawing.Point(92, 168);
             this.textBoxセンサAD値.Name = "textBoxセンサAD値";
             this.textBoxセンサAD値.ReadOnly = true;
             this.textBoxセンサAD値.Size = new System.Drawing.Size(70, 21);
@@ -600,7 +595,7 @@
             // label22
             // 
             this.label22.Font = new System.Drawing.Font("メイリオ", 8F);
-            this.label22.Location = new System.Drawing.Point(3, 199);
+            this.label22.Location = new System.Drawing.Point(3, 169);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(85, 20);
             this.label22.TabIndex = 279;
@@ -610,18 +605,156 @@
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("メイリオ", 8F);
-            this.label4.Location = new System.Drawing.Point(164, 225);
+            this.label4.Location = new System.Drawing.Point(164, 195);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(72, 20);
             this.label4.TabIndex = 281;
             this.label4.Text = "(16進表記)";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // panel4
+            // 
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.radioTypeD);
+            this.panel4.Controls.Add(this.label2);
+            this.panel4.Controls.Add(this.buttonType);
+            this.panel4.Controls.Add(this.radioTypeC);
+            this.panel4.Controls.Add(this.radioTypeA);
+            this.panel4.Controls.Add(this.radioTypeB);
+            this.panel4.Location = new System.Drawing.Point(4, 246);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(347, 40);
+            this.panel4.TabIndex = 282;
+            // 
+            // radioTypeD
+            // 
+            this.radioTypeD.AutoSize = true;
+            this.radioTypeD.Font = new System.Drawing.Font("メイリオ", 8F);
+            this.radioTypeD.Location = new System.Drawing.Point(233, 8);
+            this.radioTypeD.Name = "radioTypeD";
+            this.radioTypeD.Size = new System.Drawing.Size(34, 21);
+            this.radioTypeD.TabIndex = 280;
+            this.radioTypeD.Text = "D";
+            this.radioTypeD.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("メイリオ", 8F);
+            this.label2.Location = new System.Drawing.Point(12, 11);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(55, 17);
+            this.label2.TabIndex = 276;
+            this.label2.Text = "Type変更";
+            // 
+            // buttonType
+            // 
+            this.buttonType.Font = new System.Drawing.Font("メイリオ", 7F);
+            this.buttonType.Location = new System.Drawing.Point(278, 6);
+            this.buttonType.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonType.Name = "buttonType";
+            this.buttonType.Size = new System.Drawing.Size(58, 26);
+            this.buttonType.TabIndex = 271;
+            this.buttonType.Text = "Type変更";
+            this.buttonType.UseVisualStyleBackColor = true;
+            this.buttonType.Click += new System.EventHandler(this.buttonType_Click);
+            // 
+            // radioTypeC
+            // 
+            this.radioTypeC.AutoSize = true;
+            this.radioTypeC.Font = new System.Drawing.Font("メイリオ", 8F);
+            this.radioTypeC.Location = new System.Drawing.Point(186, 8);
+            this.radioTypeC.Name = "radioTypeC";
+            this.radioTypeC.Size = new System.Drawing.Size(33, 21);
+            this.radioTypeC.TabIndex = 279;
+            this.radioTypeC.Text = "C";
+            this.radioTypeC.UseVisualStyleBackColor = true;
+            // 
+            // radioTypeA
+            // 
+            this.radioTypeA.AutoSize = true;
+            this.radioTypeA.Checked = true;
+            this.radioTypeA.Font = new System.Drawing.Font("メイリオ", 8F);
+            this.radioTypeA.Location = new System.Drawing.Point(89, 9);
+            this.radioTypeA.Name = "radioTypeA";
+            this.radioTypeA.Size = new System.Drawing.Size(33, 21);
+            this.radioTypeA.TabIndex = 277;
+            this.radioTypeA.TabStop = true;
+            this.radioTypeA.Text = "A";
+            this.radioTypeA.UseVisualStyleBackColor = true;
+            // 
+            // radioTypeB
+            // 
+            this.radioTypeB.AutoSize = true;
+            this.radioTypeB.Font = new System.Drawing.Font("メイリオ", 8F);
+            this.radioTypeB.Location = new System.Drawing.Point(138, 9);
+            this.radioTypeB.Name = "radioTypeB";
+            this.radioTypeB.Size = new System.Drawing.Size(33, 21);
+            this.radioTypeB.TabIndex = 278;
+            this.radioTypeB.Text = "B";
+            this.radioTypeB.UseVisualStyleBackColor = true;
+            // 
+            // labelType
+            // 
+            this.labelType.BackColor = System.Drawing.Color.Red;
+            this.labelType.Font = new System.Drawing.Font("メイリオ", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelType.ForeColor = System.Drawing.Color.White;
+            this.labelType.Location = new System.Drawing.Point(18, 39);
+            this.labelType.Name = "labelType";
+            this.labelType.Size = new System.Drawing.Size(60, 20);
+            this.labelType.TabIndex = 283;
+            this.labelType.Text = "TypeA";
+            this.labelType.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtIDD
+            // 
+            this.txtIDD.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtIDD.Location = new System.Drawing.Point(227, 20);
+            this.txtIDD.MaxLength = 3;
+            this.txtIDD.Name = "txtIDD";
+            this.txtIDD.Size = new System.Drawing.Size(40, 19);
+            this.txtIDD.TabIndex = 278;
+            this.txtIDD.Text = "420";
+            this.txtIDD.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtIDC
+            // 
+            this.txtIDC.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtIDC.Location = new System.Drawing.Point(181, 20);
+            this.txtIDC.MaxLength = 3;
+            this.txtIDC.Name = "txtIDC";
+            this.txtIDC.Size = new System.Drawing.Size(40, 19);
+            this.txtIDC.TabIndex = 277;
+            this.txtIDC.Text = "410";
+            this.txtIDC.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("メイリオ", 7F);
+            this.label23.Location = new System.Drawing.Point(182, 3);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(37, 15);
+            this.label23.TabIndex = 279;
+            this.label23.Text = "TypeC";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("メイリオ", 7F);
+            this.label24.Location = new System.Drawing.Point(228, 4);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(37, 15);
+            this.label24.TabIndex = 280;
+            this.label24.Text = "TypeD";
+            // 
             // UserControlStatus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.Controls.Add(this.labelType);
+            this.Controls.Add(this.panel4);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBoxセンサAD値);
             this.Controls.Add(this.label22);
@@ -632,7 +765,6 @@
             this.Controls.Add(this.labelCRC);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.textBoxGas);
             this.Controls.Add(this.textBoxステータス情報);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox温度);
@@ -643,16 +775,16 @@
             this.Controls.Add(this.label17);
             this.Controls.Add(this.hardware);
             this.Controls.Add(this.checkValid);
-            this.Controls.Add(this.label2);
             this.Name = "UserControlStatus";
             this.Size = new System.Drawing.Size(358, 340);
-            this.Load += new System.EventHandler(this.UserControlStatus_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -673,8 +805,6 @@
         private System.Windows.Forms.Label label17;
         private System.DirectoryServices.DirectoryEntry directoryEntry1;
         private System.DirectoryServices.DirectoryEntry directoryEntry2;
-        private System.Windows.Forms.TextBox textBoxGas;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
         public System.Windows.Forms.TextBox txtIDB;
         public System.Windows.Forms.TextBox txtIDA;
@@ -709,5 +839,17 @@
         private System.Windows.Forms.TextBox textBoxセンサAD値;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button buttonType;
+        public System.Windows.Forms.RadioButton radioTypeD;
+        public System.Windows.Forms.RadioButton radioTypeC;
+        public System.Windows.Forms.RadioButton radioTypeA;
+        public System.Windows.Forms.RadioButton radioTypeB;
+        private System.Windows.Forms.Label labelType;
+        public System.Windows.Forms.TextBox txtIDD;
+        public System.Windows.Forms.TextBox txtIDC;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label24;
     }
 }

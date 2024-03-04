@@ -517,5 +517,19 @@ namespace APP
 
             ClassPeripheral.CAN[UnitNo].WriteFrame(srcBuff);
         }
+
+        private void buttonTime_Click(object sender, EventArgs e)
+        {
+            byte[] srcBuff = new byte[8];
+
+            int value = (int)numericInterval.Value;
+
+            srcBuff[0] = 0x37;
+            srcBuff[1] = 0x32;
+            srcBuff[2] = (byte)(value / 256);
+            srcBuff[3] = (byte)(value % 256);
+
+            ClassPeripheral.CAN[UnitNo].WriteFrame(srcBuff);
+        }
     }
 }

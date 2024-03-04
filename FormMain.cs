@@ -31,8 +31,19 @@ namespace APP
 
             InitializeComponent();
 
-            ///CANセットアップ
-            reloadCanSetup();
+            ///CAN初期化
+            for (int i = 0; i < ClassPeripheral.CAN.Count(); i++)
+            {
+                ClassPeripheral.CAN[i].Init();
+            }
+
+            ///CANイベント登録
+            ClassPeripheral.CAN[0].m_ReceiveEvent += RecvEvent;
+            ClassPeripheral.CAN[1].m_ReceiveEvent += RecvEvent;
+            ClassPeripheral.CAN[2].m_ReceiveEvent += RecvEvent;
+            ClassPeripheral.CAN[3].m_ReceiveEvent += RecvEvent;
+            ClassPeripheral.CAN[4].m_ReceiveEvent += RecvEvent;
+            ClassPeripheral.CAN[5].m_ReceiveEvent += RecvEvent;
 
             ///
             execLoadConfig();
@@ -129,7 +140,7 @@ namespace APP
                     //return;
                 }
             }
-            /*
+
             if (cbbChannel2.SelectedIndex >= 0)
             {
                 if (!ClassPeripheral.CAN[1].Connect(CmdId, cbbChannel2.SelectedIndex, bExtend))
@@ -174,7 +185,6 @@ namespace APP
                     //return;
                 }
             }
-            */
             
             ///受信スレッド開始
             ReadThread();
@@ -325,21 +335,14 @@ namespace APP
         /// </summary>
 
         private void reloadCanSetup()
-        {
-            ///CAN初期化
-            for (int i = 0; i < ClassPeripheral.CAN.Count(); i++)
-            {
-                ClassPeripheral.CAN[i].Init();
-            }           
-
-
-            ///ボーレート設定
+        {   
+            ///ボーレートイベント
             cbbBaudrates_SelectedIndexChanged(null, null);
 
             ///ハードウェア設定
             btnHwRefresh();
 
-            ///イベント登録
+            ///ボーレート設定
             for (int i = 0; i < ClassPeripheral.CAN.Count(); i++)
             {
                 if (ClassPeripheral.CAN[i] != null)
@@ -347,13 +350,6 @@ namespace APP
                     ClassPeripheral.CAN[i].cbbBaudrates_SelectedIndexChanged(cbbBaudrates.SelectedIndex);
                 }
             }
-
-            ClassPeripheral.CAN[0].m_ReceiveEvent += RecvEvent;
-            ClassPeripheral.CAN[1].m_ReceiveEvent += RecvEvent;
-            ClassPeripheral.CAN[2].m_ReceiveEvent += RecvEvent;
-            ClassPeripheral.CAN[3].m_ReceiveEvent += RecvEvent;
-            ClassPeripheral.CAN[4].m_ReceiveEvent += RecvEvent;
-            ClassPeripheral.CAN[5].m_ReceiveEvent += RecvEvent;
         }
 
         private void txtID_KeyPress(object sender, KeyPressEventArgs e)

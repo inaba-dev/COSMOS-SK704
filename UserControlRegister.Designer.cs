@@ -58,15 +58,21 @@
             this.buttonFlashInit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.numericInterval = new System.Windows.Forms.NumericUpDown();
+            this.label16 = new System.Windows.Forms.Label();
+            this.buttonTime = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numeric20000ppm)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numeric0ppm)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericオフセット)).BeginInit();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericInterval)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonSet製造番号
             // 
             this.buttonSet製造番号.Font = new System.Drawing.Font("メイリオ", 9F);
-            this.buttonSet製造番号.Location = new System.Drawing.Point(243, 266);
+            this.buttonSet製造番号.Location = new System.Drawing.Point(243, 240);
             this.buttonSet製造番号.Name = "buttonSet製造番号";
             this.buttonSet製造番号.Size = new System.Drawing.Size(45, 24);
             this.buttonSet製造番号.TabIndex = 255;
@@ -77,7 +83,7 @@
             // buttonGet製造番号
             // 
             this.buttonGet製造番号.Font = new System.Drawing.Font("メイリオ", 9F);
-            this.buttonGet製造番号.Location = new System.Drawing.Point(296, 266);
+            this.buttonGet製造番号.Location = new System.Drawing.Point(296, 240);
             this.buttonGet製造番号.Name = "buttonGet製造番号";
             this.buttonGet製造番号.Size = new System.Drawing.Size(45, 24);
             this.buttonGet製造番号.TabIndex = 254;
@@ -88,7 +94,7 @@
             // textBox製造番号
             // 
             this.textBox製造番号.Font = new System.Drawing.Font("MS UI Gothic", 10F);
-            this.textBox製造番号.Location = new System.Drawing.Point(178, 267);
+            this.textBox製造番号.Location = new System.Drawing.Point(178, 241);
             this.textBox製造番号.Name = "textBox製造番号";
             this.textBox製造番号.ReadOnly = true;
             this.textBox製造番号.Size = new System.Drawing.Size(55, 21);
@@ -97,7 +103,7 @@
             // label8
             // 
             this.label8.Font = new System.Drawing.Font("メイリオ", 8F);
-            this.label8.Location = new System.Drawing.Point(12, 268);
+            this.label8.Location = new System.Drawing.Point(12, 242);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(80, 24);
             this.label8.TabIndex = 251;
@@ -107,7 +113,7 @@
             // numeric20000ppm
             // 
             this.numeric20000ppm.Font = new System.Drawing.Font("MS UI Gothic", 10F);
-            this.numeric20000ppm.Location = new System.Drawing.Point(109, 237);
+            this.numeric20000ppm.Location = new System.Drawing.Point(109, 211);
             this.numeric20000ppm.Maximum = new decimal(new int[] {
             1742,
             0,
@@ -130,7 +136,7 @@
             // numeric0ppm
             // 
             this.numeric0ppm.Font = new System.Drawing.Font("MS UI Gothic", 10F);
-            this.numeric0ppm.Location = new System.Drawing.Point(109, 207);
+            this.numeric0ppm.Location = new System.Drawing.Point(109, 181);
             this.numeric0ppm.Maximum = new decimal(new int[] {
             2701,
             0,
@@ -143,7 +149,7 @@
             // numericオフセット
             // 
             this.numericオフセット.Font = new System.Drawing.Font("MS UI Gothic", 10F);
-            this.numericオフセット.Location = new System.Drawing.Point(109, 177);
+            this.numericオフセット.Location = new System.Drawing.Point(109, 151);
             this.numericオフセット.Maximum = new decimal(new int[] {
             15999,
             0,
@@ -156,7 +162,7 @@
             // buttonSet20000ppm
             // 
             this.buttonSet20000ppm.Font = new System.Drawing.Font("メイリオ", 9F);
-            this.buttonSet20000ppm.Location = new System.Drawing.Point(243, 236);
+            this.buttonSet20000ppm.Location = new System.Drawing.Point(243, 210);
             this.buttonSet20000ppm.Margin = new System.Windows.Forms.Padding(0);
             this.buttonSet20000ppm.Name = "buttonSet20000ppm";
             this.buttonSet20000ppm.Size = new System.Drawing.Size(45, 24);
@@ -168,7 +174,7 @@
             // buttonSet0ppm
             // 
             this.buttonSet0ppm.Font = new System.Drawing.Font("メイリオ", 9F);
-            this.buttonSet0ppm.Location = new System.Drawing.Point(243, 206);
+            this.buttonSet0ppm.Location = new System.Drawing.Point(243, 180);
             this.buttonSet0ppm.Margin = new System.Windows.Forms.Padding(0);
             this.buttonSet0ppm.Name = "buttonSet0ppm";
             this.buttonSet0ppm.Size = new System.Drawing.Size(45, 24);
@@ -180,7 +186,7 @@
             // buttonSetオフセット
             // 
             this.buttonSetオフセット.Font = new System.Drawing.Font("メイリオ", 9F);
-            this.buttonSetオフセット.Location = new System.Drawing.Point(243, 176);
+            this.buttonSetオフセット.Location = new System.Drawing.Point(243, 150);
             this.buttonSetオフセット.Margin = new System.Windows.Forms.Padding(0);
             this.buttonSetオフセット.Name = "buttonSetオフセット";
             this.buttonSetオフセット.Size = new System.Drawing.Size(45, 24);
@@ -192,7 +198,7 @@
             // textBox20000ppm
             // 
             this.textBox20000ppm.Font = new System.Drawing.Font("MS UI Gothic", 10F);
-            this.textBox20000ppm.Location = new System.Drawing.Point(178, 237);
+            this.textBox20000ppm.Location = new System.Drawing.Point(178, 211);
             this.textBox20000ppm.Name = "textBox20000ppm";
             this.textBox20000ppm.ReadOnly = true;
             this.textBox20000ppm.Size = new System.Drawing.Size(55, 21);
@@ -201,7 +207,7 @@
             // buttonGet20000ppm
             // 
             this.buttonGet20000ppm.Font = new System.Drawing.Font("メイリオ", 9F);
-            this.buttonGet20000ppm.Location = new System.Drawing.Point(296, 236);
+            this.buttonGet20000ppm.Location = new System.Drawing.Point(296, 210);
             this.buttonGet20000ppm.Margin = new System.Windows.Forms.Padding(0);
             this.buttonGet20000ppm.Name = "buttonGet20000ppm";
             this.buttonGet20000ppm.Size = new System.Drawing.Size(45, 24);
@@ -213,7 +219,7 @@
             // label7
             // 
             this.label7.Font = new System.Drawing.Font("メイリオ", 8F);
-            this.label7.Location = new System.Drawing.Point(12, 239);
+            this.label7.Location = new System.Drawing.Point(12, 213);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(80, 24);
             this.label7.TabIndex = 242;
@@ -223,7 +229,7 @@
             // textBox0ppm
             // 
             this.textBox0ppm.Font = new System.Drawing.Font("MS UI Gothic", 10F);
-            this.textBox0ppm.Location = new System.Drawing.Point(178, 207);
+            this.textBox0ppm.Location = new System.Drawing.Point(178, 181);
             this.textBox0ppm.Name = "textBox0ppm";
             this.textBox0ppm.ReadOnly = true;
             this.textBox0ppm.Size = new System.Drawing.Size(55, 21);
@@ -232,7 +238,7 @@
             // buttonGet0ppm
             // 
             this.buttonGet0ppm.Font = new System.Drawing.Font("メイリオ", 9F);
-            this.buttonGet0ppm.Location = new System.Drawing.Point(296, 206);
+            this.buttonGet0ppm.Location = new System.Drawing.Point(296, 180);
             this.buttonGet0ppm.Margin = new System.Windows.Forms.Padding(0);
             this.buttonGet0ppm.Name = "buttonGet0ppm";
             this.buttonGet0ppm.Size = new System.Drawing.Size(45, 24);
@@ -244,7 +250,7 @@
             // label6
             // 
             this.label6.Font = new System.Drawing.Font("メイリオ", 8F);
-            this.label6.Location = new System.Drawing.Point(12, 209);
+            this.label6.Location = new System.Drawing.Point(12, 183);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(80, 24);
             this.label6.TabIndex = 239;
@@ -254,7 +260,7 @@
             // textBoxオフセット
             // 
             this.textBoxオフセット.Font = new System.Drawing.Font("MS UI Gothic", 10F);
-            this.textBoxオフセット.Location = new System.Drawing.Point(178, 177);
+            this.textBoxオフセット.Location = new System.Drawing.Point(178, 151);
             this.textBoxオフセット.Name = "textBoxオフセット";
             this.textBoxオフセット.ReadOnly = true;
             this.textBoxオフセット.Size = new System.Drawing.Size(55, 21);
@@ -263,7 +269,7 @@
             // buttonGetオフセット
             // 
             this.buttonGetオフセット.Font = new System.Drawing.Font("メイリオ", 9F);
-            this.buttonGetオフセット.Location = new System.Drawing.Point(296, 176);
+            this.buttonGetオフセット.Location = new System.Drawing.Point(296, 150);
             this.buttonGetオフセット.Margin = new System.Windows.Forms.Padding(0);
             this.buttonGetオフセット.Name = "buttonGetオフセット";
             this.buttonGetオフセット.Size = new System.Drawing.Size(45, 24);
@@ -275,7 +281,7 @@
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("メイリオ", 8F);
-            this.label5.Location = new System.Drawing.Point(12, 179);
+            this.label5.Location = new System.Drawing.Point(12, 153);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(80, 24);
             this.label5.TabIndex = 236;
@@ -285,7 +291,7 @@
             // textBoxバージョン
             // 
             this.textBoxバージョン.Font = new System.Drawing.Font("MS UI Gothic", 10F);
-            this.textBoxバージョン.Location = new System.Drawing.Point(178, 147);
+            this.textBoxバージョン.Location = new System.Drawing.Point(178, 121);
             this.textBoxバージョン.Name = "textBoxバージョン";
             this.textBoxバージョン.ReadOnly = true;
             this.textBoxバージョン.Size = new System.Drawing.Size(55, 21);
@@ -294,7 +300,7 @@
             // buttonGetバージョン
             // 
             this.buttonGetバージョン.Font = new System.Drawing.Font("メイリオ", 9F);
-            this.buttonGetバージョン.Location = new System.Drawing.Point(296, 146);
+            this.buttonGetバージョン.Location = new System.Drawing.Point(296, 120);
             this.buttonGetバージョン.Margin = new System.Windows.Forms.Padding(0);
             this.buttonGetバージョン.Name = "buttonGetバージョン";
             this.buttonGetバージョン.Size = new System.Drawing.Size(45, 24);
@@ -306,7 +312,7 @@
             // label
             // 
             this.label.Font = new System.Drawing.Font("メイリオ", 8F);
-            this.label.Location = new System.Drawing.Point(12, 150);
+            this.label.Location = new System.Drawing.Point(12, 124);
             this.label.Name = "label";
             this.label.Size = new System.Drawing.Size(80, 24);
             this.label.TabIndex = 233;
@@ -316,7 +322,7 @@
             // textBox製造番号W
             // 
             this.textBox製造番号W.Font = new System.Drawing.Font("MS UI Gothic", 10F);
-            this.textBox製造番号W.Location = new System.Drawing.Point(109, 267);
+            this.textBox製造番号W.Location = new System.Drawing.Point(109, 241);
             this.textBox製造番号W.MaxLength = 6;
             this.textBox製造番号W.Name = "textBox製造番号W";
             this.textBox製造番号W.Size = new System.Drawing.Size(60, 21);
@@ -328,7 +334,7 @@
             this.buttonA3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonA3.Font = new System.Drawing.Font("メイリオ", 9F, System.Drawing.FontStyle.Bold);
             this.buttonA3.ForeColor = System.Drawing.Color.White;
-            this.buttonA3.Location = new System.Drawing.Point(122, 64);
+            this.buttonA3.Location = new System.Drawing.Point(122, 38);
             this.buttonA3.Margin = new System.Windows.Forms.Padding(0);
             this.buttonA3.Name = "buttonA3";
             this.buttonA3.Size = new System.Drawing.Size(115, 36);
@@ -343,7 +349,7 @@
             this.buttonA1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonA1.Font = new System.Drawing.Font("メイリオ", 9F, System.Drawing.FontStyle.Bold);
             this.buttonA1.ForeColor = System.Drawing.Color.White;
-            this.buttonA1.Location = new System.Drawing.Point(21, 64);
+            this.buttonA1.Location = new System.Drawing.Point(21, 38);
             this.buttonA1.Margin = new System.Windows.Forms.Padding(0);
             this.buttonA1.Name = "buttonA1";
             this.buttonA1.Size = new System.Drawing.Size(91, 36);
@@ -358,7 +364,7 @@
             this.buttonFlashInit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonFlashInit.Font = new System.Drawing.Font("メイリオ", 9F, System.Drawing.FontStyle.Bold);
             this.buttonFlashInit.ForeColor = System.Drawing.Color.White;
-            this.buttonFlashInit.Location = new System.Drawing.Point(248, 64);
+            this.buttonFlashInit.Location = new System.Drawing.Point(248, 38);
             this.buttonFlashInit.Margin = new System.Windows.Forms.Padding(0);
             this.buttonFlashInit.Name = "buttonFlashInit";
             this.buttonFlashInit.Size = new System.Drawing.Size(91, 36);
@@ -371,7 +377,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("メイリオ", 8F);
-            this.label1.Location = new System.Drawing.Point(112, 124);
+            this.label1.Location = new System.Drawing.Point(112, 98);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 17);
             this.label1.TabIndex = 276;
@@ -381,17 +387,74 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("メイリオ", 8F);
-            this.label2.Location = new System.Drawing.Point(179, 124);
+            this.label2.Location = new System.Drawing.Point(179, 98);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(52, 17);
             this.label2.TabIndex = 277;
             this.label2.Text = "読出し値";
+            // 
+            // panel2
+            // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.numericInterval);
+            this.panel2.Controls.Add(this.label16);
+            this.panel2.Controls.Add(this.buttonTime);
+            this.panel2.Location = new System.Drawing.Point(11, 281);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(240, 45);
+            this.panel2.TabIndex = 278;
+            // 
+            // numericInterval
+            // 
+            this.numericInterval.Font = new System.Drawing.Font("MS UI Gothic", 10F);
+            this.numericInterval.Location = new System.Drawing.Point(97, 11);
+            this.numericInterval.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numericInterval.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.numericInterval.Name = "numericInterval";
+            this.numericInterval.Size = new System.Drawing.Size(60, 21);
+            this.numericInterval.TabIndex = 281;
+            this.numericInterval.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("メイリオ", 8F);
+            this.label16.Location = new System.Drawing.Point(11, 13);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(74, 17);
+            this.label16.TabIndex = 276;
+            this.label16.Text = "CAN送信間隔";
+            // 
+            // buttonTime
+            // 
+            this.buttonTime.Font = new System.Drawing.Font("メイリオ", 7F);
+            this.buttonTime.Location = new System.Drawing.Point(166, 9);
+            this.buttonTime.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonTime.Name = "buttonTime";
+            this.buttonTime.Size = new System.Drawing.Size(58, 26);
+            this.buttonTime.TabIndex = 271;
+            this.buttonTime.Text = "時間変更";
+            this.buttonTime.UseVisualStyleBackColor = true;
+            this.buttonTime.Click += new System.EventHandler(this.buttonTime_Click);
             // 
             // UserControlRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonA3);
@@ -425,6 +488,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.numeric20000ppm)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numeric0ppm)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericオフセット)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericInterval)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -461,5 +527,9 @@
         private System.Windows.Forms.Button buttonFlashInit;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.NumericUpDown numericInterval;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Button buttonTime;
     }
 }

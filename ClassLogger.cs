@@ -13,7 +13,6 @@ namespace APP
         public TPCANMsgFD MsgFD;
         public string TimeStamp;
         public string Counter;
-        public string GasConc;
         public string ErrorFlag;
         public string Sensor;
         public string Temp;
@@ -33,7 +32,6 @@ namespace APP
                 "CANID",
                 "時刻",
                 "カウンタ",
-                "Gas Conc",
                 "エラーフラグ",
                 "濃度(ppm)",
                 "温度(℃)",
@@ -103,11 +101,8 @@ namespace APP
             DataBuffer.Add(data);
 
             ///ログデータ書き込み
-#if !TESTMODE
-            if (DataBuffer.Count > 10)
-#else
-            //if (DataBuffer.Count > 20)
-#endif
+
+            if (DataBuffer.Count > 20)
             {
                 ///書き込みデータ生成
                 string str = _WriteData();
@@ -138,7 +133,6 @@ namespace APP
                 id + "," +
                 buff.TimeStamp + "," +
                 buff.Counter + "," +
-                buff.GasConc + "," +
                 buff.ErrorFlag + "," +
                 buff.Sensor + "," +
                 buff.Temp + "," +

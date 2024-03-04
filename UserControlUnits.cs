@@ -84,14 +84,6 @@ namespace APP
             ///タイマ開始
             tmrRead.Enabled = true;
 
-            ///Typeセット
-            userControlStatus1.TypeSet(Properties.Settings.Default.Type);
-            userControlStatus2.TypeSet(Properties.Settings.Default.Type);
-            userControlStatus3.TypeSet(Properties.Settings.Default.Type);
-            userControlStatus4.TypeSet(Properties.Settings.Default.Type);
-            userControlStatus5.TypeSet(Properties.Settings.Default.Type);
-            userControlStatus6.TypeSet(Properties.Settings.Default.Type);
-
             ///H/W情報セット
             userControlRegister1.HWSetup(userControlStatus1.HWInfo());
             userControlRegister2.HWSetup(userControlStatus2.HWInfo());

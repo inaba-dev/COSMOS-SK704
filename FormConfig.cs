@@ -59,12 +59,6 @@ namespace APP
             ///拡張
             Properties.Settings.Default.Extender = this.checkExtender.Checked;
 
-            ///Type
-            if (radioTypeA.Checked) Properties.Settings.Default.Type = 1;
-            else if (radioTypeB.Checked) Properties.Settings.Default.Type = 2;
-            else if (radioTypeC.Checked) Properties.Settings.Default.Type = 3;
-            else if (radioTypeD.Checked) Properties.Settings.Default.Type = 4;
-
             ///CAN-ID
             if (userControlUnits.userControlStatus1.txtID.Text == "") userControlUnits.userControlStatus1.txtID.Text = "0";
             if (userControlUnits.userControlStatus2.txtID.Text == "") userControlUnits.userControlStatus2.txtID.Text = "0";

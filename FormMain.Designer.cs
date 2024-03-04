@@ -34,17 +34,13 @@
             this.clhLength = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.clhData = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupSetup = new System.Windows.Forms.GroupBox();
-            this.radioTypeD = new System.Windows.Forms.RadioButton();
             this.checkExtender = new System.Windows.Forms.CheckBox();
             this.cbbChannel6 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.radioTypeC = new System.Windows.Forms.RadioButton();
             this.cbbChannel5 = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.radioTypeB = new System.Windows.Forms.RadioButton();
             this.cbbChannel4 = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.radioTypeA = new System.Windows.Forms.RadioButton();
             this.cbbChannel3 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cbbChannel2 = new System.Windows.Forms.ComboBox();
@@ -108,17 +104,13 @@
             // 
             // groupSetup
             // 
-            this.groupSetup.Controls.Add(this.radioTypeD);
             this.groupSetup.Controls.Add(this.checkExtender);
             this.groupSetup.Controls.Add(this.cbbChannel6);
             this.groupSetup.Controls.Add(this.label4);
-            this.groupSetup.Controls.Add(this.radioTypeC);
             this.groupSetup.Controls.Add(this.cbbChannel5);
             this.groupSetup.Controls.Add(this.label5);
-            this.groupSetup.Controls.Add(this.radioTypeB);
             this.groupSetup.Controls.Add(this.cbbChannel4);
             this.groupSetup.Controls.Add(this.label6);
-            this.groupSetup.Controls.Add(this.radioTypeA);
             this.groupSetup.Controls.Add(this.cbbChannel3);
             this.groupSetup.Controls.Add(this.label3);
             this.groupSetup.Controls.Add(this.cbbChannel2);
@@ -135,22 +127,11 @@
             this.groupSetup.TabStop = false;
             this.groupSetup.Text = "通信設定";
             // 
-            // radioTypeD
-            // 
-            this.radioTypeD.AutoSize = true;
-            this.radioTypeD.Font = new System.Drawing.Font("メイリオ", 8F);
-            this.radioTypeD.Location = new System.Drawing.Point(256, 66);
-            this.radioTypeD.Name = "radioTypeD";
-            this.radioTypeD.Size = new System.Drawing.Size(59, 21);
-            this.radioTypeD.TabIndex = 262;
-            this.radioTypeD.Text = "TypeD";
-            this.radioTypeD.UseVisualStyleBackColor = true;
-            // 
             // checkExtender
             // 
             this.checkExtender.AutoSize = true;
             this.checkExtender.Font = new System.Drawing.Font("MS UI Gothic", 9F);
-            this.checkExtender.Location = new System.Drawing.Point(133, 65);
+            this.checkExtender.Location = new System.Drawing.Point(250, 48);
             this.checkExtender.Name = "checkExtender";
             this.checkExtender.Size = new System.Drawing.Size(72, 16);
             this.checkExtender.TabIndex = 261;
@@ -205,17 +186,6 @@
             this.label4.TabIndex = 161;
             this.label4.Text = "Hardware6";
             // 
-            // radioTypeC
-            // 
-            this.radioTypeC.AutoSize = true;
-            this.radioTypeC.Font = new System.Drawing.Font("メイリオ", 8F);
-            this.radioTypeC.Location = new System.Drawing.Point(256, 48);
-            this.radioTypeC.Name = "radioTypeC";
-            this.radioTypeC.Size = new System.Drawing.Size(58, 21);
-            this.radioTypeC.TabIndex = 191;
-            this.radioTypeC.Text = "TypeC";
-            this.radioTypeC.UseVisualStyleBackColor = true;
-            // 
             // cbbChannel5
             // 
             this.cbbChannel5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -263,17 +233,6 @@
             this.label5.TabIndex = 159;
             this.label5.Text = "Hardware5";
             // 
-            // radioTypeB
-            // 
-            this.radioTypeB.AutoSize = true;
-            this.radioTypeB.Font = new System.Drawing.Font("メイリオ", 8F);
-            this.radioTypeB.Location = new System.Drawing.Point(256, 30);
-            this.radioTypeB.Name = "radioTypeB";
-            this.radioTypeB.Size = new System.Drawing.Size(58, 21);
-            this.radioTypeB.TabIndex = 190;
-            this.radioTypeB.Text = "TypeB";
-            this.radioTypeB.UseVisualStyleBackColor = true;
-            // 
             // cbbChannel4
             // 
             this.cbbChannel4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -320,19 +279,6 @@
             this.label6.Size = new System.Drawing.Size(78, 21);
             this.label6.TabIndex = 158;
             this.label6.Text = "Hardware4";
-            // 
-            // radioTypeA
-            // 
-            this.radioTypeA.AutoSize = true;
-            this.radioTypeA.Checked = true;
-            this.radioTypeA.Font = new System.Drawing.Font("メイリオ", 8F);
-            this.radioTypeA.Location = new System.Drawing.Point(256, 12);
-            this.radioTypeA.Name = "radioTypeA";
-            this.radioTypeA.Size = new System.Drawing.Size(58, 21);
-            this.radioTypeA.TabIndex = 189;
-            this.radioTypeA.TabStop = true;
-            this.radioTypeA.Text = "TypeA";
-            this.radioTypeA.UseVisualStyleBackColor = true;
             // 
             // cbbChannel3
             // 
@@ -501,7 +447,7 @@
             "50 kBit/sec",
             "33,333 kBit/s",
             "20 kBit/sec"});
-            this.cbbBaudrates.Location = new System.Drawing.Point(134, 37);
+            this.cbbBaudrates.Location = new System.Drawing.Point(138, 45);
             this.cbbBaudrates.Name = "cbbBaudrates";
             this.cbbBaudrates.Size = new System.Drawing.Size(93, 20);
             this.cbbBaudrates.TabIndex = 133;
@@ -510,7 +456,7 @@
             // laBaudrate
             // 
             this.laBaudrate.Font = new System.Drawing.Font("MS UI Gothic", 9F);
-            this.laBaudrate.Location = new System.Drawing.Point(133, 21);
+            this.laBaudrate.Location = new System.Drawing.Point(137, 29);
             this.laBaudrate.Name = "laBaudrate";
             this.laBaudrate.Size = new System.Drawing.Size(56, 19);
             this.laBaudrate.TabIndex = 134;
@@ -589,10 +535,10 @@
             this.label7.BackColor = System.Drawing.Color.Gray;
             this.label7.Font = new System.Drawing.Font("メイリオ", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(25, 125);
+            this.label7.Location = new System.Drawing.Point(25, 127);
             this.label7.Margin = new System.Windows.Forms.Padding(3);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(38, 28);
+            this.label7.Size = new System.Drawing.Size(38, 22);
             this.label7.TabIndex = 164;
             this.label7.Text = "1ch";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -602,10 +548,10 @@
             this.label8.BackColor = System.Drawing.Color.Gray;
             this.label8.Font = new System.Drawing.Font("メイリオ", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(753, 473);
+            this.label8.Location = new System.Drawing.Point(753, 475);
             this.label8.Margin = new System.Windows.Forms.Padding(3);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(38, 28);
+            this.label8.Size = new System.Drawing.Size(38, 22);
             this.label8.TabIndex = 169;
             this.label8.Text = "6ch";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -615,10 +561,10 @@
             this.label9.BackColor = System.Drawing.Color.Gray;
             this.label9.Font = new System.Drawing.Font("メイリオ", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(388, 473);
+            this.label9.Location = new System.Drawing.Point(388, 475);
             this.label9.Margin = new System.Windows.Forms.Padding(3);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(38, 28);
+            this.label9.Size = new System.Drawing.Size(38, 22);
             this.label9.TabIndex = 168;
             this.label9.Text = "5ch";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -628,10 +574,10 @@
             this.label10.BackColor = System.Drawing.Color.Gray;
             this.label10.Font = new System.Drawing.Font("メイリオ", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(25, 473);
+            this.label10.Location = new System.Drawing.Point(25, 475);
             this.label10.Margin = new System.Windows.Forms.Padding(3);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(38, 28);
+            this.label10.Size = new System.Drawing.Size(38, 22);
             this.label10.TabIndex = 167;
             this.label10.Text = "4ch";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -641,10 +587,10 @@
             this.label11.BackColor = System.Drawing.Color.Gray;
             this.label11.Font = new System.Drawing.Font("メイリオ", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(753, 126);
+            this.label11.Location = new System.Drawing.Point(753, 128);
             this.label11.Margin = new System.Windows.Forms.Padding(3);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(38, 28);
+            this.label11.Size = new System.Drawing.Size(38, 22);
             this.label11.TabIndex = 166;
             this.label11.Text = "3ch";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -654,10 +600,10 @@
             this.label12.BackColor = System.Drawing.Color.Gray;
             this.label12.Font = new System.Drawing.Font("メイリオ", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(387, 126);
+            this.label12.Location = new System.Drawing.Point(387, 128);
             this.label12.Margin = new System.Windows.Forms.Padding(3);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(38, 28);
+            this.label12.Size = new System.Drawing.Size(38, 22);
             this.label12.TabIndex = 165;
             this.label12.Text = "2ch";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -713,14 +659,10 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cbbChannel4;
         private System.Windows.Forms.Label label6;
-        public System.Windows.Forms.RadioButton radioTypeC;
-        public System.Windows.Forms.RadioButton radioTypeB;
-        public System.Windows.Forms.RadioButton radioTypeA;
         private UserControlUnits userControlUnits;
         private System.Windows.Forms.Button buttonLog;
         private System.Windows.Forms.CheckBox checkExtender;
         private System.Windows.Forms.Button buttonClear;
-        public System.Windows.Forms.RadioButton radioTypeD;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;

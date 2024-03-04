@@ -32,8 +32,5 @@
     <Setting Name="CanId6" Type="System.UInt32" Scope="User">
       <Value Profile="(Default)">519</Value>
     </Setting>
-    <Setting Name="Type" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">1</Value>
-    </Setting>
   </Settings>
 </SettingsFile>
