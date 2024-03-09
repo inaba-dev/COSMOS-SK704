@@ -55,6 +55,12 @@
             this.directoryEntry1 = new System.DirectoryServices.DirectoryEntry();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.userControlStatus1 = new APP.UserControlStatus();
             this.userControlStatus4 = new APP.UserControlStatus();
             this.userControlStatus5 = new APP.UserControlStatus();
@@ -62,17 +68,26 @@
             this.userControlStatus2 = new APP.UserControlStatus();
             this.userControlStatus3 = new APP.UserControlStatus();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.userControlRegister6 = new APP.UserControlRegister();
             this.userControlRegister5 = new APP.UserControlRegister();
             this.userControlRegister4 = new APP.UserControlRegister();
             this.userControlRegister3 = new APP.UserControlRegister();
             this.userControlRegister2 = new APP.UserControlRegister();
             this.userControlRegister1 = new APP.UserControlRegister();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.userControlMonitor = new APP.UserControlMonitor();
             ((System.ComponentModel.ISupportInitialize)(this.chartSensor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartTemperature)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // chartSensor
@@ -244,6 +259,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Location = new System.Drawing.Point(3, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -252,6 +268,12 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label7);
+            this.tabPage1.Controls.Add(this.label8);
+            this.tabPage1.Controls.Add(this.label9);
+            this.tabPage1.Controls.Add(this.label10);
+            this.tabPage1.Controls.Add(this.label11);
+            this.tabPage1.Controls.Add(this.label12);
             this.tabPage1.Controls.Add(this.userControlStatus1);
             this.tabPage1.Controls.Add(this.userControlStatus4);
             this.tabPage1.Controls.Add(this.userControlStatus5);
@@ -265,6 +287,84 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Status";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.BackColor = System.Drawing.Color.Gray;
+            this.label7.Font = new System.Drawing.Font("メイリオ", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(19, 17);
+            this.label7.Margin = new System.Windows.Forms.Padding(3);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(38, 22);
+            this.label7.TabIndex = 170;
+            this.label7.Text = "1ch";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label8
+            // 
+            this.label8.BackColor = System.Drawing.Color.Gray;
+            this.label8.Font = new System.Drawing.Font("メイリオ", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(747, 365);
+            this.label8.Margin = new System.Windows.Forms.Padding(3);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(38, 22);
+            this.label8.TabIndex = 175;
+            this.label8.Text = "6ch";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label9
+            // 
+            this.label9.BackColor = System.Drawing.Color.Gray;
+            this.label9.Font = new System.Drawing.Font("メイリオ", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(382, 365);
+            this.label9.Margin = new System.Windows.Forms.Padding(3);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(38, 22);
+            this.label9.TabIndex = 174;
+            this.label9.Text = "5ch";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label10
+            // 
+            this.label10.BackColor = System.Drawing.Color.Gray;
+            this.label10.Font = new System.Drawing.Font("メイリオ", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(19, 365);
+            this.label10.Margin = new System.Windows.Forms.Padding(3);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(38, 22);
+            this.label10.TabIndex = 173;
+            this.label10.Text = "4ch";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label11
+            // 
+            this.label11.BackColor = System.Drawing.Color.Gray;
+            this.label11.Font = new System.Drawing.Font("メイリオ", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(747, 18);
+            this.label11.Margin = new System.Windows.Forms.Padding(3);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(38, 22);
+            this.label11.TabIndex = 172;
+            this.label11.Text = "3ch";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label12
+            // 
+            this.label12.BackColor = System.Drawing.Color.Gray;
+            this.label12.Font = new System.Drawing.Font("メイリオ", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label12.ForeColor = System.Drawing.Color.White;
+            this.label12.Location = new System.Drawing.Point(381, 18);
+            this.label12.Margin = new System.Windows.Forms.Padding(3);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(38, 22);
+            this.label12.TabIndex = 171;
+            this.label12.Text = "2ch";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // userControlStatus1
             // 
@@ -316,6 +416,12 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.label1);
+            this.tabPage2.Controls.Add(this.label2);
+            this.tabPage2.Controls.Add(this.label3);
+            this.tabPage2.Controls.Add(this.label5);
+            this.tabPage2.Controls.Add(this.label6);
+            this.tabPage2.Controls.Add(this.label13);
             this.tabPage2.Controls.Add(this.userControlRegister6);
             this.tabPage2.Controls.Add(this.userControlRegister5);
             this.tabPage2.Controls.Add(this.userControlRegister4);
@@ -329,6 +435,84 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "設定";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.Gray;
+            this.label1.Font = new System.Drawing.Font("メイリオ", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(19, 17);
+            this.label1.Margin = new System.Windows.Forms.Padding(3);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 22);
+            this.label1.TabIndex = 176;
+            this.label1.Text = "1ch";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.Gray;
+            this.label2.Font = new System.Drawing.Font("メイリオ", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(747, 365);
+            this.label2.Margin = new System.Windows.Forms.Padding(3);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(38, 22);
+            this.label2.TabIndex = 181;
+            this.label2.Text = "6ch";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            this.label3.BackColor = System.Drawing.Color.Gray;
+            this.label3.Font = new System.Drawing.Font("メイリオ", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(382, 365);
+            this.label3.Margin = new System.Windows.Forms.Padding(3);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(38, 22);
+            this.label3.TabIndex = 180;
+            this.label3.Text = "5ch";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label5
+            // 
+            this.label5.BackColor = System.Drawing.Color.Gray;
+            this.label5.Font = new System.Drawing.Font("メイリオ", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(19, 365);
+            this.label5.Margin = new System.Windows.Forms.Padding(3);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(38, 22);
+            this.label5.TabIndex = 179;
+            this.label5.Text = "4ch";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label6
+            // 
+            this.label6.BackColor = System.Drawing.Color.Gray;
+            this.label6.Font = new System.Drawing.Font("メイリオ", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(747, 18);
+            this.label6.Margin = new System.Windows.Forms.Padding(3);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(38, 22);
+            this.label6.TabIndex = 178;
+            this.label6.Text = "3ch";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label13
+            // 
+            this.label13.BackColor = System.Drawing.Color.Gray;
+            this.label13.Font = new System.Drawing.Font("メイリオ", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label13.ForeColor = System.Drawing.Color.White;
+            this.label13.Location = new System.Drawing.Point(381, 18);
+            this.label13.Margin = new System.Windows.Forms.Padding(3);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(38, 22);
+            this.label13.TabIndex = 177;
+            this.label13.Text = "2ch";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // userControlRegister6
             // 
@@ -378,6 +562,24 @@
             this.userControlRegister1.Size = new System.Drawing.Size(358, 340);
             this.userControlRegister1.TabIndex = 170;
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.userControlMonitor);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(1097, 704);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "レジスタ操作";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // userControlMonitor
+            // 
+            this.userControlMonitor.Location = new System.Drawing.Point(9, 13);
+            this.userControlMonitor.Name = "userControlMonitor";
+            this.userControlMonitor.Size = new System.Drawing.Size(1080, 680);
+            this.userControlMonitor.TabIndex = 0;
+            // 
             // UserControlUnits
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -397,6 +599,7 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -427,5 +630,19 @@
         private UserControlRegister userControlRegister3;
         private UserControlRegister userControlRegister2;
         private UserControlRegister userControlRegister1;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label13;
+        private UserControlMonitor userControlMonitor;
     }
 }

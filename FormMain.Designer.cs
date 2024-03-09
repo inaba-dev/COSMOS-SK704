@@ -53,14 +53,14 @@
             this.buttonDisConnect = new System.Windows.Forms.Button();
             this.buttonConnect = new System.Windows.Forms.Button();
             this.buttonLog = new System.Windows.Forms.Button();
-            this.userControlUnits = new APP.UserControlUnits();
             this.buttonClear = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
+            this.checkCh1 = new System.Windows.Forms.CheckBox();
+            this.checkCh2 = new System.Windows.Forms.CheckBox();
+            this.checkCh3 = new System.Windows.Forms.CheckBox();
+            this.checkCh6 = new System.Windows.Forms.CheckBox();
+            this.checkCh5 = new System.Windows.Forms.CheckBox();
+            this.checkCh4 = new System.Windows.Forms.CheckBox();
+            this.userControlUnits = new APP.UserControlUnits();
             this.groupSetup.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -104,6 +104,12 @@
             // 
             // groupSetup
             // 
+            this.groupSetup.Controls.Add(this.checkCh6);
+            this.groupSetup.Controls.Add(this.checkCh5);
+            this.groupSetup.Controls.Add(this.checkCh4);
+            this.groupSetup.Controls.Add(this.checkCh3);
+            this.groupSetup.Controls.Add(this.checkCh2);
+            this.groupSetup.Controls.Add(this.checkCh1);
             this.groupSetup.Controls.Add(this.checkExtender);
             this.groupSetup.Controls.Add(this.cbbChannel6);
             this.groupSetup.Controls.Add(this.label4);
@@ -507,14 +513,6 @@
             this.buttonLog.UseVisualStyleBackColor = false;
             this.buttonLog.Click += new System.EventHandler(this.buttonLog_Click);
             // 
-            // userControlUnits
-            // 
-            this.userControlUnits.Location = new System.Drawing.Point(1, 87);
-            this.userControlUnits.Margin = new System.Windows.Forms.Padding(0);
-            this.userControlUnits.Name = "userControlUnits";
-            this.userControlUnits.Size = new System.Drawing.Size(1580, 770);
-            this.userControlUnits.TabIndex = 144;
-            // 
             // buttonClear
             // 
             this.buttonClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
@@ -530,95 +528,85 @@
             this.buttonClear.UseVisualStyleBackColor = false;
             this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
             // 
-            // label7
+            // checkCh1
             // 
-            this.label7.BackColor = System.Drawing.Color.Gray;
-            this.label7.Font = new System.Drawing.Font("メイリオ", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(25, 127);
-            this.label7.Margin = new System.Windows.Forms.Padding(3);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(38, 22);
-            this.label7.TabIndex = 164;
-            this.label7.Text = "1ch";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkCh1.AutoSize = true;
+            this.checkCh1.Font = new System.Drawing.Font("MS UI Gothic", 9F);
+            this.checkCh1.Location = new System.Drawing.Point(338, 70);
+            this.checkCh1.Name = "checkCh1";
+            this.checkCh1.Size = new System.Drawing.Size(48, 16);
+            this.checkCh1.TabIndex = 262;
+            this.checkCh1.Text = "有効";
+            this.checkCh1.UseVisualStyleBackColor = true;
             // 
-            // label8
+            // checkCh2
             // 
-            this.label8.BackColor = System.Drawing.Color.Gray;
-            this.label8.Font = new System.Drawing.Font("メイリオ", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(753, 475);
-            this.label8.Margin = new System.Windows.Forms.Padding(3);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(38, 22);
-            this.label8.TabIndex = 169;
-            this.label8.Text = "6ch";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkCh2.AutoSize = true;
+            this.checkCh2.Font = new System.Drawing.Font("MS UI Gothic", 9F);
+            this.checkCh2.Location = new System.Drawing.Point(496, 70);
+            this.checkCh2.Name = "checkCh2";
+            this.checkCh2.Size = new System.Drawing.Size(48, 16);
+            this.checkCh2.TabIndex = 263;
+            this.checkCh2.Text = "有効";
+            this.checkCh2.UseVisualStyleBackColor = true;
             // 
-            // label9
+            // checkCh3
             // 
-            this.label9.BackColor = System.Drawing.Color.Gray;
-            this.label9.Font = new System.Drawing.Font("メイリオ", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(388, 475);
-            this.label9.Margin = new System.Windows.Forms.Padding(3);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(38, 22);
-            this.label9.TabIndex = 168;
-            this.label9.Text = "5ch";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkCh3.AutoSize = true;
+            this.checkCh3.Font = new System.Drawing.Font("MS UI Gothic", 9F);
+            this.checkCh3.Location = new System.Drawing.Point(654, 70);
+            this.checkCh3.Name = "checkCh3";
+            this.checkCh3.Size = new System.Drawing.Size(48, 16);
+            this.checkCh3.TabIndex = 264;
+            this.checkCh3.Text = "有効";
+            this.checkCh3.UseVisualStyleBackColor = true;
             // 
-            // label10
+            // checkCh6
             // 
-            this.label10.BackColor = System.Drawing.Color.Gray;
-            this.label10.Font = new System.Drawing.Font("メイリオ", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(25, 475);
-            this.label10.Margin = new System.Windows.Forms.Padding(3);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(38, 22);
-            this.label10.TabIndex = 167;
-            this.label10.Text = "4ch";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkCh6.AutoSize = true;
+            this.checkCh6.Font = new System.Drawing.Font("MS UI Gothic", 9F);
+            this.checkCh6.Location = new System.Drawing.Point(1128, 70);
+            this.checkCh6.Name = "checkCh6";
+            this.checkCh6.Size = new System.Drawing.Size(48, 16);
+            this.checkCh6.TabIndex = 267;
+            this.checkCh6.Text = "有効";
+            this.checkCh6.UseVisualStyleBackColor = true;
             // 
-            // label11
+            // checkCh5
             // 
-            this.label11.BackColor = System.Drawing.Color.Gray;
-            this.label11.Font = new System.Drawing.Font("メイリオ", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(753, 128);
-            this.label11.Margin = new System.Windows.Forms.Padding(3);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(38, 22);
-            this.label11.TabIndex = 166;
-            this.label11.Text = "3ch";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkCh5.AutoSize = true;
+            this.checkCh5.Font = new System.Drawing.Font("MS UI Gothic", 9F);
+            this.checkCh5.Location = new System.Drawing.Point(970, 70);
+            this.checkCh5.Name = "checkCh5";
+            this.checkCh5.Size = new System.Drawing.Size(48, 16);
+            this.checkCh5.TabIndex = 266;
+            this.checkCh5.Text = "有効";
+            this.checkCh5.UseVisualStyleBackColor = true;
             // 
-            // label12
+            // checkCh4
             // 
-            this.label12.BackColor = System.Drawing.Color.Gray;
-            this.label12.Font = new System.Drawing.Font("メイリオ", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(387, 128);
-            this.label12.Margin = new System.Windows.Forms.Padding(3);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(38, 22);
-            this.label12.TabIndex = 165;
-            this.label12.Text = "2ch";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkCh4.AutoSize = true;
+            this.checkCh4.Font = new System.Drawing.Font("MS UI Gothic", 9F);
+            this.checkCh4.Location = new System.Drawing.Point(812, 70);
+            this.checkCh4.Name = "checkCh4";
+            this.checkCh4.Size = new System.Drawing.Size(48, 16);
+            this.checkCh4.TabIndex = 265;
+            this.checkCh4.Text = "有効";
+            this.checkCh4.UseVisualStyleBackColor = true;
+            // 
+            // userControlUnits
+            // 
+            this.userControlUnits.Location = new System.Drawing.Point(1, 87);
+            this.userControlUnits.Margin = new System.Windows.Forms.Padding(0);
+            this.userControlUnits.Name = "userControlUnits";
+            this.userControlUnits.Size = new System.Drawing.Size(1580, 770);
+            this.userControlUnits.TabIndex = 144;
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1584, 861);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.label12);
             this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.buttonLog);
             this.Controls.Add(this.groupSetup);
@@ -663,12 +651,12 @@
         private System.Windows.Forms.Button buttonLog;
         private System.Windows.Forms.CheckBox checkExtender;
         private System.Windows.Forms.Button buttonClear;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.CheckBox checkCh6;
+        private System.Windows.Forms.CheckBox checkCh5;
+        private System.Windows.Forms.CheckBox checkCh4;
+        private System.Windows.Forms.CheckBox checkCh3;
+        private System.Windows.Forms.CheckBox checkCh2;
+        private System.Windows.Forms.CheckBox checkCh1;
     }
 }
 

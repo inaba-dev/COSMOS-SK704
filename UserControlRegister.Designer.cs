@@ -409,12 +409,12 @@
             this.numericInterval.Font = new System.Drawing.Font("MS UI Gothic", 10F);
             this.numericInterval.Location = new System.Drawing.Point(97, 11);
             this.numericInterval.Maximum = new decimal(new int[] {
-            1000,
+            10000,
             0,
             0,
             0});
             this.numericInterval.Minimum = new decimal(new int[] {
-            100,
+            50,
             0,
             0,
             0});

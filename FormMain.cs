@@ -132,7 +132,7 @@ namespace APP
             uint CmdId = bExtend ? Define.CMD_PACKET_TYPE_EXT_ID : Define.CMD_PACKET_TYPE_STD_ID;
 
             ///接続
-            if (cbbChannel1.SelectedIndex >= 0)
+            if (checkCh1.Checked && cbbChannel1.SelectedIndex >= 0)
             {
                 if (!ClassPeripheral.CAN[0].Connect(CmdId, cbbChannel1.SelectedIndex, bExtend))
                 {
@@ -141,7 +141,7 @@ namespace APP
                 }
             }
 
-            if (cbbChannel2.SelectedIndex >= 0)
+            if (checkCh2.Checked && cbbChannel2.SelectedIndex >= 0)
             {
                 if (!ClassPeripheral.CAN[1].Connect(CmdId, cbbChannel2.SelectedIndex, bExtend))
                 {
@@ -150,7 +150,7 @@ namespace APP
                 }
             }
 
-            if (cbbChannel3.SelectedIndex >= 0)
+            if (checkCh3.Checked && cbbChannel3.SelectedIndex >= 0)
             {
                 if (!ClassPeripheral.CAN[2].Connect(CmdId, cbbChannel3.SelectedIndex, bExtend))
                 {
@@ -159,7 +159,7 @@ namespace APP
                 }
             }
 
-            if (cbbChannel4.SelectedIndex >= 0)
+            if (checkCh4.Checked && cbbChannel4.SelectedIndex >= 0)
             {
                 if (!ClassPeripheral.CAN[3].Connect(CmdId, cbbChannel4.SelectedIndex, bExtend))
                 {
@@ -168,7 +168,7 @@ namespace APP
                 }
             }
 
-            if (cbbChannel5.SelectedIndex >= 0)
+            if (checkCh5.Checked && cbbChannel5.SelectedIndex >= 0)
             {
                 if (!ClassPeripheral.CAN[4].Connect(CmdId, cbbChannel5.SelectedIndex, bExtend))
                 {
@@ -177,7 +177,7 @@ namespace APP
                 }
             }
 
-            if (cbbChannel6.SelectedIndex >= 0)
+            if (checkCh6.Checked && cbbChannel6.SelectedIndex >= 0)
             {
                 if (!ClassPeripheral.CAN[5].Connect(CmdId, cbbChannel6.SelectedIndex, bExtend))
                 {

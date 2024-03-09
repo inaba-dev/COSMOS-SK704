@@ -121,10 +121,12 @@ namespace APP
             UnitId = Properties.Settings.Default.Extender ? Convert.ToUInt32(txtID.Text, 16) : Convert.ToUInt32(txtID.Text, 16);
             CmdId  = Properties.Settings.Default.Extender ? Define.CMD_PACKET_TYPE_EXT_ID : Define.CMD_PACKET_TYPE_STD_ID;
 
+            int sensorRow = 0;
+            int temperatureRow = 0;
+            int adcRow = 0;
+
             if (Msg.ID == UnitId && HWInfo() == Msg.DEVICE)
             {
-                int dataRaw = 0;
-
                 if (Type == 1)
                 {
                     ///送信カウンタ
@@ -132,11 +134,13 @@ namespace APP
                     textBoxCounter.Text = counter.ToString();
 
                     ///濃度
-                    int sensorRow = (int)((Msg.DATA[1]) << 8) + (int)(Msg.DATA[2]);
+                    sensorRow = (int)((Msg.DATA[1]) << 8) + (int)(Msg.DATA[2]);
                     CurrentSensor = sensorRow;
                     textBox濃度.Text = sensorRow.ToString();
 
                     ///エラーフラグ
+                    textBoxステータス情報.Text = "0x" + Msg.DATA[3].ToString("X2");
+                    /*
                     textBoxステータス情報.Text =
                         ((Msg.DATA[3] & 0x01) == 0x01) ? Msg.DATA[3].ToString("X2") + " : " + Define.defErrorFlag1[0] :
                         ((Msg.DATA[3] & 0x02) == 0x02) ? Msg.DATA[3].ToString("X2") + " : " + Define.defErrorFlag1[1] :
@@ -146,19 +150,20 @@ namespace APP
                         ((Msg.DATA[3] & 0x20) == 0x20) ? Msg.DATA[3].ToString("X2") + " : " + Define.defErrorFlag1[5] :
                         ((Msg.DATA[3] & 0x40) == 0x40) ? Msg.DATA[3].ToString("X2") + " : " + Define.defErrorFlag1[6] :
                         ((Msg.DATA[3] & 0x80) == 0x80) ? Msg.DATA[3].ToString("X2") + " : " + Define.defErrorFlag1[7] : Msg.DATA[3].ToString("X2") + ":" + "エラーなし";
-
+                    */
                     ///温度
-                    int temperatureRow = (Msg.DATA[4] > 128) ? Msg.DATA[4] - 256 : Msg.DATA[4];
-                    CurrentTemperature = temperatureRow;
-                    textBox温度.Text = temperatureRow.ToString();
+                    temperatureRow = (int)((Msg.DATA[4]) << 8) + (int)(Msg.DATA[5]);
+                    temperatureRow = (temperatureRow > 0x8000) ? temperatureRow - 65536 : temperatureRow;
+                    CurrentTemperature = temperatureRow/10.0;
+                    textBox温度.Text = CurrentTemperature.ToString();
 
                     ///AD値
-                    int adcRow = (int)((Msg.DATA[6]) << 8) + (int)(Msg.DATA[7]);
+                    adcRow = (int)((Msg.DATA[6]) << 8) + (int)(Msg.DATA[7]);
                     textBoxセンサAD値.Text = adcRow.ToString();
 
                     ///CRC
                     int dataCrc = (int)(Msg.DATA[0] & 0x0F);
-                    textBoxCRC.Text = dataCrc.ToString("X1");
+                    textBoxCRC.Text = "0x" + dataCrc.ToString("X1");
                     labelCRC.Text = "チェックサム";
 
                     ///有効性
@@ -172,27 +177,30 @@ namespace APP
                     textBoxCounter.Text = counter.ToString();
 
                     ///濃度
-                    dataRaw = (int)(Msg.DATA[2]);
-                    textBox濃度.Text = (Msg.DATA[2] == 0xFF) ? "Err" : Func.ConvGas1(dataRaw).ToString();
-                    CurrentSensor = (Msg.DATA[2] == 0xFF) ? 0 : Func.ConvGas1(dataRaw);
+                    sensorRow = (int)(Msg.DATA[2]);
+                    textBox濃度.Text = (Msg.DATA[2] == 0xFF) ? "Err" : Func.ConvGas1(sensorRow).ToString();
+                    CurrentSensor = (Msg.DATA[2] == 0xFF) ? 0 : Func.ConvGas1(sensorRow);
 
                     ///エラーフラグ
+                    textBoxステータス情報.Text = "0x" + Msg.DATA[3].ToString("X2");
+                    /*
                     textBoxステータス情報.Text =
                         (Msg.DATA[3] == 0x00) ? Msg.DATA[3].ToString("X2") + " : " + Define.defErrorFlag2[0] :
                         (Msg.DATA[3] == 0x06) ? Msg.DATA[3].ToString("X2") + " : " + Define.defErrorFlag2[1] : "---";
-
+                    */
                     ///温度
-                    int temperatureRow = (Msg.DATA[4] > 128) ? Msg.DATA[4] - 256 : Msg.DATA[4];
-                    CurrentTemperature = temperatureRow;
-                    textBox温度.Text = temperatureRow.ToString();
+                    temperatureRow = (int)((Msg.DATA[4]) << 8) + (int)(Msg.DATA[5]);
+                    temperatureRow = (temperatureRow > 0x8000) ? temperatureRow - 65536 : temperatureRow;
+                    CurrentTemperature = temperatureRow / 10.0;
+                    textBox温度.Text = CurrentTemperature.ToString();
 
                     ///AD値
-                    int adcRow = (int)((Msg.DATA[6]) << 8) + (int)(Msg.DATA[7]);
+                    adcRow = (int)((Msg.DATA[6]) << 8) + (int)(Msg.DATA[7]);
                     textBoxセンサAD値.Text = adcRow.ToString();
 
                     ///CRC
                     int dataCrc = (int)(Msg.DATA[0]);
-                    textBoxCRC.Text = dataCrc.ToString("X2");
+                    textBoxCRC.Text = "0x" + dataCrc.ToString("X2");
                     labelCRC.Text = "CRC8";
 
                     ///有効性
@@ -205,29 +213,32 @@ namespace APP
                     textBoxCounter.Text = counter.ToString();
 
                     ///濃度
-                    dataRaw = (int)(Msg.DATA[0]);
-                    textBox濃度.Text = (Msg.DATA[0] == 0xFF) ? "Err" : Func.ConvGas1(dataRaw).ToString();
-                    CurrentSensor = (Msg.DATA[0] == 0xFF) ? 0 : Func.ConvGas1(dataRaw);
+                    sensorRow = (int)(Msg.DATA[0]);
+                    textBox濃度.Text = (Msg.DATA[0] == 0xFF) ? "Err" : Func.ConvGas1(sensorRow).ToString();
+                    CurrentSensor = (Msg.DATA[0] == 0xFF) ? 0 : Func.ConvGas1(sensorRow);
 
                     ///エラーフラグ
                     int errorflag = (int)(Msg.DATA[2] & 0x30) >> 4;
+                    textBoxステータス情報.Text = "0x" + errorflag.ToString("X2");
+                    /*
                     textBoxステータス情報.Text =
                         (errorflag == 0x00) ? errorflag.ToString("X2") + " : " + Define.defErrorFlag3[0] :
                         (errorflag == 0x01) ? errorflag.ToString("X2") + " : " + Define.defErrorFlag3[1] :
                         (errorflag == 0x03) ? errorflag.ToString("X2") + " : " + Define.defErrorFlag3[2] : "---";
-
+                    */
                     ///温度
-                    int temperatureRow = (Msg.DATA[3] > 128) ? Msg.DATA[3] - 256 : Msg.DATA[3];
-                    CurrentTemperature = temperatureRow;
-                    textBox温度.Text = temperatureRow.ToString();
+                    temperatureRow = (int)((Msg.DATA[3]) << 8) + (int)(Msg.DATA[4]);
+                    temperatureRow = (temperatureRow > 0x8000) ? temperatureRow - 65536 : temperatureRow;
+                    CurrentTemperature = temperatureRow / 10.0;
+                    textBox温度.Text = CurrentTemperature.ToString();
 
                     ///AD値
-                    int adcRow = (int)((Msg.DATA[6]) << 8) + (int)(Msg.DATA[7]);
+                    adcRow = (int)((Msg.DATA[6]) << 8) + (int)(Msg.DATA[7]);
                     textBoxセンサAD値.Text = adcRow.ToString();
 
                     ///CRC
                     int dataCrc = (int)((Msg.DATA[1]) << 8) + (int)(Msg.DATA[5]);
-                    textBoxCRC.Text = dataCrc.ToString("X4");
+                    textBoxCRC.Text = "0x" + dataCrc.ToString("X4");
                     labelCRC.Text = "CRC16";
 
                     ///有効性
@@ -240,29 +251,32 @@ namespace APP
                     textBoxCounter.Text = counter.ToString();
 
                     ///濃度
-                    dataRaw = (int)(Msg.DATA[0]);
-                    textBox濃度.Text = (Msg.DATA[0] == 0xFF) ? "Err" : Func.ConvGas2(dataRaw).ToString();
-                    CurrentSensor = (Msg.DATA[0] == 0xFF) ? 0 : Func.ConvGas2(dataRaw);
+                    sensorRow = (int)(Msg.DATA[0]);
+                    textBox濃度.Text = (Msg.DATA[0] == 0xFF) ? "Err" : Func.ConvGas2(sensorRow).ToString();
+                    CurrentSensor = (Msg.DATA[0] == 0xFF) ? 0 : Func.ConvGas2(sensorRow);
 
                     ///エラーフラグ
+                    textBoxステータス情報.Text = "0x" + Msg.DATA[3].ToString("X2");
+                    /*
                     textBoxステータス情報.Text =
                         ((Msg.DATA[2] & 0x01) == 0x01) ? Msg.DATA[3].ToString("X2") + " : " + Define.defErrorFlag4[0] :
                         ((Msg.DATA[2] & 0x02) == 0x02) ? Msg.DATA[3].ToString("X2") + " : " + Define.defErrorFlag4[1] :
                         ((Msg.DATA[2] & 0x04) == 0x04) ? Msg.DATA[3].ToString("X2") + " : " + Define.defErrorFlag4[2] :
                         ((Msg.DATA[2] & 0x08) == 0x08) ? Msg.DATA[3].ToString("X2") + " : " + Define.defErrorFlag4[3] : "--";
-
+                    */
                     ///温度
-                    int temperatureRow = (Msg.DATA[3] > 128) ? Msg.DATA[3] - 256 : Msg.DATA[3];
-                    CurrentTemperature = temperatureRow;
-                    textBox温度.Text = temperatureRow.ToString();
+                    temperatureRow = (int)((Msg.DATA[3]) << 8) + (int)(Msg.DATA[4]);
+                    temperatureRow = (temperatureRow > 0x8000) ? temperatureRow - 65536 : temperatureRow;
+                    CurrentTemperature = temperatureRow / 10.0;
+                    textBox温度.Text = CurrentTemperature.ToString();
 
                     ///AD値
-                    int adcRow = (int)((Msg.DATA[5]) << 8) + (int)(Msg.DATA[6]);
+                    adcRow = (int)((Msg.DATA[5]) << 8) + (int)(Msg.DATA[6]);
                     textBoxセンサAD値.Text = adcRow.ToString();
 
                     ///CRC
                     int dataCrc = (int)(Msg.DATA[7] & 0x0F);
-                    textBoxCRC.Text = dataCrc.ToString("X1");
+                    textBoxCRC.Text = "0x" + dataCrc.ToString("X1");
                     labelCRC.Text = "チェックサム";
 
                     ///有効性
@@ -283,13 +297,18 @@ namespace APP
                 ///ログ記録
                 ClassData _data = new ClassData();
 
-                _data.TimeStamp = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
+                DateTime now = DateTime.Now;
+
+                _data.TimeStamp = "'" + now.ToString("yyyy/MM/dd HH:mm:ss.") + now.Millisecond;
                 _data.MsgFD = Msg;
                 _data.Counter = textBoxCounter.Text;
                 _data.ErrorFlag = textBoxステータス情報.Text;
                 _data.Sensor = textBox濃度.Text;
+                _data.SensorRaw = sensorRow.ToString();
                 _data.Temp = textBox温度.Text;
+                _data.TempRaw = temperatureRow.ToString();
                 _data.AdValue = textBoxセンサAD値.Text;
+                _data.AdValueRaw = adcRow.ToString();
                 _data.Crc = textBoxCRC.Text;
                 _data.Valid = textBox有効性.Text;
 

@@ -15,8 +15,11 @@ namespace APP
         public string Counter;
         public string ErrorFlag;
         public string Sensor;
+        public string SensorRaw;
         public string Temp;
+        public string TempRaw;
         public string AdValue;
+        public string AdValueRaw;
         public string Crc;
         public string Valid;
     }
@@ -34,8 +37,11 @@ namespace APP
                 "カウンタ",
                 "エラーフラグ",
                 "濃度(ppm)",
+                "濃度Raw",
                 "温度(℃)",
+                "温度Raw",
                 "AD値",
+                "AD値Raw",
                 "CRC(Chksum)",
                 "検知有効性判定"
             };
@@ -135,8 +141,11 @@ namespace APP
                 buff.Counter + "," +
                 buff.ErrorFlag + "," +
                 buff.Sensor + "," +
+                buff.SensorRaw + "," +
                 buff.Temp + "," +
+                buff.TempRaw + "," +
                 buff.AdValue + "," +
+                buff.AdValueRaw + "," +
                 buff.Crc + "," +
                 buff.Valid + "\n";
             }

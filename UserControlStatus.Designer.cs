@@ -43,9 +43,13 @@
             this.directoryEntry1 = new System.DirectoryServices.DirectoryEntry();
             this.directoryEntry2 = new System.DirectoryServices.DirectoryEntry();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txtIDD = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
             this.txtIDB = new System.Windows.Forms.TextBox();
+            this.txtIDC = new System.Windows.Forms.TextBox();
             this.txtIDA = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
             this.buttonID = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -75,7 +79,6 @@
             this.label21 = new System.Windows.Forms.Label();
             this.textBoxセンサAD値 = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.radioTypeD = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
@@ -84,10 +87,6 @@
             this.radioTypeA = new System.Windows.Forms.RadioButton();
             this.radioTypeB = new System.Windows.Forms.RadioButton();
             this.labelType = new System.Windows.Forms.Label();
-            this.txtIDD = new System.Windows.Forms.TextBox();
-            this.txtIDC = new System.Windows.Forms.TextBox();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -170,7 +169,7 @@
             this.textBoxステータス情報.Location = new System.Drawing.Point(92, 116);
             this.textBoxステータス情報.Name = "textBoxステータス情報";
             this.textBoxステータス情報.ReadOnly = true;
-            this.textBoxステータス情報.Size = new System.Drawing.Size(160, 21);
+            this.textBoxステータス情報.Size = new System.Drawing.Size(70, 21);
             this.textBoxステータス情報.TabIndex = 231;
             this.textBoxステータス情報.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -181,7 +180,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(85, 20);
             this.label3.TabIndex = 229;
-            this.label3.Text = "エラーフラグ";
+            this.label3.Text = "エラーコード";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // textBox温度
@@ -262,6 +261,17 @@
             this.panel2.Size = new System.Drawing.Size(347, 45);
             this.panel2.TabIndex = 271;
             // 
+            // txtIDD
+            // 
+            this.txtIDD.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtIDD.Location = new System.Drawing.Point(227, 20);
+            this.txtIDD.MaxLength = 3;
+            this.txtIDD.Name = "txtIDD";
+            this.txtIDD.Size = new System.Drawing.Size(40, 19);
+            this.txtIDD.TabIndex = 278;
+            this.txtIDD.Text = "420";
+            this.txtIDD.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // label16
             // 
             this.label16.AutoSize = true;
@@ -271,6 +281,16 @@
             this.label16.Size = new System.Drawing.Size(69, 17);
             this.label16.TabIndex = 276;
             this.label16.Text = "CAN-ID変更";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("メイリオ", 7F);
+            this.label24.Location = new System.Drawing.Point(228, 4);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(37, 15);
+            this.label24.TabIndex = 280;
+            this.label24.Text = "TypeD";
             // 
             // txtIDB
             // 
@@ -283,6 +303,17 @@
             this.txtIDB.Text = "20A";
             this.txtIDB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // txtIDC
+            // 
+            this.txtIDC.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtIDC.Location = new System.Drawing.Point(181, 20);
+            this.txtIDC.MaxLength = 3;
+            this.txtIDC.Name = "txtIDC";
+            this.txtIDC.Size = new System.Drawing.Size(40, 19);
+            this.txtIDC.TabIndex = 277;
+            this.txtIDC.Text = "410";
+            this.txtIDC.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // txtIDA
             // 
             this.txtIDA.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -293,6 +324,16 @@
             this.txtIDA.TabIndex = 272;
             this.txtIDA.Text = "202";
             this.txtIDA.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("メイリオ", 7F);
+            this.label23.Location = new System.Drawing.Point(182, 3);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(37, 15);
+            this.label23.TabIndex = 279;
+            this.label23.Text = "TypeC";
             // 
             // buttonID
             // 
@@ -602,16 +643,6 @@
             this.label22.Text = "センサAD値";
             this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label4
-            // 
-            this.label4.Font = new System.Drawing.Font("メイリオ", 8F);
-            this.label4.Location = new System.Drawing.Point(164, 195);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(72, 20);
-            this.label4.TabIndex = 281;
-            this.label4.Text = "(16進表記)";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // panel4
             // 
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -706,48 +737,6 @@
             this.labelType.Text = "TypeA";
             this.labelType.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // txtIDD
-            // 
-            this.txtIDD.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtIDD.Location = new System.Drawing.Point(227, 20);
-            this.txtIDD.MaxLength = 3;
-            this.txtIDD.Name = "txtIDD";
-            this.txtIDD.Size = new System.Drawing.Size(40, 19);
-            this.txtIDD.TabIndex = 278;
-            this.txtIDD.Text = "420";
-            this.txtIDD.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtIDC
-            // 
-            this.txtIDC.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtIDC.Location = new System.Drawing.Point(181, 20);
-            this.txtIDC.MaxLength = 3;
-            this.txtIDC.Name = "txtIDC";
-            this.txtIDC.Size = new System.Drawing.Size(40, 19);
-            this.txtIDC.TabIndex = 277;
-            this.txtIDC.Text = "410";
-            this.txtIDC.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("メイリオ", 7F);
-            this.label23.Location = new System.Drawing.Point(182, 3);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(37, 15);
-            this.label23.TabIndex = 279;
-            this.label23.Text = "TypeC";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("メイリオ", 7F);
-            this.label24.Location = new System.Drawing.Point(228, 4);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(37, 15);
-            this.label24.TabIndex = 280;
-            this.label24.Text = "TypeD";
-            // 
             // UserControlStatus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -755,7 +744,6 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.Controls.Add(this.labelType);
             this.Controls.Add(this.panel4);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.textBoxセンサAD値);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.textBox有効性);
@@ -838,7 +826,6 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox textBoxセンサAD値;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button buttonType;

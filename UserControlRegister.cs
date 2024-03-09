@@ -102,7 +102,7 @@ namespace APP
 
                         //textBoxReg読出し.Text = str;
 
-                        Console.WriteLine("Command:{0}, Data:{1}", cmd, str);
+                        //Console.WriteLine("Command:{0}, Data:{1}", cmd, str);
 
                         ClassPeripheral.CAN[UnitNo].ClearCommandMode();
 
@@ -339,15 +339,14 @@ namespace APP
             srcBuff[0] = 0x36;
             srcBuff[1] = 0x38;
 
-
             for (int i = 0; i < bytes.Length; i++)
             {
                 try { srcBuff[2 + i] = bytes[i]; }
                 catch { }
             }
 
-            Console.WriteLine("[send] {0}byte -----------------", srcBuff.Length);
-            for (int i = 0; i < srcBuff.Length; i++) Console.WriteLine("send[{0}] : {1:X2}", i, srcBuff[i]);
+            //Console.WriteLine("[send] {0}byte -----------------", srcBuff.Length);
+            //for (int i = 0; i < srcBuff.Length; i++) Console.WriteLine("send[{0}] : {1:X2}", i, srcBuff[i]);
 
             ClassPeripheral.CAN[UnitNo].WriteFrame(srcBuff);
         }

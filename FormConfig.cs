@@ -24,6 +24,14 @@ namespace APP
                 ///ボーレート
                 this.cbbBaudrates.SelectedIndex = Properties.Settings.Default.Baudrate;
 
+                ///有効
+                checkCh1.Checked = Properties.Settings.Default.Valid1;
+                checkCh2.Checked = Properties.Settings.Default.Valid2;
+                checkCh3.Checked = Properties.Settings.Default.Valid3;
+                checkCh4.Checked = Properties.Settings.Default.Valid4;
+                checkCh5.Checked = Properties.Settings.Default.Valid5;
+                checkCh6.Checked = Properties.Settings.Default.Valid6;
+
                 ///CANセットアップ
                 reloadCanSetup();
 
@@ -58,6 +66,14 @@ namespace APP
 
             ///拡張
             Properties.Settings.Default.Extender = this.checkExtender.Checked;
+
+            ///有効
+            Properties.Settings.Default.Valid1 = checkCh1.Checked;
+            Properties.Settings.Default.Valid2 = checkCh2.Checked;
+            Properties.Settings.Default.Valid3 = checkCh3.Checked;
+            Properties.Settings.Default.Valid4 = checkCh4.Checked;
+            Properties.Settings.Default.Valid5 = checkCh5.Checked;
+            Properties.Settings.Default.Valid6 = checkCh6.Checked;
 
             ///CAN-ID
             if (userControlUnits.userControlStatus1.txtID.Text == "") userControlUnits.userControlStatus1.txtID.Text = "0";

@@ -84,6 +84,18 @@
     <Compile Include="TextboxNumber.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="UserControlMonitor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlMonitor.Designer.cs">
+      <DependentUpon>UserControlMonitor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlRegNum.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlRegNum.Designer.cs">
+      <DependentUpon>UserControlRegNum.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControlRegister.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -115,6 +127,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UserControlMonitor.resx">
+      <DependentUpon>UserControlMonitor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlRegNum.resx">
+      <DependentUpon>UserControlRegNum.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControlRegister.resx">
       <DependentUpon>UserControlRegister.cs</DependentUpon>
     </EmbeddedResource>

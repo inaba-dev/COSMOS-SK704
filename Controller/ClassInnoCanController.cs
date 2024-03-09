@@ -263,6 +263,7 @@ namespace APP
                     if (txc == null)
                     {
                         Console.WriteLine("RECV FAIL:Bad Devices Send Bad Echo_ids");
+
                         return;
                     }
 
@@ -323,6 +324,14 @@ namespace APP
                 if (txc.echo_id == 0xff)
                 {
                     Console.WriteLine("SEND FAIL: NETDEV_BUSY");
+
+                    /// Reset current device tx_context  
+                    for (int i = 0; i < UsbCan.innomaker_MAX_TX_URBS; i++)
+                    {
+                        can.tx_context[i] = new UsbCan.innomaker_tx_context();
+                        can.tx_context[i].echo_id = UsbCan.innomaker_MAX_TX_URBS;
+                    }
+
                     return false;
                 }
 

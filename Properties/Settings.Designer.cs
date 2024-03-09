@@ -142,5 +142,149 @@ namespace APP.Properties {
                 this["CanId6"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Hard1 {
+            get {
+                return ((string)(this["Hard1"]));
+            }
+            set {
+                this["Hard1"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Hard2 {
+            get {
+                return ((string)(this["Hard2"]));
+            }
+            set {
+                this["Hard2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Hard3 {
+            get {
+                return ((string)(this["Hard3"]));
+            }
+            set {
+                this["Hard3"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Hard4 {
+            get {
+                return ((string)(this["Hard4"]));
+            }
+            set {
+                this["Hard4"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Hard5 {
+            get {
+                return ((string)(this["Hard5"]));
+            }
+            set {
+                this["Hard5"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Hard6 {
+            get {
+                return ((string)(this["Hard6"]));
+            }
+            set {
+                this["Hard6"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Valid1 {
+            get {
+                return ((bool)(this["Valid1"]));
+            }
+            set {
+                this["Valid1"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Valid2 {
+            get {
+                return ((bool)(this["Valid2"]));
+            }
+            set {
+                this["Valid2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Valid3 {
+            get {
+                return ((bool)(this["Valid3"]));
+            }
+            set {
+                this["Valid3"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Valid4 {
+            get {
+                return ((bool)(this["Valid4"]));
+            }
+            set {
+                this["Valid4"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Valid5 {
+            get {
+                return ((bool)(this["Valid5"]));
+            }
+            set {
+                this["Valid5"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Valid6 {
+            get {
+                return ((bool)(this["Valid6"]));
+            }
+            set {
+                this["Valid6"] = value;
+            }
+        }
     }
 }

@@ -45,6 +45,15 @@ namespace APP
             userControlStatus4.Initialize(3);
             userControlStatus5.Initialize(4);
             userControlStatus6.Initialize(5);
+
+            userControlRegister1.Initialize(0);
+            userControlRegister2.Initialize(1);
+            userControlRegister3.Initialize(2);
+            userControlRegister4.Initialize(3);
+            userControlRegister5.Initialize(4);
+            userControlRegister6.Initialize(5);
+
+            userControlMonitor.Setup();
         }
 
         /// <summary>
@@ -84,13 +93,21 @@ namespace APP
             ///タイマ開始
             tmrRead.Enabled = true;
 
+            ///H/W情報を記録
+            Properties.Settings.Default.Hard1 = userControlStatus1.HWInfo();
+            Properties.Settings.Default.Hard2 = userControlStatus2.HWInfo();
+            Properties.Settings.Default.Hard3 = userControlStatus3.HWInfo();
+            Properties.Settings.Default.Hard4 = userControlStatus4.HWInfo();
+            Properties.Settings.Default.Hard5 = userControlStatus5.HWInfo();
+            Properties.Settings.Default.Hard6 = userControlStatus6.HWInfo();
+
             ///H/W情報セット
-            userControlRegister1.HWSetup(userControlStatus1.HWInfo());
-            userControlRegister2.HWSetup(userControlStatus2.HWInfo());
-            userControlRegister3.HWSetup(userControlStatus3.HWInfo());
-            userControlRegister4.HWSetup(userControlStatus4.HWInfo());
-            userControlRegister5.HWSetup(userControlStatus5.HWInfo());
-            userControlRegister6.HWSetup(userControlStatus6.HWInfo());
+            userControlRegister1.HWSetup(Properties.Settings.Default.Hard1);
+            userControlRegister2.HWSetup(Properties.Settings.Default.Hard2);
+            userControlRegister3.HWSetup(Properties.Settings.Default.Hard3);
+            userControlRegister4.HWSetup(Properties.Settings.Default.Hard4);
+            userControlRegister5.HWSetup(Properties.Settings.Default.Hard5);
+            userControlRegister6.HWSetup(Properties.Settings.Default.Hard6);
         }
 
         public void DisConnect()
@@ -144,6 +161,8 @@ namespace APP
                 userControlRegister4.Display(Msg);
                 userControlRegister5.Display(Msg);
                 userControlRegister6.Display(Msg);
+
+                userControlMonitor.RecvEvent(Msg);
             }
             catch
             {
